@@ -1,0 +1,22 @@
+/* ================================
+   Main CSS - Unified Import File
+   ================================ */
+
+/* Base styles: reset, variables, typography */
+@import url('base.css');
+
+/* Layout: container, sidebar, header, footer, grid */
+@import url('layout.css');
+
+/* Reusable components: buttons, cards, controls */
+@import url('components.css');
+
+/* Page transition effects */
+@import url('page-transition.css');
+
+/* Page-specific styles */
+@import url('pages/home.css');
+@import url('pages/articles.css');
+@import url('pages/projects.css');
+@import url('pages/resume.css');
+

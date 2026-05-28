@@ -1,0 +1,215 @@
+/* ================================
+   Components CSS - Buttons, Cards, Controls, Tags
+   ================================ */
+
+/* Control Buttons */
+.controls {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex: 1;
+}
+
+.control-btn {
+    background: transparent;
+    border: 1px solid var(--button-border);
+    color: var(--sidebar-text);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-size: 0.65rem;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: scale(1.15);
+}
+
+.control-btn .icon-sun,
+.control-btn .icon-moon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.control-btn.lang-toggle svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Theme Toggle Icons */
+.theme-toggle .icon-sun {
+    display: block;
+}
+
+.theme-toggle .icon-moon {
+    display: none;
+}
+
+.dark .theme-toggle .icon-sun {
+    display: none;
+}
+
+.dark .theme-toggle .icon-moon {
+    display: block;
+}
+
+.lang-text {
+    font-weight: 600;
+    display: none;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--button-border);
+    color: var(--sidebar-text);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.social-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.15);
+}
+
+.social-link svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+/* Card Base Style */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+/* Roadmap Controls */
+.roadmap-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--sidebar-text);
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.roadmap-btn:hover {
+    background: var(--bg-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.roadmap-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Responsive Components */
+@media (max-width: 768px) {
+    .controls {
+        width: auto;
+        gap: 1rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .control-btn,
+    .social-link {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .lang-text {
+        display: none;
+    }
+}

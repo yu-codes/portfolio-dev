@@ -1,0 +1,214 @@
+<!doctype html><html lang=zh class=html data-base-path=/portfolio-dev/><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>事件冒泡與捕獲 - Yu's Portfolio & Learning Hub</title><meta name=description content="瀏覽器的事件傳播機制分為捕獲（Capturing）與冒泡（Bubbling）兩個階段。理解事件如何在 DOM 樹中流動，是實作事件委派、阻止事件傳播、處理複雜互動邏輯的基礎。本文深入解析事件傳播的三個階段、相關 API 與實務應用模式。
+核心概念 事件傳播三階段 當 DOM 上的事件被觸發時，事件會經歷三個傳播階段：
+捕獲階段（Capture Phase）：事件從 window → document → html → body → &mldr; 向下傳播到目標元素 目標階段（Target Phase）：事件到達觸發事件的元素本身 冒泡階段（Bubble Phase）：事件從目標元素向上冒泡回 window window ←─── 冒泡 ───┐ │ │ document │ │ │ <html> │ │ │ <body> │ │ │ <div> │ │ │ 捕獲 ──►<button> ─── 目標 ──►┘ addEventListener 的第三參數 // 預設：冒泡階段監聽（useCapture = false） element.addEventListener('click', handler); element.addEventListener('click', handler, false); // 捕獲階段監聽 element.addEventListener('click', handler, true); // 使用 options 物件（推薦） element.addEventListener('click', handler, { capture: false, // 是否在捕獲階段觸發 once: true, // 只觸發一次後自動移除 passive: true, // 不會呼叫 preventDefault() signal: controller.signal // 用 AbortController 移除 }); 事件物件關鍵屬性 element.addEventListener('click', (event) => { // 目標相關 event.target; // 實際觸發事件的元素（事件源） event.currentTarget; // 綁定事件監聽器的元素（等同 this） // 傳播控制 event.stopPropagation(); // 停止事件繼續傳播 event.stopImmediatePropagation(); // 停止傳播 + 阻止同元素其他監聽器 event.preventDefault(); // 阻止預設行為 // 階段資訊 event.eventPhase; // 1:捕獲, 2:目標, 3:冒泡 event.bubbles; // 是否會冒泡 event.cancelable; // 是否可取消預設行為 event.composed; // 是否能穿越 Shadow DOM }); 不會冒泡的事件 並非所有事件都會冒泡，以下事件不具備冒泡行為：
+"><meta property="og:title" content="事件冒泡與捕獲"><meta property="og:description" content="瀏覽器的事件傳播機制分為捕獲（Capturing）與冒泡（Bubbling）兩個階段。理解事件如何在 DOM 樹中流動，是實作事件委派、阻止事件傳播、處理複雜互動邏輯的基礎。本文深入解析事件傳播的三個階段、相關 API 與實務應用模式。
+核心概念 事件傳播三階段 當 DOM 上的事件被觸發時，事件會經歷三個傳播階段：
+捕獲階段（Capture Phase）：事件從 window → document → html → body → &mldr; 向下傳播到目標元素 目標階段（Target Phase）：事件到達觸發事件的元素本身 冒泡階段（Bubble Phase）：事件從目標元素向上冒泡回 window window ←─── 冒泡 ───┐ │ │ document │ │ │ <html> │ │ │ <body> │ │ │ <div> │ │ │ 捕獲 ──►<button> ─── 目標 ──►┘ addEventListener 的第三參數 // 預設：冒泡階段監聽（useCapture = false） element.addEventListener('click', handler); element.addEventListener('click', handler, false); // 捕獲階段監聽 element.addEventListener('click', handler, true); // 使用 options 物件（推薦） element.addEventListener('click', handler, { capture: false, // 是否在捕獲階段觸發 once: true, // 只觸發一次後自動移除 passive: true, // 不會呼叫 preventDefault() signal: controller.signal // 用 AbortController 移除 }); 事件物件關鍵屬性 element.addEventListener('click', (event) => { // 目標相關 event.target; // 實際觸發事件的元素（事件源） event.currentTarget; // 綁定事件監聽器的元素（等同 this） // 傳播控制 event.stopPropagation(); // 停止事件繼續傳播 event.stopImmediatePropagation(); // 停止傳播 + 阻止同元素其他監聽器 event.preventDefault(); // 阻止預設行為 // 階段資訊 event.eventPhase; // 1:捕獲, 2:目標, 3:冒泡 event.bubbles; // 是否會冒泡 event.cancelable; // 是否可取消預設行為 event.composed; // 是否能穿越 Shadow DOM }); 不會冒泡的事件 並非所有事件都會冒泡，以下事件不具備冒泡行為：
+"><meta property="og:url" content="https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/browser-runtime/dom-model/event-bubbling-capturing/"><link rel=canonical href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/browser-runtime/dom-model/event-bubbling-capturing/><link rel=stylesheet href=https://yu-codes.github.io/portfolio-dev/css/main.css></head><body class=body><div class=container><aside class=sidebar><button class=mobile-menu-btn id=mobile-menu-btn aria-label="Open navigation menu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class=sidebar-header><h1 class=name>Yu</h1><p class=tagline>Developer, dreamer, debugger.</p></div><nav class=sidebar-nav><a href=https://yu-codes.github.io/portfolio-dev/zh/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>首頁</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/resume/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>履歷</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/projects/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>專案</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/articles/ class="nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>文章</span></a></nav><div class=sidebar-footer><div class=controls><button class="control-btn theme-toggle" title=切換主題（淺色/深色） aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title=切換語言 aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg></button></div><div class=social-links><a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class=social-link title=GitHub><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class=social-link title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></aside><div class=mobile-nav-overlay id=mobile-nav-overlay><div class=mobile-nav-panel><button class=mobile-nav-close id=mobile-nav-close aria-label="Close navigation">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><nav class=mobile-nav-list><a href=https://yu-codes.github.io/portfolio-dev/zh/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>首頁</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/resume/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>履歷</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/projects/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>專案</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/articles/ class="mobile-nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>文章</span></a></nav><div class=mobile-nav-footer><div class=controls><button class="control-btn theme-toggle" title=切換主題（淺色/深色） aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title=切換語言 aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</button>
+<a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class="control-btn social-link" title=GitHub><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class="control-btn social-link" title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></div></div><div class=main-content><div class=topbar><div class=breadcrumb><a href=https://yu-codes.github.io/portfolio-dev/zh/>首頁</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/>文章</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/>前端工程</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/browser-runtime/>瀏覽器執行環境</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/browser-runtime/dom-model/>DOM 模型</a><span class=separator>&#8250;</span>
+<span>事件冒泡與捕獲</span></div></div><main class=content-area><article class=article-content><header class=article-header><h1>事件冒泡與捕獲</h1></header><nav class=article-toc><h2 class=toc-title>目錄</h2><nav id=TableOfContents><ul><li><a href=#核心概念>核心概念</a><ul><li><a href=#事件傳播三階段>事件傳播三階段</a></li><li><a href=#addeventlistener-的第三參數>addEventListener 的第三參數</a></li><li><a href=#事件物件關鍵屬性>事件物件關鍵屬性</a></li><li><a href=#不會冒泡的事件>不會冒泡的事件</a></li></ul></li><li><a href=#架構總覽>架構總覽</a><ul><li><a href=#事件傳播完整流程>事件傳播完整流程</a></li><li><a href=#事件處理系統架構>事件處理系統架構</a></li></ul></li><li><a href=#關鍵比較>關鍵比較</a><ul><li><a href=#stoppropagation-vs-stopimmediatepropagation>stopPropagation vs stopImmediatePropagation</a></li><li><a href=#preventdefault-vs-stoppropagation-vs-return-false>preventDefault vs stopPropagation vs return false</a></li><li><a href=#捕獲-vs-冒泡使用場景>捕獲 vs 冒泡使用場景</a></li></ul></li><li><a href=#應用場景>應用場景</a><ul><li><a href=#場景一理解事件傳播順序>場景一：理解事件傳播順序</a></li><li><a href=#場景二阻止事件傳播>場景二：阻止事件傳播</a></li><li><a href=#場景三使用捕獲階段做全局攔截>場景三：使用捕獲階段做全局攔截</a></li><li><a href=#場景四passive-事件監聽器提升滾動效能>場景四：passive 事件監聽器提升滾動效能</a></li><li><a href=#場景五使用-abortcontroller-管理事件監聽器>場景五：使用 AbortController 管理事件監聽器</a></li></ul></li><li><a href=#延伸閱讀>延伸閱讀</a></li></ul></nav></nav><div class=article-body><p>瀏覽器的事件傳播機制分為捕獲（Capturing）與冒泡（Bubbling）兩個階段。理解事件如何在 DOM 樹中流動，是實作事件委派、阻止事件傳播、處理複雜互動邏輯的基礎。本文深入解析事件傳播的三個階段、相關 API 與實務應用模式。</p><h2 id=核心概念>核心概念</h2><h3 id=事件傳播三階段>事件傳播三階段</h3><p>當 DOM 上的事件被觸發時，事件會經歷三個傳播階段：</p><ol><li><strong>捕獲階段（Capture Phase）</strong>：事件從 <code>window</code> → <code>document</code> → <code>html</code> → <code>body</code> → &mldr; 向下傳播到目標元素</li><li><strong>目標階段（Target Phase）</strong>：事件到達觸發事件的元素本身</li><li><strong>冒泡階段（Bubble Phase）</strong>：事件從目標元素向上冒泡回 <code>window</code></li></ol><pre tabindex=0><code>         window  ←─── 冒泡 ───┐
+           │                   │
+        document               │
+           │                   │
+         &lt;html&gt;                │
+           │                   │
+         &lt;body&gt;                │
+           │                   │
+         &lt;div&gt;                 │
+           │                   │
+  捕獲 ──►&lt;button&gt; ─── 目標 ──►┘
+</code></pre><h3 id=addeventlistener-的第三參數>addEventListener 的第三參數</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 預設：冒泡階段監聽（useCapture = false）
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, <span style=color:#a6e22e>handler</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, <span style=color:#a6e22e>handler</span>, <span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 捕獲階段監聽
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, <span style=color:#a6e22e>handler</span>, <span style=color:#66d9ef>true</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 使用 options 物件（推薦）
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, <span style=color:#a6e22e>handler</span>, {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>capture</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span>,    <span style=color:#75715e>// 是否在捕獲階段觸發
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>once</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,        <span style=color:#75715e>// 只觸發一次後自動移除
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>passive</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,     <span style=color:#75715e>// 不會呼叫 preventDefault()
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>signal</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>controller</span>.<span style=color:#a6e22e>signal</span>  <span style=color:#75715e>// 用 AbortController 移除
+</span></span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=事件物件關鍵屬性>事件物件關鍵屬性</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, (<span style=color:#a6e22e>event</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 目標相關
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>;         <span style=color:#75715e>// 實際觸發事件的元素（事件源）
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>currentTarget</span>;  <span style=color:#75715e>// 綁定事件監聽器的元素（等同 this）
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 傳播控制
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>stopPropagation</span>();         <span style=color:#75715e>// 停止事件繼續傳播
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>stopImmediatePropagation</span>(); <span style=color:#75715e>// 停止傳播 + 阻止同元素其他監聽器
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>preventDefault</span>();           <span style=color:#75715e>// 阻止預設行為
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 階段資訊
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>eventPhase</span>;    <span style=color:#75715e>// 1:捕獲, 2:目標, 3:冒泡
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>bubbles</span>;       <span style=color:#75715e>// 是否會冒泡
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>cancelable</span>;    <span style=color:#75715e>// 是否可取消預設行為
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>composed</span>;      <span style=color:#75715e>// 是否能穿越 Shadow DOM
+</span></span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=不會冒泡的事件>不會冒泡的事件</h3><p>並非所有事件都會冒泡，以下事件不具備冒泡行為：</p><table><thead><tr><th>事件</th><th>替代方案（冒泡版）</th></tr></thead><tbody><tr><td>focus</td><td>focusin</td></tr><tr><td>blur</td><td>focusout</td></tr><tr><td>mouseenter</td><td>mouseover</td></tr><tr><td>mouseleave</td><td>mouseout</td></tr><tr><td>load</td><td>—</td></tr><tr><td>unload</td><td>—</td></tr><tr><td>resize</td><td>—</td></tr><tr><td>scroll</td><td>— (部分情況冒泡)</td></tr></tbody></table><h2 id=架構總覽>架構總覽</h2><h3 id=事件傳播完整流程>事件傳播完整流程</h3><pre tabindex=0><code>┌─────────────────────────────────────────────┐
+│                  window                       │
+│  ┌───────────────────────────────────────┐  │
+│  │              document                  │  │
+│  │  ┌─────────────────────────────────┐  │  │
+│  │  │           &lt;html&gt;                 │  │  │
+│  │  │  ┌───────────────────────────┐  │  │  │
+│  │  │  │         &lt;body&gt;             │  │  │  │
+│  │  │  │  ┌─────────────────────┐  │  │  │  │
+│  │  │  │  │    &lt;div#parent&gt;      │  │  │  │  │
+│  │  │  │  │  ┌───────────────┐  │  │  │  │  │
+│  │  │  │  │  │ &lt;button#child&gt; │  │  │  │  │  │
+│  │  │  │  │  │   (Target)     │  │  │  │  │  │
+│  │  │  │  │  └───────────────┘  │  │  │  │  │
+│  │  │  │  └─────────────────────┘  │  │  │  │
+│  │  │  └───────────────────────────┘  │  │  │
+│  │  └─────────────────────────────────┘  │  │
+│  └───────────────────────────────────────┘  │
+└─────────────────────────────────────────────┘
+
+捕獲：window → document → html → body → div → button
+冒泡：button → div → body → html → document → window
+</code></pre><h3 id=事件處理系統架構>事件處理系統架構</h3><pre tabindex=0><code>事件觸發
+    │
+    ▼
+┌─────────────────────┐
+│ 1. 確定事件路徑      │  ← 從 window 到 target 的路徑
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────┐
+│ 2. 捕獲階段          │  ← capture: true 的監聽器觸發
+│    (window → target) │
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────┐
+│ 3. 目標階段          │  ← 按註冊順序觸發（不分 capture/bubble）
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────┐
+│ 4. 冒泡階段          │  ← capture: false 的監聽器觸發
+│    (target → window) │
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────┐
+│ 5. 預設行為          │  ← 除非 preventDefault() 被呼叫
+└─────────────────────┘
+</code></pre><h2 id=關鍵比較>關鍵比較</h2><h3 id=stoppropagation-vs-stopimmediatepropagation>stopPropagation vs stopImmediatePropagation</h3><table><thead><tr><th>方法</th><th>阻止傳播</th><th>阻止同元素其他監聽器</th><th>使用時機</th></tr></thead><tbody><tr><td>stopPropagation</td><td>是</td><td>否</td><td>阻止事件到達父元素</td></tr><tr><td>stopImmediatePropagation</td><td>是</td><td>是</td><td>完全阻止後續所有處理</td></tr></tbody></table><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// stopPropagation：同元素的其他 handler 仍會觸發
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopPropagation</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;handler 1&#39;</span>);  <span style=color:#75715e>// 觸發
+</span></span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span><span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;handler 2&#39;</span>);  <span style=color:#75715e>// 仍觸發！
+</span></span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// stopImmediatePropagation：後續 handler 不觸發
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopImmediatePropagation</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;handler 1&#39;</span>);  <span style=color:#75715e>// 觸發
+</span></span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span><span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;handler 2&#39;</span>);  <span style=color:#75715e>// 不觸發
+</span></span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=preventdefault-vs-stoppropagation-vs-return-false>preventDefault vs stopPropagation vs return false</h3><table><thead><tr><th>方法</th><th>阻止預設行為</th><th>阻止傳播</th><th>適用場景</th></tr></thead><tbody><tr><td>preventDefault()</td><td>是</td><td>否</td><td>阻止連結跳轉、表單提交</td></tr><tr><td>stopPropagation()</td><td>否</td><td>是</td><td>防止事件向上冒泡</td></tr><tr><td>return false (jQuery)</td><td>是</td><td>是</td><td>jQuery 中等同兩者</td></tr><tr><td>return false (原生)</td><td>僅 on* 屬性</td><td>否</td><td>不建議使用</td></tr></tbody></table><h3 id=捕獲-vs-冒泡使用場景>捕獲 vs 冒泡使用場景</h3><table><thead><tr><th>階段</th><th>常見用途</th><th>範例</th></tr></thead><tbody><tr><td>捕獲</td><td>全局攔截、優先處理</td><td>表單驗證攔截、無障礙焦點管理</td></tr><tr><td>冒泡</td><td>事件委派、通用處理</td><td>列表點擊委派、全局錯誤處理</td></tr></tbody></table><h2 id=應用場景>應用場景</h2><h3 id=場景一理解事件傳播順序>場景一：理解事件傳播順序</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>parent</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#39;#parent&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>child</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#39;#child&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 捕獲階段
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>parent</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;1. Parent 捕獲&#39;</span>);
+</span></span><span style=display:flex><span>}, <span style=color:#66d9ef>true</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>child</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;2. Child 捕獲&#39;</span>);
+</span></span><span style=display:flex><span>}, <span style=color:#66d9ef>true</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 冒泡階段
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>child</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;3. Child 冒泡&#39;</span>);
+</span></span><span style=display:flex><span>}, <span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>parent</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;4. Parent 冒泡&#39;</span>);
+</span></span><span style=display:flex><span>}, <span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 點擊 child 的輸出順序：
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 1. Parent 捕獲
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 2. Child 捕獲
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 3. Child 冒泡
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 4. Parent 冒泡
+</span></span></span></code></pre></div><h3 id=場景二阻止事件傳播>場景二：阻止事件傳播</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 場景：下拉選單點擊不關閉
+</span></span></span><span style=display:flex><span>document.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>closeAllDropdowns</span>();
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dropdown</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopPropagation</span>();  <span style=color:#75715e>// 阻止冒泡到 document
+</span></span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=場景三使用捕獲階段做全局攔截>場景三：使用捕獲階段做全局攔截</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 在捕獲階段攔截所有 focus 事件
+</span></span></span><span style=display:flex><span>document.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;focus&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 全局焦點追蹤
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>analytics</span>.<span style=color:#a6e22e>track</span>(<span style=color:#e6db74>&#39;focus&#39;</span>, {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>element</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>tagName</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>id</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>id</span>
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}, <span style=color:#66d9ef>true</span>);  <span style=color:#75715e>// 必須使用捕獲，因為 focus 不冒泡
+</span></span></span></code></pre></div><h3 id=場景四passive-事件監聽器提升滾動效能>場景四：passive 事件監聽器提升滾動效能</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 告知瀏覽器不會呼叫 preventDefault
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 瀏覽器可立即執行滾動，不用等待 handler 完成
+</span></span></span><span style=display:flex><span>document.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchstart&#39;</span>, <span style=color:#a6e22e>handler</span>, { <span style=color:#a6e22e>passive</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span> });
+</span></span><span style=display:flex><span>document.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;wheel&#39;</span>, <span style=color:#a6e22e>handler</span>, { <span style=color:#a6e22e>passive</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span> });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 若確實需要阻止預設行為，不可使用 passive
+</span></span></span><span style=display:flex><span>document.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchmove&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>shouldPreventScroll</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>preventDefault</span>();  <span style=color:#75715e>// passive: true 時此行無效
+</span></span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}, { <span style=color:#a6e22e>passive</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> });
+</span></span></code></pre></div><h3 id=場景五使用-abortcontroller-管理事件監聽器>場景五：使用 AbortController 管理事件監聽器</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>controller</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>AbortController</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 綁定多個事件，統一管理
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, <span style=color:#a6e22e>handleClick</span>, { <span style=color:#a6e22e>signal</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>controller</span>.<span style=color:#a6e22e>signal</span> });
+</span></span><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;keydown&#39;</span>, <span style=color:#a6e22e>handleKey</span>, { <span style=color:#a6e22e>signal</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>controller</span>.<span style=color:#a6e22e>signal</span> });
+</span></span><span style=display:flex><span><span style=color:#a6e22e>element</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;mouseover&#39;</span>, <span style=color:#a6e22e>handleHover</span>, { <span style=color:#a6e22e>signal</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>controller</span>.<span style=color:#a6e22e>signal</span> });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 一次移除所有事件監聽器
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>controller</span>.<span style=color:#a6e22e>abort</span>();
+</span></span></code></pre></div><h2 id=延伸閱讀>延伸閱讀</h2><ul><li><a href=https://developer.mozilla.org/zh-TW/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling>MDN - Event Bubbling and Capturing</a></li><li><a href=https://www.w3.org/TR/DOM-Level-3-Events/#event-flow>W3C - DOM Events Specification</a></li><li><a href=https://javascript.info/bubbling-and-capturing>JavaScript.info - Bubbling and Capturing</a></li><li><a href=https://web.dev/uses-passive-event-listeners/>web.dev - Passive Event Listeners</a></li><li><a href=https://developer.mozilla.org/zh-TW/docs/Web/API/EventTarget/addEventListener>MDN - EventTarget.addEventListener()</a></li></ul></div><footer class=article-footer><a href=/portfolio-dev/zh/articles/frontend/browser-runtime/dom-model/ class=back-link>← 返回 DOM 模型</a></footer></article></main><footer class=site-footer><p>&copy; 2026 YuHan Jhou. All rights reserved.</p></footer></div></div><script src=https://yu-codes.github.io/portfolio-dev/js/theme.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/roadmap.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/parallax.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/page-transition.js defer></script></body></html>

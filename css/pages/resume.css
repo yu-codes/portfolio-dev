@@ -1,0 +1,214 @@
+/* ================================
+   Resume Page Styles
+   ================================ */
+
+.resume-page {
+    padding: 2rem;
+}
+
+.resume-header {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.resume-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.resume-content {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+}
+
+/* Resume Card Styles */
+.resume-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.resume-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.resume-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.resume-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 1rem 0 0.5rem;
+}
+
+.resume-card p {
+    color: var(--sidebar-text);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.resume-card ul {
+    margin: 0.75rem 0;
+    padding-left: 1.25rem;
+}
+
+.resume-card li {
+    color: var(--sidebar-text);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.resume-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.resume-card a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.resume-card strong {
+    color: var(--text-color);
+}
+
+/* Resume Profile Section */
+.resume-profile {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.resume-profile h2 {
+    border-bottom: none;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-profile p {
+    font-size: 1rem;
+}
+
+/* Resume Date/Time styling */
+.resume-card .date,
+.resume-card time,
+.resume-card em {
+    color: var(--sidebar-text);
+    font-size: 0.9rem;
+}
+
+/* Resume Tags/Skills */
+.resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resume-skills-list li {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Contact Links in Resume */
+.resume-card .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.resume-card .contact-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Project entries in resume */
+.resume-project {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.resume-project:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .resume-page {
+        padding: 1rem;
+    }
+    
+    .resume-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .resume-card {
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+    }
+    
+    .resume-card h2 {
+        font-size: 1.1rem;
+    }
+    
+    .resume-card h3 {
+        font-size: 1rem;
+    }
+    
+    .resume-profile {
+        padding: 1.5rem 1rem;
+    }
+    
+    .resume-profile h2 {
+        font-size: 1.5rem;
+    }
+    
+    .resume-skills-list li {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-page {
+        padding: 0.75rem;
+    }
+    
+    .resume-card {
+        padding: 1rem;
+    }
+    
+    .resume-header h1 {
+        font-size: 1.25rem;
+    }
+    
+    .resume-card .contact-links {
+        font-size: 0.9rem;
+    }
+}

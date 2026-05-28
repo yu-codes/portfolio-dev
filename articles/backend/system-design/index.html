@@ -1,0 +1,98 @@
+<!doctype html><html lang=en class=html data-base-path=/portfolio-dev/><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>系統設計 - Yu's Portfolio & Learning Hub</title><meta name=description content="系統設計涵蓋架構模式選擇、可擴展性設計、分散式系統原理、服務基礎設施、領域設計與工程權衡，為構建大規模可靠系統提供完整的知識框架。
+核心概念 系統設計（System Design）是將業務需求轉化為技術架構的過程。它不僅涉及選擇正確的技術元件，更關鍵的是理解不同設計決策之間的權衡關係（tradeoffs），並在效能、可用性、一致性、成本和開發效率之間找到最適合當前場景的平衡點。
+架構模式（Architecture Patterns） 提供了經過驗證的系統結構範本。從單體架構（Monolith）到微服務（Microservices），從事件驅動架構（EDA）到 CQRS（Command Query Responsibility Segregation），每種模式都有其適用的組織規模和業務複雜度。選擇架構模式不應追求時髦，而是匹配團隊能力和業務實際需求。
+可擴展性設計（Scalability Design） 確保系統能隨負載增長而擴展。水平擴展（Scale Out）透過增加節點分散負載，垂直擴展（Scale Up）透過升級硬體提升單節點能力。負載均衡、快取策略、資料庫分片（Sharding）和 CDN 是常用的擴展手段。設計時需考慮系統的擴展瓶頸在哪——是運算、儲存、網路還是 I/O。
+分散式系統（Distributed Systems） 帶來了本地系統不存在的挑戰：網路分區、時鐘偏移、拜占庭故障和最終一致性。CAP 定理指出分散式系統無法同時滿足一致性（Consistency）、可用性（Availability）和分區容忍性（Partition Tolerance）。理解這些基本限制是做出正確設計決策的前提。
+服務基礎設施（Service Infrastructure） 涵蓋了支撐微服務運行的平台能力：服務發現、配置管理、可觀測性（Observability）、CI/CD 管線和容器編排。這些基礎設施的品質直接影響了開發團隊的生產力和系統的可維護性。
+領域設計（Domain Design） 基於 DDD（Domain-Driven Design）思想，將業務領域的知識反映在程式碼結構中。限界上下文（Bounded Context）定義了微服務的邊界，聚合（Aggregate）保證了領域物件的一致性，領域事件（Domain Events）實現了上下文間的解耦通訊。
+架構總覽 系統設計知識架構 ├── 架構模式 │ ├── 單體 → 模組化單體 → 微服務 │ ├── 事件驅動架構（Event-Driven） │ ├── CQRS + Event Sourcing │ ├── 六角形架構（Hexagonal/Ports & Adapters） │ └── 無伺服器（Serverless） ├── 可擴展性設計 │ ├── 水平/垂直擴展策略 │ ├── 快取層設計（Local、Distributed、CDN） │ ├── 資料庫擴展（Read Replica、Sharding） │ ├── 非同步處理（Message Queue） │ └── 無狀態服務設計 ├── 分散式系統 │ ├── CAP/PACELC 定理 │ ├── 共識演算法（Raft、Paxos） │ ├── 分散式交易（Saga、2PC） │ ├── 冪等性設計 │ └── 最終一致性模式 ├── 服務基礎設施 │ ├── 服務發現與負載均衡 │ ├── API Gateway 設計 │ ├── 可觀測性（Metrics、Logs、Traces） │ ├── 容器編排（Kubernetes） │ └── CI/CD 與 GitOps ├── 領域設計 │ ├── 限界上下文劃分 │ ├── 聚合設計 │ ├── 領域事件 │ └── 上下文映射 └── 工程權衡 ├── 一致性 vs 可用性 ├── 效能 vs 成本 ├── 簡單性 vs 靈活性 └── 建構 vs 購買 系統設計的藝術在於理解沒有銀彈——每個選擇都伴隨著代價。最好的架構是能夠隨業務演進而平滑演化的架構。
+"><meta property="og:title" content="系統設計"><meta property="og:description" content="系統設計涵蓋架構模式選擇、可擴展性設計、分散式系統原理、服務基礎設施、領域設計與工程權衡，為構建大規模可靠系統提供完整的知識框架。
+核心概念 系統設計（System Design）是將業務需求轉化為技術架構的過程。它不僅涉及選擇正確的技術元件，更關鍵的是理解不同設計決策之間的權衡關係（tradeoffs），並在效能、可用性、一致性、成本和開發效率之間找到最適合當前場景的平衡點。
+架構模式（Architecture Patterns） 提供了經過驗證的系統結構範本。從單體架構（Monolith）到微服務（Microservices），從事件驅動架構（EDA）到 CQRS（Command Query Responsibility Segregation），每種模式都有其適用的組織規模和業務複雜度。選擇架構模式不應追求時髦，而是匹配團隊能力和業務實際需求。
+可擴展性設計（Scalability Design） 確保系統能隨負載增長而擴展。水平擴展（Scale Out）透過增加節點分散負載，垂直擴展（Scale Up）透過升級硬體提升單節點能力。負載均衡、快取策略、資料庫分片（Sharding）和 CDN 是常用的擴展手段。設計時需考慮系統的擴展瓶頸在哪——是運算、儲存、網路還是 I/O。
+分散式系統（Distributed Systems） 帶來了本地系統不存在的挑戰：網路分區、時鐘偏移、拜占庭故障和最終一致性。CAP 定理指出分散式系統無法同時滿足一致性（Consistency）、可用性（Availability）和分區容忍性（Partition Tolerance）。理解這些基本限制是做出正確設計決策的前提。
+服務基礎設施（Service Infrastructure） 涵蓋了支撐微服務運行的平台能力：服務發現、配置管理、可觀測性（Observability）、CI/CD 管線和容器編排。這些基礎設施的品質直接影響了開發團隊的生產力和系統的可維護性。
+領域設計（Domain Design） 基於 DDD（Domain-Driven Design）思想，將業務領域的知識反映在程式碼結構中。限界上下文（Bounded Context）定義了微服務的邊界，聚合（Aggregate）保證了領域物件的一致性，領域事件（Domain Events）實現了上下文間的解耦通訊。
+架構總覽 系統設計知識架構 ├── 架構模式 │ ├── 單體 → 模組化單體 → 微服務 │ ├── 事件驅動架構（Event-Driven） │ ├── CQRS + Event Sourcing │ ├── 六角形架構（Hexagonal/Ports & Adapters） │ └── 無伺服器（Serverless） ├── 可擴展性設計 │ ├── 水平/垂直擴展策略 │ ├── 快取層設計（Local、Distributed、CDN） │ ├── 資料庫擴展（Read Replica、Sharding） │ ├── 非同步處理（Message Queue） │ └── 無狀態服務設計 ├── 分散式系統 │ ├── CAP/PACELC 定理 │ ├── 共識演算法（Raft、Paxos） │ ├── 分散式交易（Saga、2PC） │ ├── 冪等性設計 │ └── 最終一致性模式 ├── 服務基礎設施 │ ├── 服務發現與負載均衡 │ ├── API Gateway 設計 │ ├── 可觀測性（Metrics、Logs、Traces） │ ├── 容器編排（Kubernetes） │ └── CI/CD 與 GitOps ├── 領域設計 │ ├── 限界上下文劃分 │ ├── 聚合設計 │ ├── 領域事件 │ └── 上下文映射 └── 工程權衡 ├── 一致性 vs 可用性 ├── 效能 vs 成本 ├── 簡單性 vs 靈活性 └── 建構 vs 購買 系統設計的藝術在於理解沒有銀彈——每個選擇都伴隨著代價。最好的架構是能夠隨業務演進而平滑演化的架構。
+"><meta property="og:url" content="https://yu-codes.github.io/portfolio-dev/articles/backend/system-design/"><link rel=canonical href=https://yu-codes.github.io/portfolio-dev/articles/backend/system-design/><link rel=stylesheet href=https://yu-codes.github.io/portfolio-dev/css/main.css></head><body class=body><div class=container><aside class=sidebar><button class=mobile-menu-btn id=mobile-menu-btn aria-label="Open navigation menu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class=sidebar-header><h1 class=name>Yu</h1><p class=tagline>Developer, dreamer, debugger.</p></div><nav class=sidebar-nav><a href=https://yu-codes.github.io/portfolio-dev/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>HOME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/resume/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>RESUME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/projects/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>PROJECTS</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/articles/ class="nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>ARTICLES</span></a></nav><div class=sidebar-footer><div class=controls><button class="control-btn theme-toggle" title="Toggle theme (light/dark)" aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title="Toggle language" aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg></button></div><div class=social-links><a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class=social-link title=GitHub><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class=social-link title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></aside><div class=mobile-nav-overlay id=mobile-nav-overlay><div class=mobile-nav-panel><button class=mobile-nav-close id=mobile-nav-close aria-label="Close navigation">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><nav class=mobile-nav-list><a href=https://yu-codes.github.io/portfolio-dev/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>HOME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/resume/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>RESUME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/projects/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>PROJECTS</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/articles/ class="mobile-nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>ARTICLES</span></a></nav><div class=mobile-nav-footer><div class=controls><button class="control-btn theme-toggle" title="Toggle theme (light/dark)" aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title="Toggle language" aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</button>
+<a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class="control-btn social-link" title=GitHub><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class="control-btn social-link" title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></div></div><div class=main-content><div class=topbar><div class=breadcrumb><a href=https://yu-codes.github.io/portfolio-dev/>HOME</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/articles/>ARTICLES</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/articles/backend/>Backend</a><span class=separator>&#8250;</span>
+<span>系統設計</span></div></div><main class=content-area><article class=article-content><header class=article-header><h1>系統設計</h1><div class=article-meta><span class=article-description>架構模式與分散式系統</span></div></header><nav class=article-toc><h2 class=toc-title>Table of Contents</h2><nav id=TableOfContents><ul><li><a href=#核心概念>核心概念</a></li><li><a href=#架構總覽>架構總覽</a></li><li><a href=#關鍵比較>關鍵比較</a></li><li><a href=#應用場景>應用場景</a></li><li><a href=#延伸閱讀>延伸閱讀</a></li></ul></nav></nav><div class=article-body><p>系統設計涵蓋架構模式選擇、可擴展性設計、分散式系統原理、服務基礎設施、領域設計與工程權衡，為構建大規模可靠系統提供完整的知識框架。</p><h2 id=核心概念>核心概念</h2><p>系統設計（System Design）是將業務需求轉化為技術架構的過程。它不僅涉及選擇正確的技術元件，更關鍵的是理解不同設計決策之間的權衡關係（tradeoffs），並在效能、可用性、一致性、成本和開發效率之間找到最適合當前場景的平衡點。</p><p><strong>架構模式（Architecture Patterns）</strong> 提供了經過驗證的系統結構範本。從單體架構（Monolith）到微服務（Microservices），從事件驅動架構（EDA）到 CQRS（Command Query Responsibility Segregation），每種模式都有其適用的組織規模和業務複雜度。選擇架構模式不應追求時髦，而是匹配團隊能力和業務實際需求。</p><p><strong>可擴展性設計（Scalability Design）</strong> 確保系統能隨負載增長而擴展。水平擴展（Scale Out）透過增加節點分散負載，垂直擴展（Scale Up）透過升級硬體提升單節點能力。負載均衡、快取策略、資料庫分片（Sharding）和 CDN 是常用的擴展手段。設計時需考慮系統的擴展瓶頸在哪——是運算、儲存、網路還是 I/O。</p><p><strong>分散式系統（Distributed Systems）</strong> 帶來了本地系統不存在的挑戰：網路分區、時鐘偏移、拜占庭故障和最終一致性。CAP 定理指出分散式系統無法同時滿足一致性（Consistency）、可用性（Availability）和分區容忍性（Partition Tolerance）。理解這些基本限制是做出正確設計決策的前提。</p><p><strong>服務基礎設施（Service Infrastructure）</strong> 涵蓋了支撐微服務運行的平台能力：服務發現、配置管理、可觀測性（Observability）、CI/CD 管線和容器編排。這些基礎設施的品質直接影響了開發團隊的生產力和系統的可維護性。</p><p><strong>領域設計（Domain Design）</strong> 基於 DDD（Domain-Driven Design）思想，將業務領域的知識反映在程式碼結構中。限界上下文（Bounded Context）定義了微服務的邊界，聚合（Aggregate）保證了領域物件的一致性，領域事件（Domain Events）實現了上下文間的解耦通訊。</p><h2 id=架構總覽>架構總覽</h2><pre tabindex=0><code>系統設計知識架構
+├── 架構模式
+│   ├── 單體 → 模組化單體 → 微服務
+│   ├── 事件驅動架構（Event-Driven）
+│   ├── CQRS + Event Sourcing
+│   ├── 六角形架構（Hexagonal/Ports &amp; Adapters）
+│   └── 無伺服器（Serverless）
+├── 可擴展性設計
+│   ├── 水平/垂直擴展策略
+│   ├── 快取層設計（Local、Distributed、CDN）
+│   ├── 資料庫擴展（Read Replica、Sharding）
+│   ├── 非同步處理（Message Queue）
+│   └── 無狀態服務設計
+├── 分散式系統
+│   ├── CAP/PACELC 定理
+│   ├── 共識演算法（Raft、Paxos）
+│   ├── 分散式交易（Saga、2PC）
+│   ├── 冪等性設計
+│   └── 最終一致性模式
+├── 服務基礎設施
+│   ├── 服務發現與負載均衡
+│   ├── API Gateway 設計
+│   ├── 可觀測性（Metrics、Logs、Traces）
+│   ├── 容器編排（Kubernetes）
+│   └── CI/CD 與 GitOps
+├── 領域設計
+│   ├── 限界上下文劃分
+│   ├── 聚合設計
+│   ├── 領域事件
+│   └── 上下文映射
+└── 工程權衡
+    ├── 一致性 vs 可用性
+    ├── 效能 vs 成本
+    ├── 簡單性 vs 靈活性
+    └── 建構 vs 購買
+</code></pre><p>系統設計的藝術在於理解沒有銀彈——每個選擇都伴隨著代價。最好的架構是能夠隨業務演進而平滑演化的架構。</p><h2 id=關鍵比較>關鍵比較</h2><table><thead><tr><th>架構模式</th><th>適用規模</th><th>部署複雜度</th><th>團隊獨立性</th><th>適用階段</th></tr></thead><tbody><tr><td>單體架構</td><td>小-中</td><td>低</td><td>低</td><td>產品初期</td></tr><tr><td>模組化單體</td><td>中</td><td>低</td><td>中</td><td>成長期</td></tr><tr><td>微服務</td><td>大</td><td>高</td><td>高</td><td>成熟期/大團隊</td></tr><tr><td>Serverless</td><td>變動大</td><td>中</td><td>高</td><td>事件驅動/不穩定負載</td></tr></tbody></table><table><thead><tr><th>一致性模式</th><th>一致性等級</th><th>延遲</th><th>可用性</th><th>適用場景</th></tr></thead><tbody><tr><td>強一致性（線性化）</td><td>最高</td><td>高</td><td>較低</td><td>金融交易</td></tr><tr><td>因果一致性</td><td>高</td><td>中</td><td>中</td><td>社交互動</td></tr><tr><td>最終一致性</td><td>低</td><td>低</td><td>最高</td><td>計數器、動態</td></tr><tr><td>Read Your Writes</td><td>中</td><td>中</td><td>中</td><td>使用者個人資料</td></tr></tbody></table><p><strong>單體 vs 微服務</strong>：初創公司應從單體或模組化單體開始，避免過早引入分散式系統的複雜性。當團隊規模超過 50 人或部署頻率需求超過每日多次時，再考慮拆分微服務。康威定律指出架構最終會反映組織結構。</p><p><strong>同步 vs 非同步通訊</strong>：同步 HTTP/gRPC 呼叫簡單直觀但產生耦合；非同步事件驅動解耦了服務但增加了最終一致性的複雜度。核心交易路徑通常使用同步，旁路流程使用非同步。</p><h2 id=應用場景>應用場景</h2><ol><li><p><strong>電商平台設計</strong>：商品目錄使用讀寫分離和快取加速查詢；訂單服務使用 Saga 模式處理跨服務交易；庫存扣減使用樂觀鎖保證一致性；推薦系統使用事件驅動非同步計算。</p></li><li><p><strong>社交媒體動態流</strong>：Fan-out on write vs Fan-out on read 的經典權衡。大 V 使用 Pull 模式（讀時扇出），普通用戶使用 Push 模式（寫時扇出）。時間軸儲存在 Redis 中，配合分頁和快取策略。</p></li><li><p><strong>即時通訊系統</strong>：WebSocket 長連線管理、訊息佇列保證送達、讀取狀態同步、離線訊息儲存。需要設計連線管理服務、訊息路由層和持久化層的分離。</p></li><li><p><strong>串流影音平台</strong>：影片轉碼使用任務佇列分散處理；CDN 邊緣快取減少源站壓力；自適應位元率（ABR）根據網路品質動態調整。分散式儲存系統支撐海量內容。</p></li><li><p><strong>支付系統</strong>：強一致性需求使用分散式交易，冪等設計防止重複扣款，事件溯源提供完整的交易軌跡。對帳系統定期比對發現不一致並觸發修復。</p></li></ol><h2 id=延伸閱讀>延伸閱讀</h2><ul><li>架構模式演進：從單體到微服務的漸進式拆分策略</li><li>分散式系統入門：CAP 定理到 Raft 共識演算法</li><li>可擴展性實戰：快取策略、資料庫分片與訊息佇列設計</li><li>《Designing Data-Intensive Applications》— Martin Kleppmann</li><li>《Building Microservices》— Sam Newman</li></ul><h2>Subcategories</h2><div class=subsection-list><a href=/portfolio-dev/articles/backend/system-design/architecture-patterns/ class=subsection-item><span class=subsection-title>架構模式</span>
+<span class=subsection-desc>軟體架構設計模式</span>
+</a><a href=/portfolio-dev/articles/backend/system-design/distributed-systems/ class=subsection-item><span class=subsection-title>分散式系統</span>
+<span class=subsection-desc>分散式系統理論與實踐</span>
+</a><a href=/portfolio-dev/articles/backend/system-design/domain-design/ class=subsection-item><span class=subsection-title>領域設計</span>
+<span class=subsection-desc>DDD 與系統拆分</span>
+</a><a href=/portfolio-dev/articles/backend/system-design/scalability-design/ class=subsection-item><span class=subsection-title>可擴展性</span>
+<span class=subsection-desc>系統擴展設計</span>
+</a><a href=/portfolio-dev/articles/backend/system-design/service-infrastructure/ class=subsection-item><span class=subsection-title>服務基礎設施</span>
+<span class=subsection-desc>微服務基礎設施</span>
+</a><a href=/portfolio-dev/articles/backend/system-design/tradeoffs/ class=subsection-item><span class=subsection-title>架構權衡</span>
+<span class=subsection-desc>系統設計的取捨決策</span></a></div></div><footer class=article-footer><a href=/portfolio-dev/articles/backend/ class=back-link>← Back to Backend</a></footer></article></main><footer class=site-footer><p>&copy; 2026 YuHan Jhou. All rights reserved.</p></footer></div></div><script src=https://yu-codes.github.io/portfolio-dev/js/theme.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/roadmap.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/parallax.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/page-transition.js defer></script></body></html>

@@ -1,0 +1,180 @@
+<!doctype html><html lang=zh class=html data-base-path=/portfolio-dev/><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Flexbox 彈性佈局 - Yu's Portfolio & Learning Hub</title><meta name=description content="Flexbox（Flexible Box Layout）是 CSS3 引入的一維佈局模型，專為在容器內分配空間與對齊項目而設計。它解決了傳統 float 與 inline-block 佈局的諸多痛點，成為現代網頁佈局的核心工具。
+核心概念 雙軸系統 Flexbox 基於兩條軸線運作：
+主軸（Main Axis）：由 flex-direction 決定方向，預設為水平（row） 交叉軸（Cross Axis）：垂直於主軸的方向 容器與項目 Flexbox 分為兩個層級的屬性：
+容器屬性（Parent）：
+display: flex | inline-flex flex-direction: row | row-reverse | column | column-reverse flex-wrap: nowrap | wrap | wrap-reverse justify-content: 主軸對齊 align-items: 交叉軸對齊（單行） align-content: 交叉軸對齊（多行） gap: 項目間距 項目屬性（Children）：
+flex-grow: 擴展比例（預設 0） flex-shrink: 收縮比例（預設 1） flex-basis: 初始大小（預設 auto） align-self: 個別項目的交叉軸對齊 order: 排列順序 flex 縮寫屬性 /* flex: grow shrink basis */ .item { flex: 1 1 0; } /* 等比填滿 */ .item { flex: 0 0 200px; } /* 固定寬度，不伸縮 */ .item { flex: 1 0 auto; } /* 可擴展，不收縮 */ .item { flex: none; } /* 等同 0 0 auto */ .item { flex: auto; } /* 等同 1 1 auto */ 架構總覽 常見佈局模式 置中對齊（水平 + 垂直） .container { display: flex; justify-content: center; align-items: center; min-height: 100vh; } 導覽列佈局 .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; } .navbar-links { display: flex; gap: 1rem; } 卡片等高佈局 .card-container { display: flex; flex-wrap: wrap; gap: 1.5rem; } .card { flex: 1 1 300px; /* 最小 300px，可擴展 */ display: flex; flex-direction: column; } .card-body { flex: 1; /* 填滿剩餘空間，實現等高 */ } .card-footer { margin-top: auto; /* 推到底部 */ } Holy Grail 佈局 .layout { display: flex; flex-wrap: wrap; min-height: 100vh; } .header, .footer { flex: 1 1 100%; } .sidebar-left { flex: 0 0 200px; } .main { flex: 1; min-width: 0; /* 防止內容溢出 */ } .sidebar-right { flex: 0 0 250px; } 進階技巧 處理溢出問題 .flex-item { min-width: 0; /* 允許文字截斷 */ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } 最後一行左對齊 .grid-like { display: flex; flex-wrap: wrap; gap: 1rem; } .grid-like::after { content: ''; flex: auto; /* 填充最後一行的剩餘空間 */ } 關鍵比較 Flexbox vs Float 面向 Flexbox Float 垂直置中 一行 CSS 需 hack 等高欄位 自動 不支援 順序控制 order 屬性 需改 HTML 間距控制 gap 屬性 margin hack 響應式 天生彈性 需 clearfix Flexbox vs Grid 面向 Flexbox Grid 維度 一維（行或列） 二維（行與列） 對齊基準 內容驅動 容器驅動 適用場景 元件內部佈局 頁面整體佈局 項目大小 由內容決定 由軌道定義 重疊控制 不支援 支援（grid-area） justify-content 各值比較 值 效果 flex-start 靠主軸起點 flex-end 靠主軸終點 center 居中 space-between 兩端對齊，項目間等距 space-around 每個項目兩側等距 space-evenly 所有間隔完全相等 應用場景 場景一：響應式導覽列 小螢幕時切換為垂直排列，大螢幕水平展開：
+"><meta property="og:title" content="Flexbox 彈性佈局"><meta property="og:description" content="Flexbox（Flexible Box Layout）是 CSS3 引入的一維佈局模型，專為在容器內分配空間與對齊項目而設計。它解決了傳統 float 與 inline-block 佈局的諸多痛點，成為現代網頁佈局的核心工具。
+核心概念 雙軸系統 Flexbox 基於兩條軸線運作：
+主軸（Main Axis）：由 flex-direction 決定方向，預設為水平（row） 交叉軸（Cross Axis）：垂直於主軸的方向 容器與項目 Flexbox 分為兩個層級的屬性：
+容器屬性（Parent）：
+display: flex | inline-flex flex-direction: row | row-reverse | column | column-reverse flex-wrap: nowrap | wrap | wrap-reverse justify-content: 主軸對齊 align-items: 交叉軸對齊（單行） align-content: 交叉軸對齊（多行） gap: 項目間距 項目屬性（Children）：
+flex-grow: 擴展比例（預設 0） flex-shrink: 收縮比例（預設 1） flex-basis: 初始大小（預設 auto） align-self: 個別項目的交叉軸對齊 order: 排列順序 flex 縮寫屬性 /* flex: grow shrink basis */ .item { flex: 1 1 0; } /* 等比填滿 */ .item { flex: 0 0 200px; } /* 固定寬度，不伸縮 */ .item { flex: 1 0 auto; } /* 可擴展，不收縮 */ .item { flex: none; } /* 等同 0 0 auto */ .item { flex: auto; } /* 等同 1 1 auto */ 架構總覽 常見佈局模式 置中對齊（水平 + 垂直） .container { display: flex; justify-content: center; align-items: center; min-height: 100vh; } 導覽列佈局 .navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; } .navbar-links { display: flex; gap: 1rem; } 卡片等高佈局 .card-container { display: flex; flex-wrap: wrap; gap: 1.5rem; } .card { flex: 1 1 300px; /* 最小 300px，可擴展 */ display: flex; flex-direction: column; } .card-body { flex: 1; /* 填滿剩餘空間，實現等高 */ } .card-footer { margin-top: auto; /* 推到底部 */ } Holy Grail 佈局 .layout { display: flex; flex-wrap: wrap; min-height: 100vh; } .header, .footer { flex: 1 1 100%; } .sidebar-left { flex: 0 0 200px; } .main { flex: 1; min-width: 0; /* 防止內容溢出 */ } .sidebar-right { flex: 0 0 250px; } 進階技巧 處理溢出問題 .flex-item { min-width: 0; /* 允許文字截斷 */ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } 最後一行左對齊 .grid-like { display: flex; flex-wrap: wrap; gap: 1rem; } .grid-like::after { content: ''; flex: auto; /* 填充最後一行的剩餘空間 */ } 關鍵比較 Flexbox vs Float 面向 Flexbox Float 垂直置中 一行 CSS 需 hack 等高欄位 自動 不支援 順序控制 order 屬性 需改 HTML 間距控制 gap 屬性 margin hack 響應式 天生彈性 需 clearfix Flexbox vs Grid 面向 Flexbox Grid 維度 一維（行或列） 二維（行與列） 對齊基準 內容驅動 容器驅動 適用場景 元件內部佈局 頁面整體佈局 項目大小 由內容決定 由軌道定義 重疊控制 不支援 支援（grid-area） justify-content 各值比較 值 效果 flex-start 靠主軸起點 flex-end 靠主軸終點 center 居中 space-between 兩端對齊，項目間等距 space-around 每個項目兩側等距 space-evenly 所有間隔完全相等 應用場景 場景一：響應式導覽列 小螢幕時切換為垂直排列，大螢幕水平展開：
+"><meta property="og:url" content="https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/web-foundations/css/layout-system/flexbox/"><link rel=canonical href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/web-foundations/css/layout-system/flexbox/><link rel=stylesheet href=https://yu-codes.github.io/portfolio-dev/css/main.css></head><body class=body><div class=container><aside class=sidebar><button class=mobile-menu-btn id=mobile-menu-btn aria-label="Open navigation menu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class=sidebar-header><h1 class=name>Yu</h1><p class=tagline>Developer, dreamer, debugger.</p></div><nav class=sidebar-nav><a href=https://yu-codes.github.io/portfolio-dev/zh/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>首頁</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/resume/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>履歷</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/projects/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>專案</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/articles/ class="nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>文章</span></a></nav><div class=sidebar-footer><div class=controls><button class="control-btn theme-toggle" title=切換主題（淺色/深色） aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title=切換語言 aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg></button></div><div class=social-links><a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class=social-link title=GitHub><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class=social-link title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></aside><div class=mobile-nav-overlay id=mobile-nav-overlay><div class=mobile-nav-panel><button class=mobile-nav-close id=mobile-nav-close aria-label="Close navigation">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><nav class=mobile-nav-list><a href=https://yu-codes.github.io/portfolio-dev/zh/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>首頁</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/resume/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>履歷</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/projects/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>專案</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/articles/ class="mobile-nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>文章</span></a></nav><div class=mobile-nav-footer><div class=controls><button class="control-btn theme-toggle" title=切換主題（淺色/深色） aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title=切換語言 aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</button>
+<a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class="control-btn social-link" title=GitHub><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class="control-btn social-link" title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></div></div><div class=main-content><div class=topbar><div class=breadcrumb><a href=https://yu-codes.github.io/portfolio-dev/zh/>首頁</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/>文章</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/>前端工程</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/web-foundations/>Web 基礎</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/web-foundations/css/>CSS</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/web-foundations/css/layout-system/>佈局系統</a><span class=separator>&#8250;</span>
+<span>Flexbox 彈性佈局</span></div></div><main class=content-area><article class=article-content><header class=article-header><h1>Flexbox 彈性佈局</h1></header><nav class=article-toc><h2 class=toc-title>目錄</h2><nav id=TableOfContents><ul><li><a href=#核心概念>核心概念</a><ul><li><a href=#雙軸系統>雙軸系統</a></li><li><a href=#容器與項目>容器與項目</a></li><li><a href=#flex-縮寫屬性>flex 縮寫屬性</a></li></ul></li><li><a href=#架構總覽>架構總覽</a><ul><li><a href=#常見佈局模式>常見佈局模式</a></li><li><a href=#進階技巧>進階技巧</a></li></ul></li><li><a href=#關鍵比較>關鍵比較</a><ul><li><a href=#flexbox-vs-float>Flexbox vs Float</a></li><li><a href=#flexbox-vs-grid>Flexbox vs Grid</a></li><li><a href=#justify-content-各值比較>justify-content 各值比較</a></li></ul></li><li><a href=#應用場景>應用場景</a><ul><li><a href=#場景一響應式導覽列>場景一：響應式導覽列</a></li><li><a href=#場景二表單佈局>場景二：表單佈局</a></li><li><a href=#場景三媒體物件media-object>場景三：媒體物件（Media Object）</a></li><li><a href=#場景四sticky-footer>場景四：Sticky Footer</a></li></ul></li><li><a href=#延伸閱讀>延伸閱讀</a></li></ul></nav></nav><div class=article-body><p>Flexbox（Flexible Box Layout）是 CSS3 引入的一維佈局模型，專為在容器內分配空間與對齊項目而設計。它解決了傳統 float 與 inline-block 佈局的諸多痛點，成為現代網頁佈局的核心工具。</p><h2 id=核心概念>核心概念</h2><h3 id=雙軸系統>雙軸系統</h3><p>Flexbox 基於兩條軸線運作：</p><ul><li><strong>主軸（Main Axis）</strong>：由 <code>flex-direction</code> 決定方向，預設為水平（<code>row</code>）</li><li><strong>交叉軸（Cross Axis）</strong>：垂直於主軸的方向</li></ul><h3 id=容器與項目>容器與項目</h3><p>Flexbox 分為兩個層級的屬性：</p><p><strong>容器屬性（Parent）</strong>：</p><ul><li><code>display: flex | inline-flex</code></li><li><code>flex-direction</code>: row | row-reverse | column | column-reverse</li><li><code>flex-wrap</code>: nowrap | wrap | wrap-reverse</li><li><code>justify-content</code>: 主軸對齊</li><li><code>align-items</code>: 交叉軸對齊（單行）</li><li><code>align-content</code>: 交叉軸對齊（多行）</li><li><code>gap</code>: 項目間距</li></ul><p><strong>項目屬性（Children）</strong>：</p><ul><li><code>flex-grow</code>: 擴展比例（預設 0）</li><li><code>flex-shrink</code>: 收縮比例（預設 1）</li><li><code>flex-basis</code>: 初始大小（預設 auto）</li><li><code>align-self</code>: 個別項目的交叉軸對齊</li><li><code>order</code>: 排列順序</li></ul><h3 id=flex-縮寫屬性>flex 縮寫屬性</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#75715e>/* flex: grow shrink basis */</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>item</span> { <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>0</span>; }      <span style=color:#75715e>/* 等比填滿 */</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>item</span> { <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>200</span><span style=color:#66d9ef>px</span>; }  <span style=color:#75715e>/* 固定寬度，不伸縮 */</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>item</span> { <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>auto</span>; }   <span style=color:#75715e>/* 可擴展，不收縮 */</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>item</span> { <span style=color:#66d9ef>flex</span>: <span style=color:#66d9ef>none</span>; }       <span style=color:#75715e>/* 等同 0 0 auto */</span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>item</span> { <span style=color:#66d9ef>flex</span>: <span style=color:#66d9ef>auto</span>; }       <span style=color:#75715e>/* 等同 1 1 auto */</span>
+</span></span></code></pre></div><h2 id=架構總覽>架構總覽</h2><h3 id=常見佈局模式>常見佈局模式</h3><h4 id=置中對齊水平--垂直>置中對齊（水平 + 垂直）</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>container</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>justify-content</span>: <span style=color:#66d9ef>center</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>align-items</span>: <span style=color:#66d9ef>center</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>min-height</span>: <span style=color:#ae81ff>100</span><span style=color:#66d9ef>vh</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=導覽列佈局>導覽列佈局</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>navbar</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>justify-content</span>: <span style=color:#66d9ef>space-between</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>align-items</span>: <span style=color:#66d9ef>center</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>padding</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>1</span><span style=color:#66d9ef>rem</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>navbar-links</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>gap</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>rem</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=卡片等高佈局>卡片等高佈局</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>card-container</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-wrap</span>: <span style=color:#66d9ef>wrap</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>gap</span>: <span style=color:#ae81ff>1.5</span><span style=color:#66d9ef>rem</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>card</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>300</span><span style=color:#66d9ef>px</span>; <span style=color:#75715e>/* 最小 300px，可擴展 */</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-direction</span>: <span style=color:#66d9ef>column</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>card-body</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span>; <span style=color:#75715e>/* 填滿剩餘空間，實現等高 */</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>card-footer</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>margin-top</span>: <span style=color:#66d9ef>auto</span>; <span style=color:#75715e>/* 推到底部 */</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=holy-grail-佈局>Holy Grail 佈局</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>layout</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-wrap</span>: <span style=color:#66d9ef>wrap</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>min-height</span>: <span style=color:#ae81ff>100</span><span style=color:#66d9ef>vh</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>header</span><span style=color:#f92672>,</span> .<span style=color:#a6e22e>footer</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>100</span><span style=color:#66d9ef>%</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>sidebar-left</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>200</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>main</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>min-width</span>: <span style=color:#ae81ff>0</span>; <span style=color:#75715e>/* 防止內容溢出 */</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>sidebar-right</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>250</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=進階技巧>進階技巧</h3><h4 id=處理溢出問題>處理溢出問題</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>flex-item</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>min-width</span>: <span style=color:#ae81ff>0</span>;    <span style=color:#75715e>/* 允許文字截斷 */</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>overflow</span>: <span style=color:#66d9ef>hidden</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>text-overflow</span>: <span style=color:#66d9ef>ellipsis</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>white-space</span>: <span style=color:#66d9ef>nowrap</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=最後一行左對齊>最後一行左對齊</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>grid-like</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-wrap</span>: <span style=color:#66d9ef>wrap</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>gap</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>rem</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>grid-like</span>::<span style=color:#a6e22e>after</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>content</span>: <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#66d9ef>auto</span>; <span style=color:#75715e>/* 填充最後一行的剩餘空間 */</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=關鍵比較>關鍵比較</h2><h3 id=flexbox-vs-float>Flexbox vs Float</h3><table><thead><tr><th>面向</th><th>Flexbox</th><th>Float</th></tr></thead><tbody><tr><td>垂直置中</td><td>一行 CSS</td><td>需 hack</td></tr><tr><td>等高欄位</td><td>自動</td><td>不支援</td></tr><tr><td>順序控制</td><td><code>order</code> 屬性</td><td>需改 HTML</td></tr><tr><td>間距控制</td><td><code>gap</code> 屬性</td><td>margin hack</td></tr><tr><td>響應式</td><td>天生彈性</td><td>需 clearfix</td></tr></tbody></table><h3 id=flexbox-vs-grid>Flexbox vs Grid</h3><table><thead><tr><th>面向</th><th>Flexbox</th><th>Grid</th></tr></thead><tbody><tr><td>維度</td><td>一維（行或列）</td><td>二維（行與列）</td></tr><tr><td>對齊基準</td><td>內容驅動</td><td>容器驅動</td></tr><tr><td>適用場景</td><td>元件內部佈局</td><td>頁面整體佈局</td></tr><tr><td>項目大小</td><td>由內容決定</td><td>由軌道定義</td></tr><tr><td>重疊控制</td><td>不支援</td><td>支援（grid-area）</td></tr></tbody></table><h3 id=justify-content-各值比較>justify-content 各值比較</h3><table><thead><tr><th>值</th><th>效果</th></tr></thead><tbody><tr><td><code>flex-start</code></td><td>靠主軸起點</td></tr><tr><td><code>flex-end</code></td><td>靠主軸終點</td></tr><tr><td><code>center</code></td><td>居中</td></tr><tr><td><code>space-between</code></td><td>兩端對齊，項目間等距</td></tr><tr><td><code>space-around</code></td><td>每個項目兩側等距</td></tr><tr><td><code>space-evenly</code></td><td>所有間隔完全相等</td></tr></tbody></table><h2 id=應用場景>應用場景</h2><h3 id=場景一響應式導覽列>場景一：響應式導覽列</h3><p>小螢幕時切換為垂直排列，大螢幕水平展開：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>nav</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-direction</span>: <span style=color:#66d9ef>column</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>@<span style=color:#66d9ef>media</span> <span style=color:#f92672>(</span><span style=color:#f92672>min-width</span><span style=color:#f92672>:</span> <span style=color:#f92672>768px</span><span style=color:#f92672>)</span> {
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>nav</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>flex-direction</span>: <span style=color:#66d9ef>row</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>justify-content</span>: <span style=color:#66d9ef>space-between</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=場景二表單佈局>場景二：表單佈局</h3><p>Label 與 Input 的彈性排列，可隨螢幕寬度調整：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>form-row</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-wrap</span>: <span style=color:#66d9ef>wrap</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>gap</span>: <span style=color:#ae81ff>0.5</span><span style=color:#66d9ef>rem</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>align-items</span>: <span style=color:#66d9ef>center</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>form-row</span> <span style=color:#f92672>label</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>120</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>form-row</span> <span style=color:#f92672>input</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>min-width</span>: <span style=color:#ae81ff>200</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=場景三媒體物件media-object>場景三：媒體物件（Media Object）</h3><p>圖片固定寬度，文字區域填滿剩餘空間：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>media</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>gap</span>: <span style=color:#ae81ff>1</span><span style=color:#66d9ef>rem</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>align-items</span>: <span style=color:#66d9ef>flex-start</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>media-image</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-shrink</span>: <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>width</span>: <span style=color:#ae81ff>80</span><span style=color:#66d9ef>px</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.<span style=color:#a6e22e>media-body</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=場景四sticky-footer>場景四：Sticky Footer</h3><p>頁尾始終貼底，即使內容不足一螢幕：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#f92672>body</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>flex</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex-direction</span>: <span style=color:#66d9ef>column</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>min-height</span>: <span style=color:#ae81ff>100</span><span style=color:#66d9ef>vh</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>main</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>flex</span>: <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=延伸閱讀>延伸閱讀</h2><ul><li><a href=https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_flexible_box_layout>MDN - Flexbox 指南</a></li><li><a href=https://css-tricks.com/snippets/css/a-guide-to-flexbox/>CSS-Tricks - A Complete Guide to Flexbox</a></li><li><a href=https://flexboxfroggy.com/>Flexbox Froggy - 互動學習</a></li><li><a href=https://www.w3.org/TR/css-flexbox-1/>W3C Flexbox 規範</a></li><li><a href=https://philipwalton.github.io/solved-by-flexbox/>Solved by Flexbox - 常見佈局</a></li></ul></div><footer class=article-footer><a href=/portfolio-dev/zh/articles/frontend/web-foundations/css/layout-system/ class=back-link>← 返回 佈局系統</a></footer></article></main><footer class=site-footer><p>&copy; 2026 YuHan Jhou. All rights reserved.</p></footer></div></div><script src=https://yu-codes.github.io/portfolio-dev/js/theme.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/roadmap.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/parallax.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/page-transition.js defer></script></body></html>

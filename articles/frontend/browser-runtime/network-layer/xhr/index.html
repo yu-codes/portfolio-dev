@@ -1,0 +1,264 @@
+<!doctype html><html lang=en class=html data-base-path=/portfolio-dev/><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>XMLHttpRequest - Yu's Portfolio & Learning Hub</title><meta name=description content="XMLHttpRequest XMLHttpRequest（XHR）是瀏覽器最早提供的非同步 HTTP 請求機制，是 AJAX（Asynchronous JavaScript and XML）技術的核心。儘管 Fetch API 已成為現代首選，XHR 仍在許多場景中不可或缺——特別是上傳進度監控、舊瀏覽器支援和既有程式碼維護。理解 XHR 的運作原理有助於全面掌握瀏覽器的網路層架構。
+核心概念 基本使用流程 const xhr = new XMLHttpRequest(); xhr.open('GET', 'https://api.example.com/data', true); // method, url, async xhr.setRequestHeader('Content-Type', 'application/json'); xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { const data = JSON.parse(xhr.responseText); console.log(data); } }; xhr.onerror = function() { console.error('Network error'); }; xhr.send(); ReadyState 狀態機 XHR 物件的 readyState 屬性反映請求的生命週期階段：
+值 常數 說明 0 UNSENT XHR 物件已建立，尚未呼叫 open() 1 OPENED open() 已呼叫，可設定標頭 2 HEADERS_RECEIVED send() 已呼叫，已接收回應標頭 3 LOADING 正在接收回應主體 4 DONE 操作完成（成功或失敗） 事件系統 XHR 提供豐富的事件監聽機制：
+"><meta property="og:title" content="XMLHttpRequest"><meta property="og:description" content="XMLHttpRequest XMLHttpRequest（XHR）是瀏覽器最早提供的非同步 HTTP 請求機制，是 AJAX（Asynchronous JavaScript and XML）技術的核心。儘管 Fetch API 已成為現代首選，XHR 仍在許多場景中不可或缺——特別是上傳進度監控、舊瀏覽器支援和既有程式碼維護。理解 XHR 的運作原理有助於全面掌握瀏覽器的網路層架構。
+核心概念 基本使用流程 const xhr = new XMLHttpRequest(); xhr.open('GET', 'https://api.example.com/data', true); // method, url, async xhr.setRequestHeader('Content-Type', 'application/json'); xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { const data = JSON.parse(xhr.responseText); console.log(data); } }; xhr.onerror = function() { console.error('Network error'); }; xhr.send(); ReadyState 狀態機 XHR 物件的 readyState 屬性反映請求的生命週期階段：
+值 常數 說明 0 UNSENT XHR 物件已建立，尚未呼叫 open() 1 OPENED open() 已呼叫，可設定標頭 2 HEADERS_RECEIVED send() 已呼叫，已接收回應標頭 3 LOADING 正在接收回應主體 4 DONE 操作完成（成功或失敗） 事件系統 XHR 提供豐富的事件監聽機制：
+"><meta property="og:url" content="https://yu-codes.github.io/portfolio-dev/articles/frontend/browser-runtime/network-layer/xhr/"><link rel=canonical href=https://yu-codes.github.io/portfolio-dev/articles/frontend/browser-runtime/network-layer/xhr/><link rel=stylesheet href=https://yu-codes.github.io/portfolio-dev/css/main.css></head><body class=body><div class=container><aside class=sidebar><button class=mobile-menu-btn id=mobile-menu-btn aria-label="Open navigation menu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class=sidebar-header><h1 class=name>Yu</h1><p class=tagline>Developer, dreamer, debugger.</p></div><nav class=sidebar-nav><a href=https://yu-codes.github.io/portfolio-dev/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>HOME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/resume/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>RESUME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/projects/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>PROJECTS</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/articles/ class="nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>ARTICLES</span></a></nav><div class=sidebar-footer><div class=controls><button class="control-btn theme-toggle" title="Toggle theme (light/dark)" aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title="Toggle language" aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg></button></div><div class=social-links><a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class=social-link title=GitHub><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class=social-link title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></aside><div class=mobile-nav-overlay id=mobile-nav-overlay><div class=mobile-nav-panel><button class=mobile-nav-close id=mobile-nav-close aria-label="Close navigation">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><nav class=mobile-nav-list><a href=https://yu-codes.github.io/portfolio-dev/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>HOME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/resume/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>RESUME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/projects/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>PROJECTS</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/articles/ class="mobile-nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>ARTICLES</span></a></nav><div class=mobile-nav-footer><div class=controls><button class="control-btn theme-toggle" title="Toggle theme (light/dark)" aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title="Toggle language" aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</button>
+<a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class="control-btn social-link" title=GitHub><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class="control-btn social-link" title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></div></div><div class=main-content><div class=topbar><div class=breadcrumb><a href=https://yu-codes.github.io/portfolio-dev/>HOME</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/articles/>ARTICLES</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/articles/frontend/>Frontend</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/articles/frontend/browser-runtime/>瀏覽器執行環境</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/articles/frontend/browser-runtime/network-layer/>網路層</a><span class=separator>&#8250;</span>
+<span>XMLHttpRequest</span></div></div><main class=content-area><article class=article-content><header class=article-header><h1>XMLHttpRequest</h1></header><nav class=article-toc><h2 class=toc-title>Table of Contents</h2><nav id=TableOfContents><ul><li><a href=#核心概念>核心概念</a><ul><li><a href=#基本使用流程>基本使用流程</a></li><li><a href=#readystate-狀態機>ReadyState 狀態機</a></li><li><a href=#事件系統>事件系統</a></li><li><a href=#response-類型>Response 類型</a></li><li><a href=#超時與取消>超時與取消</a></li></ul></li><li><a href=#架構總覽>架構總覽</a><ul><li><a href=#xhr-與事件循環>XHR 與事件循環</a></li><li><a href=#同步-vs-非同步模式>同步 vs 非同步模式</a></li></ul></li><li><a href=#關鍵比較>關鍵比較</a><ul><li><a href=#xhr-事件-vs-fetch-promise>XHR 事件 vs Fetch Promise</a></li><li><a href=#cors-處理比較>CORS 處理比較</a></li></ul></li><li><a href=#應用場景>應用場景</a><ul><li><a href=#場景一帶進度的檔案上傳>場景一：帶進度的檔案上傳</a></li><li><a href=#場景二封裝為-promise-的通用-xhr>場景二：封裝為 Promise 的通用 XHR</a></li><li><a href=#場景三長輪詢long-polling>場景三：長輪詢（Long Polling）</a></li><li><a href=#場景四二進位資料下載>場景四：二進位資料下載</a></li></ul></li><li><a href=#延伸閱讀>延伸閱讀</a></li></ul></nav></nav><div class=article-body><h1 id=xmlhttprequest>XMLHttpRequest</h1><p>XMLHttpRequest（XHR）是瀏覽器最早提供的非同步 HTTP 請求機制，是 AJAX（Asynchronous JavaScript and XML）技術的核心。儘管 Fetch API 已成為現代首選，XHR 仍在許多場景中不可或缺——特別是上傳進度監控、舊瀏覽器支援和既有程式碼維護。理解 XHR 的運作原理有助於全面掌握瀏覽器的網路層架構。</p><hr><h2 id=核心概念>核心概念</h2><h3 id=基本使用流程>基本使用流程</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#39;GET&#39;</span>, <span style=color:#e6db74>&#39;https://api.example.com/data&#39;</span>, <span style=color:#66d9ef>true</span>); <span style=color:#75715e>// method, url, async
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>setRequestHeader</span>(<span style=color:#e6db74>&#39;Content-Type&#39;</span>, <span style=color:#e6db74>&#39;application/json&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onreadystatechange</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>readyState</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>4</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>200</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseText</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>data</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onerror</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#39;Network error&#39;</span>);
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>();
+</span></span></code></pre></div><h3 id=readystate-狀態機>ReadyState 狀態機</h3><p>XHR 物件的 <code>readyState</code> 屬性反映請求的生命週期階段：</p><table><thead><tr><th>值</th><th>常數</th><th>說明</th></tr></thead><tbody><tr><td>0</td><td>UNSENT</td><td>XHR 物件已建立，尚未呼叫 open()</td></tr><tr><td>1</td><td>OPENED</td><td>open() 已呼叫，可設定標頭</td></tr><tr><td>2</td><td>HEADERS_RECEIVED</td><td>send() 已呼叫，已接收回應標頭</td></tr><tr><td>3</td><td>LOADING</td><td>正在接收回應主體</td></tr><tr><td>4</td><td>DONE</td><td>操作完成（成功或失敗）</td></tr></tbody></table><h3 id=事件系統>事件系統</h3><p>XHR 提供豐富的事件監聽機制：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 進度事件
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onloadstart</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;開始&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onprogress</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>lengthComputable</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`下載進度: </span><span style=color:#e6db74>${</span>(<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>loaded</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>total</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>).<span style=color:#a6e22e>toFixed</span>(<span style=color:#ae81ff>1</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74>%`</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onload</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;完成&#39;</span>, <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onerror</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;網路錯誤&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>ontimeout</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;超時&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onloadend</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;結束（無論成功失敗）&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onabort</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;已取消&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 上傳進度事件
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>upload</span>.<span style=color:#a6e22e>onprogress</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>lengthComputable</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`上傳進度: </span><span style=color:#e6db74>${</span>(<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>loaded</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>total</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>).<span style=color:#a6e22e>toFixed</span>(<span style=color:#ae81ff>1</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74>%`</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><h3 id=response-類型>Response 類型</h3><p>透過 <code>responseType</code> 屬性指定期望的回應格式：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;json&#39;</span>;        <span style=color:#75715e>// 自動解析 JSON
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;blob&#39;</span>;        <span style=color:#75715e>// 二進位 Blob 物件
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;arraybuffer&#39;</span>; <span style=color:#75715e>// ArrayBuffer
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;document&#39;</span>;    <span style=color:#75715e>// XML/HTML Document
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;text&#39;</span>;        <span style=color:#75715e>// 預設，純文字
+</span></span></span></code></pre></div><h3 id=超時與取消>超時與取消</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#39;GET&#39;</span>, <span style=color:#a6e22e>url</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>5000</span>; <span style=color:#75715e>// 5 秒超時
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>ontimeout</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#39;請求超時&#39;</span>);
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 手動取消
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>cancelRequest</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>abort</span>();
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=架構總覽>架構總覽</h2><pre tabindex=0><code>Application Code
+       │
+       ▼
+┌──────────────────────┐
+│  new XMLHttpRequest() │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│    open(method, url)  │ ← 配置請求方法與 URL
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  setRequestHeader()   │ ← 設定自訂標頭
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│      send(body)       │ ← 發送請求
+└──────────┬───────────┘
+           │
+    readyState 變化
+           │
+     ┌─────┼─────┐
+     ▼     ▼     ▼
+   事件   事件   事件
+ progress load  error
+           │
+           ▼
+┌──────────────────────┐
+│  response / status    │ ← 讀取回應
+└──────────────────────┘
+</code></pre><h3 id=xhr-與事件循環>XHR 與事件循環</h3><p>XHR 的回調函式在事件循環的宏任務佇列（Macrotask Queue）中執行。當網路回應到達時，瀏覽器將對應的回調放入佇列，等待當前執行棧清空後執行。</p><h3 id=同步-vs-非同步模式>同步 vs 非同步模式</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 非同步模式（推薦）- 第三個參數為 true 或省略
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#39;GET&#39;</span>, <span style=color:#a6e22e>url</span>, <span style=color:#66d9ef>true</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 同步模式（已棄用）- 會阻塞主執行緒
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#39;GET&#39;</span>, <span style=color:#a6e22e>url</span>, <span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>();
+</span></span><span style=display:flex><span><span style=color:#75715e>// 此處可直接使用 xhr.responseText（已同步等待完成）
+</span></span></span></code></pre></div><p>⚠️ 同步 XHR 在主執行緒上已被棄用（主執行緒外的 Worker 中仍可使用），因為它會凍結整個 UI 直到請求完成。</p><hr><h2 id=關鍵比較>關鍵比較</h2><table><thead><tr><th>特性</th><th>XMLHttpRequest</th><th>Fetch API</th><th>Axios</th></tr></thead><tbody><tr><td>API 風格</td><td>事件/回調</td><td>Promise</td><td>Promise</td></tr><tr><td>上傳進度</td><td>✅ 原生支援</td><td>❌ 不支援</td><td>✅ 封裝支援</td></tr><tr><td>下載進度</td><td>✅ onprogress</td><td>✅ ReadableStream</td><td>✅ 封裝支援</td></tr><tr><td>請求取消</td><td>✅ abort()</td><td>✅ AbortController</td><td>✅ CancelToken</td></tr><tr><td>攔截器</td><td>❌ 需手動實作</td><td>❌ 需手動實作</td><td>✅ 內建</td></tr><tr><td>超時設定</td><td>✅ timeout 屬性</td><td>❌ 需自行實作</td><td>✅ timeout 選項</td></tr><tr><td>JSON 自動解析</td><td>✅ responseType</td><td>❌ 需手動 .json()</td><td>✅ 自動</td></tr><tr><td>同步請求</td><td>✅ (已棄用)</td><td>❌</td><td>❌</td></tr><tr><td>Service Worker</td><td>❌</td><td>✅</td><td>❌</td></tr><tr><td>瀏覽器支援</td><td>IE7+</td><td>現代瀏覽器</td><td>需 polyfill</td></tr></tbody></table><h3 id=xhr-事件-vs-fetch-promise>XHR 事件 vs Fetch Promise</h3><table><thead><tr><th>XHR 事件</th><th>Fetch 等效方式</th><th>說明</th></tr></thead><tbody><tr><td>onload</td><td>then(response)</td><td>請求成功完成</td></tr><tr><td>onerror</td><td>catch(error)</td><td>網路錯誤</td></tr><tr><td>ontimeout</td><td>AbortController + setTimeout</td><td>超時處理</td></tr><tr><td>onprogress</td><td>response.body.getReader()</td><td>下載進度</td></tr><tr><td>upload.onprogress</td><td>無直接等效</td><td>上傳進度</td></tr><tr><td>onabort</td><td>AbortController.abort()</td><td>請求取消</td></tr></tbody></table><h3 id=cors-處理比較>CORS 處理比較</h3><table><thead><tr><th>設定</th><th>XHR</th><th>Fetch</th></tr></thead><tbody><tr><td>跨域 Cookie</td><td>withCredentials = true</td><td>credentials: &lsquo;include&rsquo;</td></tr><tr><td>簡單請求</td><td>自動處理</td><td>自動處理</td></tr><tr><td>預檢請求</td><td>自動觸發</td><td>自動觸發</td></tr><tr><td>不透明回應</td><td>不支援</td><td>mode: &rsquo;no-cors'</td></tr></tbody></table><hr><h2 id=應用場景>應用場景</h2><h3 id=場景一帶進度的檔案上傳>場景一：帶進度的檔案上傳</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>uploadWithProgress</span>(<span style=color:#a6e22e>file</span>, <span style=color:#a6e22e>url</span>, <span style=color:#a6e22e>onProgress</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>formData</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>FormData</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>formData</span>.<span style=color:#a6e22e>append</span>(<span style=color:#e6db74>&#39;file&#39;</span>, <span style=color:#a6e22e>file</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>upload</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;progress&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>lengthComputable</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>percent</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>round</span>((<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>loaded</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>total</span>) <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>onProgress</span><span style=color:#f92672>?</span>.(<span style=color:#a6e22e>percent</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;load&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>300</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseText</span>));
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>`Upload failed: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>));
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;error&#39;</span>, () =&gt; <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#39;Network error&#39;</span>)));
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;timeout&#39;</span>, () =&gt; <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#39;Timeout&#39;</span>)));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#39;POST&#39;</span>, <span style=color:#a6e22e>url</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>60000</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>(<span style=color:#a6e22e>formData</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 使用
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>uploadWithProgress</span>(<span style=color:#a6e22e>file</span>, <span style=color:#e6db74>&#39;/api/upload&#39;</span>, (<span style=color:#a6e22e>percent</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>progressBar</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>width</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>percent</span><span style=color:#e6db74>}</span><span style=color:#e6db74>%`</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>progressText</span>.<span style=color:#a6e22e>textContent</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>percent</span><span style=color:#e6db74>}</span><span style=color:#e6db74>%`</span>;
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=場景二封裝為-promise-的通用-xhr>場景二：封裝為 Promise 的通用 XHR</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>xhrRequest</span>(<span style=color:#a6e22e>options</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>method</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;GET&#39;</span>, <span style=color:#a6e22e>url</span>, <span style=color:#a6e22e>headers</span> <span style=color:#f92672>=</span> {}, <span style=color:#a6e22e>body</span>, <span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10000</span>, <span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;json&#39;</span> } <span style=color:#f92672>=</span> <span style=color:#a6e22e>options</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#a6e22e>method</span>, <span style=color:#a6e22e>url</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>responseType</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>timeout</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Object.<span style=color:#a6e22e>entries</span>(<span style=color:#a6e22e>headers</span>).<span style=color:#a6e22e>forEach</span>(([<span style=color:#a6e22e>key</span>, <span style=color:#a6e22e>value</span>]) =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>setRequestHeader</span>(<span style=color:#a6e22e>key</span>, <span style=color:#a6e22e>value</span>);
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onload</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>300</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>resolve</span>({ <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span>, <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>response</span>, <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>getAllResponseHeaders</span>() });
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>reject</span>({ <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span>, <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>response</span> });
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onerror</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#39;Network error&#39;</span>));
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>ontimeout</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#39;Request timeout&#39;</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>(<span style=color:#a6e22e>body</span> <span style=color:#f92672>?</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>body</span>) <span style=color:#f92672>:</span> <span style=color:#66d9ef>null</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=場景三長輪詢long-polling>場景三：長輪詢（Long Polling）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>LongPolling</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>url</span>, <span style=color:#a6e22e>onMessage</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>url</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>url</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>onMessage</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>onMessage</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>active</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>poll</span>();
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>poll</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>active</span>) <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#39;GET&#39;</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>url</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>timeout</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>30000</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onload</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>200</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>onMessage</span>(<span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseText</span>));
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>poll</span>(); <span style=color:#75715e>// 立即發起下一次輪詢
+</span></span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>ontimeout</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>poll</span>(); <span style=color:#75715e>// 超時後重新連接
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onerror</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>setTimeout</span>(() =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>poll</span>(), <span style=color:#ae81ff>3000</span>); <span style=color:#75715e>// 錯誤後延遲重試
+</span></span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>currentXhr</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>xhr</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>stop</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>active</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>currentXhr</span><span style=color:#f92672>?</span>.<span style=color:#a6e22e>abort</span>();
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=場景四二進位資料下載>場景四：二進位資料下載</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>downloadBinary</span>(<span style=color:#a6e22e>url</span>, <span style=color:#a6e22e>onProgress</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#39;GET&#39;</span>, <span style=color:#a6e22e>url</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;blob&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onprogress</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>e</span>) =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>lengthComputable</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>onProgress</span><span style=color:#f92672>?</span>.({ <span style=color:#a6e22e>loaded</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>loaded</span>, <span style=color:#a6e22e>total</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>total</span> });
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onload</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>200</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>blob</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>response</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>downloadUrl</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>URL</span>.<span style=color:#a6e22e>createObjectURL</span>(<span style=color:#a6e22e>blob</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>resolve</span>({ <span style=color:#a6e22e>blob</span>, <span style=color:#a6e22e>url</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>downloadUrl</span> });
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>`Download failed: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>));
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onerror</span> <span style=color:#f92672>=</span> () =&gt; <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#39;Network error&#39;</span>));
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>();
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=延伸閱讀>延伸閱讀</h2><ul><li><a href=https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest>MDN - XMLHttpRequest</a></li><li><a href=https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest>MDN - Using XMLHttpRequest</a></li><li><a href=https://xhr.spec.whatwg.org/>WHATWG - XMLHttpRequest Standard</a></li><li><a href=https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started>MDN - AJAX Getting Started</a></li><li><a href=https://developers.google.com/web/updates/2015/03/introduction-to-fetch>Google - XMLHttpRequest vs Fetch</a></li></ul></div><footer class=article-footer><a href=/portfolio-dev/articles/frontend/browser-runtime/network-layer/ class=back-link>← Back to 網路層</a></footer></article></main><footer class=site-footer><p>&copy; 2026 YuHan Jhou. All rights reserved.</p></footer></div></div><script src=https://yu-codes.github.io/portfolio-dev/js/theme.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/roadmap.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/parallax.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/page-transition.js defer></script></body></html>
