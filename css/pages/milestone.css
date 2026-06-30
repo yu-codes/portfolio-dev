@@ -1,0 +1,482 @@
+/* ============================================
+   Timetree - Tech-style milestone timeline
+   Rendered as an overlay panel above the home hero.
+   ============================================ */
+
+/* --- Toggle Button (lives inside .hero, overlaid on home) --- */
+.timetree-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2.5rem;
+    padding: 0.7rem 1.5rem;
+    background: rgba(var(--card-bg-rgb, 255, 255, 255), 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--border-rgb, 229, 231, 235), 0.6);
+    border-radius: 2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    animation: heroFadeIn 1s ease-out 0.4s both;
+}
+
+.timetree-toggle:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.timetree-toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timetree-toggle[aria-expanded="true"] .timetree-toggle-icon {
+    transform: rotate(180deg);
+}
+
+html.dark .timetree-toggle {
+    background: rgba(42, 49, 57, 0.6);
+    border-color: rgba(64, 67, 80, 0.7);
+}
+
+/* --- Overlay (covers the home section, sits above hero, below sidebar) --- */
+.timetree-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.timetree-overlay.timetree-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.35s ease;
+}
+
+/* Dimmed / blurred backdrop over the hero */
+.timetree-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 14, 20, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* --- Panel (the scrollable container) --- */
+.timetree-panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 920px;
+    height: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /* Offset clears the sticky topbar (.home pulls up -2rem under it) */
+    padding-top: 3.5rem;
+    transform: translateY(40px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timetree-overlay.timetree-open .timetree-panel {
+    transform: translateY(0);
+}
+
+/* --- Panel header (fixed, holds centered title + close) --- */
+.timetree-panel-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.5rem 1.75rem 1.5rem;
+}
+
+.timetree-panel-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    /* offset trailing letter-spacing so the text is truly centered */
+    padding-left: 0.4em;
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 22px rgba(37, 99, 235, 0.55);
+}
+
+/* Tech-style glowing lines flanking the title */
+.timetree-panel-title::before,
+.timetree-panel-title::after {
+    content: '';
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color));
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.7);
+}
+
+.timetree-panel-title::after {
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+.timetree-close {
+    position: absolute;
+    right: 1.75rem;
+    top: calc(0.5rem + 4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.timetree-close:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+/* --- Scroll region (only this scrolls; background stays put) --- */
+.timetree-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1.75rem 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+.timetree-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.timetree-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+/* --- Track (central line) --- */
+.timetree-track {
+    position: relative;
+    padding: 1.5rem 0 1rem;
+}
+
+.timetree-track::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--primary-color) 5%,
+        var(--primary-color) 95%,
+        transparent 100%
+    );
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+/* Glow pulse on the track */
+.timetree-track::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--primary-color) 50%,
+        transparent 100%
+    );
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: timetree-pulse 3s ease-in-out infinite;
+}
+
+@keyframes timetree-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.6; }
+}
+
+/* --- Node (each event row) --- */
+.timetree-node {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.timetree-node:last-child {
+    margin-bottom: 0;
+}
+
+/* Left-aligned card */
+.timetree-left {
+    justify-content: flex-start;
+    padding-right: calc(50% + 1.5rem);
+}
+
+.timetree-left .timetree-card {
+    margin-left: auto;
+}
+
+/* Right-aligned card */
+.timetree-right {
+    justify-content: flex-end;
+    padding-left: calc(50% + 1.5rem);
+}
+
+.timetree-right .timetree-card {
+    margin-right: auto;
+}
+
+/* --- Dot on the track --- */
+.timetree-dot {
+    position: absolute;
+    left: 50%;
+    top: 1.25rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 2px solid var(--card-bg);
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.timetree-node:hover .timetree-dot {
+    box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.35),
+                0 0 12px rgba(37, 99, 235, 0.25);
+}
+
+/* --- Card --- */
+.timetree-card {
+    position: relative;
+    max-width: 380px;
+    width: 100%;
+    background: rgba(var(--card-bg-rgb, 255, 255, 255), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(var(--border-rgb, 229, 231, 235), 0.5);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+    /* Entry animation */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.timetree-overlay.timetree-open .timetree-card {
+    animation: timetree-card-in 0.5s ease forwards;
+}
+
+@keyframes timetree-card-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation per card */
+.timetree-overlay.timetree-open .timetree-node:nth-child(1) .timetree-card { animation-delay: 0.1s; }
+.timetree-overlay.timetree-open .timetree-node:nth-child(2) .timetree-card { animation-delay: 0.18s; }
+.timetree-overlay.timetree-open .timetree-node:nth-child(3) .timetree-card { animation-delay: 0.26s; }
+.timetree-overlay.timetree-open .timetree-node:nth-child(4) .timetree-card { animation-delay: 0.34s; }
+.timetree-overlay.timetree-open .timetree-node:nth-child(5) .timetree-card { animation-delay: 0.42s; }
+.timetree-overlay.timetree-open .timetree-node:nth-child(6) .timetree-card { animation-delay: 0.5s; }
+.timetree-overlay.timetree-open .timetree-node:nth-child(7) .timetree-card { animation-delay: 0.58s; }
+.timetree-overlay.timetree-open .timetree-node:nth-child(8) .timetree-card { animation-delay: 0.66s; }
+
+.timetree-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    border-color: var(--primary-color);
+}
+
+/* Tech corner accents */
+.timetree-card::before,
+.timetree-card::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: var(--primary-color);
+    border-style: solid;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.timetree-card::before {
+    top: 4px;
+    left: 4px;
+    border-width: 1.5px 0 0 1.5px;
+}
+
+.timetree-card::after {
+    bottom: 4px;
+    right: 4px;
+    border-width: 0 1.5px 1.5px 0;
+}
+
+.timetree-card:hover::before,
+.timetree-card:hover::after {
+    opacity: 0.7;
+}
+
+/* --- Card Image --- */
+.timetree-card-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+}
+
+.timetree-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.timetree-card:hover .timetree-card-image img {
+    transform: scale(1.05);
+}
+
+/* --- Card Body --- */
+.timetree-card-body {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.timetree-date {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+    font-family: 'Courier New', monospace;
+}
+
+.timetree-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 0.4rem;
+    line-height: 1.4;
+}
+
+.timetree-desc {
+    font-size: 0.85rem;
+    color: var(--sidebar-text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- Dark mode adjustments --- */
+html.dark .timetree-card {
+    background: rgba(42, 49, 57, 0.88);
+    border-color: rgba(64, 67, 80, 0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .timetree-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+html.dark .timetree-dot {
+    border-color: var(--bg-color);
+}
+
+/* --- Responsive: single column on mobile --- */
+@media (max-width: 768px) {
+    .timetree-panel {
+        max-width: 100%;
+    }
+
+    .timetree-panel-header {
+        padding: 0.25rem 1.25rem 1rem;
+    }
+
+    .timetree-panel-title {
+        font-size: 1.25rem;
+        letter-spacing: 0.25em;
+        gap: 0.6rem;
+    }
+
+    .timetree-panel-title::before,
+    .timetree-panel-title::after {
+        width: 28px;
+    }
+
+    .timetree-close {
+        right: 1.25rem;
+    }
+
+    .timetree-scroll {
+        padding: 0 1.25rem 1.5rem;
+    }
+
+    .timetree-track::before,
+    .timetree-track::after {
+        left: 16px;
+    }
+
+    .timetree-node {
+        padding-right: 0 !important;
+        padding-left: 3rem !important;
+        justify-content: flex-start !important;
+    }
+
+    .timetree-left .timetree-card,
+    .timetree-right .timetree-card {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .timetree-dot {
+        left: 16px;
+    }
+
+    .timetree-card-image {
+        height: 140px;
+    }
+}

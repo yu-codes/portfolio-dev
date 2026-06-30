@@ -1,0 +1,1097 @@
+<!doctype html><html lang=en class=html data-base-path=/portfolio-dev/><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Articles - Yu's Portfolio & Learning Hub</title><meta name=description content="Welcome to the technical knowledge base. All content is organized in a consistent 4-level hierarchy to ensure clarity, scalability, and progressive depth.
+Content Structure Level Name Description Level 1 Domain Top-level area of expertise (e.g., AI, Backend, Frontend, Cloud) Level 2 Subdomain Coherent group of related skills within a domain Level 3 Topic Specific subject area with focused learning scope Level 4 Concrete Skill Actionable, executable knowledge unit Domains AI — Machine learning, deep learning, NLP, LLM systems, MLOps, and responsible AI practices Backend — Programming fundamentals, system design, databases, APIs, distributed systems, and platform engineering Frontend — Web foundations, modern frameworks, state management, performance, testing, and accessibility Cloud — Cloud-native architecture, containerization, IaC, CI/CD, networking, and security How to Navigate Use the interactive roadmap below to explore topics visually. Click any node to expand its subtree or navigate directly to the article. Each node is both a navigational element and a full article introducing its children.
+"><meta property="og:title" content="Articles"><meta property="og:description" content="Welcome to the technical knowledge base. All content is organized in a consistent 4-level hierarchy to ensure clarity, scalability, and progressive depth.
+Content Structure Level Name Description Level 1 Domain Top-level area of expertise (e.g., AI, Backend, Frontend, Cloud) Level 2 Subdomain Coherent group of related skills within a domain Level 3 Topic Specific subject area with focused learning scope Level 4 Concrete Skill Actionable, executable knowledge unit Domains AI — Machine learning, deep learning, NLP, LLM systems, MLOps, and responsible AI practices Backend — Programming fundamentals, system design, databases, APIs, distributed systems, and platform engineering Frontend — Web foundations, modern frameworks, state management, performance, testing, and accessibility Cloud — Cloud-native architecture, containerization, IaC, CI/CD, networking, and security How to Navigate Use the interactive roadmap below to explore topics visually. Click any node to expand its subtree or navigate directly to the article. Each node is both a navigational element and a full article introducing its children.
+"><meta property="og:url" content="https://yu-codes.github.io/portfolio-dev/articles/"><link rel=canonical href=https://yu-codes.github.io/portfolio-dev/articles/><link rel=stylesheet href=https://yu-codes.github.io/portfolio-dev/css/main.css></head><body class=body><div class=container><aside class=sidebar><button class=mobile-menu-btn id=mobile-menu-btn aria-label="Open navigation menu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class=sidebar-header><h1 class=name>Yu</h1><p class=tagline>Developer, dreamer, debugger.</p></div><nav class=sidebar-nav><a href=https://yu-codes.github.io/portfolio-dev/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>HOME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/resume/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>RESUME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/projects/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>PROJECTS</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/articles/ class="nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>ARTICLES</span></a></nav><div class=sidebar-footer><div class=controls><button class="control-btn theme-toggle" title="Toggle theme (light/dark)" aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title="Toggle language" aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg></button></div><div class=social-links><a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class=social-link title=GitHub><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class=social-link title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></aside><div class=mobile-nav-overlay id=mobile-nav-overlay><div class=mobile-nav-panel><button class=mobile-nav-close id=mobile-nav-close aria-label="Close navigation">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><nav class=mobile-nav-list><a href=https://yu-codes.github.io/portfolio-dev/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>HOME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/resume/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>RESUME</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/projects/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>PROJECTS</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/articles/ class="mobile-nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>ARTICLES</span></a></nav><div class=mobile-nav-footer><div class=controls><button class="control-btn theme-toggle" title="Toggle theme (light/dark)" aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title="Toggle language" aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</button>
+<a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class="control-btn social-link" title=GitHub><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class="control-btn social-link" title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></div></div><div class=main-content><div class=topbar><div class=breadcrumb><a href=https://yu-codes.github.io/portfolio-dev/>HOME</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/articles/>ARTICLES</a></div></div><main class=content-area><section class=articles-section><div class=articles-header><h1>Articles</h1><div class=articles-intro><p>Welcome to the technical knowledge base. All content is organized in a consistent <strong>4-level hierarchy</strong> to ensure clarity, scalability, and progressive depth.</p><h2 id=content-structure>Content Structure</h2><table><thead><tr><th>Level</th><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><strong>Level 1</strong></td><td>Domain</td><td>Top-level area of expertise (e.g., AI, Backend, Frontend, Cloud)</td></tr><tr><td><strong>Level 2</strong></td><td>Subdomain</td><td>Coherent group of related skills within a domain</td></tr><tr><td><strong>Level 3</strong></td><td>Topic</td><td>Specific subject area with focused learning scope</td></tr><tr><td><strong>Level 4</strong></td><td>Concrete Skill</td><td>Actionable, executable knowledge unit</td></tr></tbody></table><h2 id=domains>Domains</h2><ul><li><strong>AI</strong> — Machine learning, deep learning, NLP, LLM systems, MLOps, and responsible AI practices</li><li><strong>Backend</strong> — Programming fundamentals, system design, databases, APIs, distributed systems, and platform engineering</li><li><strong>Frontend</strong> — Web foundations, modern frameworks, state management, performance, testing, and accessibility</li><li><strong>Cloud</strong> — Cloud-native architecture, containerization, IaC, CI/CD, networking, and security</li></ul><h2 id=how-to-navigate>How to Navigate</h2><p>Use the <strong>interactive roadmap</strong> below to explore topics visually. Click any node to expand its subtree or navigate directly to the article. Each node is both a navigational element and a full article introducing its children.</p></div></div><div class=roadmap-container><div class=roadmap-header><h2>ARTICLES Roadmap</h2><div class=roadmap-controls><button class=roadmap-btn onclick=expandAllRoadmap() title="Expand All">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+<span>Expand</span>
+</button>
+<button class=roadmap-btn onclick=collapseAllRoadmap() title="Collapse All">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+<span>Collapse</span></button></div></div><div class=roadmap-wrapper id=roadmap-wrapper><svg id="roadmap-svg" class="roadmap-svg"/></div></div><div class=category-sections><div class=category-section><div class=category-header><h2>AI</h2></div><div class=latest-articles-list><a href=/portfolio-dev/articles/ai/machine-learning/ class=article-item><span class=article-title>Machine Learning</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/foundations/ class=article-item><span class=article-title>ML 基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/foundations/linear-algebra-stats/ class=article-item><span class=article-title>線性代數與統計基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/foundations/loss-gradient/ class=article-item><span class=article-title>損失函數與梯度下降</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/foundations/traditional-ml/ class=article-item><span class=article-title>傳統機器學習演算法</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/feature-engineering/ class=article-item><span class=article-title>特徵工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/feature-engineering/missing-outliers/ class=article-item><span class=article-title>缺失值與異常值處理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/feature-engineering/categorical-timeseries/ class=article-item><span class=article-title>類別型與時序特徵工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/feature-engineering/vectorization-embeddings/ class=article-item><span class=article-title>向量化與嵌入表示</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/feature-engineering/importance-selection/ class=article-item><span class=article-title>特徵重要性與選擇</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/model-development/ class=article-item><span class=article-title>模型開發</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/model-development/model-selection/ class=article-item><span class=article-title>模型選擇策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/model-development/overfitting-regularization/ class=article-item><span class=article-title>過擬合與正則化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/model-development/loss-optimizers/ class=article-item><span class=article-title>損失函數與優化器設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/model-development/cv-training-strategies/ class=article-item><span class=article-title>交叉驗證與訓練策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/evaluation/ class=article-item><span class=article-title>模型評估</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/evaluation/classification-regression/ class=article-item><span class=article-title>分類與迴歸評估指標</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/evaluation/multiclass-imbalanced/ class=article-item><span class=article-title>多分類與不平衡資料集</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/evaluation/stability-reproducibility/ class=article-item><span class=article-title>模型穩定性與可重現性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/evaluation/explainability/ class=article-item><span class=article-title>模型可解釋性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/ class=article-item><span class=article-title>深度學習</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/frameworks/ class=article-item><span class=article-title>DL 框架</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/frameworks/pytorch-tensorflow/ class=article-item><span class=article-title>PyTorch 與 TensorFlow</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/ class=article-item><span class=article-title>訓練系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/model-building/ class=article-item><span class=article-title>深度學習模型建構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/custom-components/ class=article-item><span class=article-title>自定義元件開發</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/gpu-multigpu/ class=article-item><span class=article-title>GPU 與多 GPU 訓練</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/optimization/ class=article-item><span class=article-title>訓練優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/optimization/distributed-training/ class=article-item><span class=article-title>分散式訓練概念</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/machine-learning/deep-learning/optimization/mixed-precision/ class=article-item><span class=article-title>混合精度訓練</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/ class=article-item><span class=article-title>資料系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-ingestion/ class=article-item><span class=article-title>資料擷取</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-ingestion/data-extraction/ class=article-item><span class=article-title>資料擷取與收集</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-processing/ class=article-item><span class=article-title>資料處理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-processing/cleaning-transformation/ class=article-item><span class=article-title>資料清洗與轉換</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/pipelines/ class=article-item><span class=article-title>資料管線</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/pipelines/pipelines-scheduling/ class=article-item><span class=article-title>資料管線與排程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-versioning/ class=article-item><span class=article-title>資料版控</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-versioning/versioning-tracking/ class=article-item><span class=article-title>資料版本控制與追蹤</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-quality/ class=article-item><span class=article-title>資料品質</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-quality/validation-checks/ class=article-item><span class=article-title>資料品質驗證</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/data-quality/anomaly-detection/ class=article-item><span class=article-title>資料異常偵測</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/feature-store/ class=article-item><span class=article-title>特徵倉儲</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/feature-store/offline-online-features/ class=article-item><span class=article-title>離線與線上特徵</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/data-systems/feature-store/feature-serving/ class=article-item><span class=article-title>特徵服務系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/ class=article-item><span class=article-title>LLM 系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-foundations/ class=article-item><span class=article-title>LLM 基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-foundations/transformers/ class=article-item><span class=article-title>Transformer 架構原理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-foundations/tokenization/ class=article-item><span class=article-title>Tokenization 與詞彙表</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-application/ class=article-item><span class=article-title>LLM 應用</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-application/prompt-engineering/ class=article-item><span class=article-title>Prompt Engineering</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-application/tool-calling-agents/ class=article-item><span class=article-title>Tool Calling 與 AI Agent</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-application/rag-systems/ class=article-item><span class=article-title>RAG 檢索增強生成</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-training/ class=article-item><span class=article-title>LLM 訓練</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-training/fine-tuning/ class=article-item><span class=article-title>模型微調技術</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-training/rlhf-concepts/ class=article-item><span class=article-title>RLHF 人類回饋強化學習</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-evaluation/ class=article-item><span class=article-title>LLM 評估</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-evaluation/hallucination-eval/ class=article-item><span class=article-title>幻覺檢測與評估</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/llm-systems/llm-evaluation/benchmarking/ class=article-item><span class=article-title>LLM 基準測試</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/ class=article-item><span class=article-title>電腦視覺</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/image-understanding/ class=article-item><span class=article-title>影像理解</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/image-understanding/classification/ class=article-item><span class=article-title>影像分類</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/image-understanding/detection/ class=article-item><span class=article-title>物件偵測</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/image-understanding/segmentation/ class=article-item><span class=article-title>影像分割</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/representation-learning/ class=article-item><span class=article-title>表示學習</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/representation-learning/cnn-vision-transformers/ class=article-item><span class=article-title>CNN 與 Vision Transformer</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/representation-learning/embeddings/ class=article-item><span class=article-title>視覺嵌入表示</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/vision-applications/ class=article-item><span class=article-title>視覺應用</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/vision-applications/ocr/ class=article-item><span class=article-title>OCR 光學字元辨識</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/computer-vision/vision-applications/medical-imaging/ class=article-item><span class=article-title>醫學影像分析</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/ class=article-item><span class=article-title>多媒體 AI</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/audio-processing/ class=article-item><span class=article-title>音訊處理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/audio-processing/speech-recognition/ class=article-item><span class=article-title>語音辨識技術</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/audio-processing/speech-generation/ class=article-item><span class=article-title>語音合成與生成</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/video-understanding/ class=article-item><span class=article-title>視訊理解</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/video-understanding/action-recognition/ class=article-item><span class=article-title>動作辨識</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/video-understanding/temporal-modeling/ class=article-item><span class=article-title>時序建模</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/multimodal-models/ class=article-item><span class=article-title>多模態模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/multimodal-models/vision-language-models/ class=article-item><span class=article-title>視覺語言模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/multimedia-ai/multimodal-models/audio-vision-fusion/ class=article-item><span class=article-title>音訊視覺融合</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/ class=article-item><span class=article-title>MLOps</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/training-automation/ class=article-item><span class=article-title>訓練自動化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/training-automation/automated-training/ class=article-item><span class=article-title>自動化訓練流程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/ci-cd/ class=article-item><span class=article-title>ML CI/CD</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/ci-cd/cicd-ml/ class=article-item><span class=article-title>ML 的 CI/CD</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/monitoring/ class=article-item><span class=article-title>模型監控</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/monitoring/monitoring-drift/ class=article-item><span class=article-title>模型監控與漂移偵測</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/monitoring/performance-degradation/ class=article-item><span class=article-title>效能退化與應對</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/experiment-tracking/ class=article-item><span class=article-title>實驗追蹤</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/experiment-tracking/model-versioning/ class=article-item><span class=article-title>模型版本管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/retraining-pipelines/ class=article-item><span class=article-title>重訓練管線</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/mlops/retraining-pipelines/online-learning-loop/ class=article-item><span class=article-title>線上學習迴路</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/deployment-serving/ class=article-item><span class=article-title>部署與服務</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/deployment-serving/model-packaging/ class=article-item><span class=article-title>模型封裝與容器化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/deployment-serving/serving-architecture/ class=article-item><span class=article-title>推論服務架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/deployment-serving/latency-optimization/ class=article-item><span class=article-title>推論延遲優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/deployment-serving/edge-mobile/ class=article-item><span class=article-title>邊緣與行動裝置部署</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/deployment-serving/scaling-inference/ class=article-item><span class=article-title>推論擴展策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/ class=article-item><span class=article-title>AI 基礎設施</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/distributed-computing/ class=article-item><span class=article-title>分散式運算</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/distributed-computing/data-parallel/ class=article-item><span class=article-title>資料平行訓練</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/distributed-computing/model-parallel/ class=article-item><span class=article-title>模型平行訓練</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/hardware-acceleration/ class=article-item><span class=article-title>硬體加速</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/hardware-acceleration/gpu-tpu/ class=article-item><span class=article-title>GPU 與 TPU 加速運算</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/hardware-acceleration/mixed-precision/ class=article-item><span class=article-title>混合精度運算</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/training-systems/ class=article-item><span class=article-title>訓練系統框架</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/infrastructure/training-systems/horovod-deepspeed/ class=article-item><span class=article-title>Horovod 與 DeepSpeed</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/productization/ class=article-item><span class=article-title>AI 產品化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/productization/api-sdk/ class=article-item><span class=article-title>API/SDK</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/productization/api-sdk/model-api-sdk/ class=article-item><span class=article-title>模型 API 與 SDK 設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/productization/integration/ class=article-item><span class=article-title>系統整合策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/productization/ab-testing/ class=article-item><span class=article-title>A/B 測試方法論</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/productization/feature-flags/ class=article-item><span class=article-title>Feature Flags</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/productization/online-experimentation/ class=article-item><span class=article-title>線上實驗平台</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/responsible-ai/ class=article-item><span class=article-title>負責任的 AI</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/responsible-ai/fairness/ class=article-item><span class=article-title>AI 公平性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/responsible-ai/transparency/ class=article-item><span class=article-title>AI 透明度</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/responsible-ai/ethics-privacy/ class=article-item><span class=article-title>AI 倫理與隱私</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/ai/responsible-ai/regulation-compliance/ class=article-item><span class=article-title>AI 法規遵循</span>
+<time datetime=2025-01-01>2025-01-01</time></a></div></div><div class=category-section><div class=category-header><h2>Backend</h2></div><div class=latest-articles-list><a href=/portfolio-dev/articles/backend/programming-fundamentals/ class=article-item><span class=article-title>程式設計基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/language-core/ class=article-item><span class=article-title>語言核心</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/language-core/language-mastery/ class=article-item><span class=article-title>程式語言精通之道</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/language-core/memory-execution-model/ class=article-item><span class=article-title>記憶體與執行模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/language-core/code-style-best-practices/ class=article-item><span class=article-title>程式碼風格與最佳實踐</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/concurrency/ class=article-item><span class=article-title>並行程式設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/concurrency/async-programming/ class=article-item><span class=article-title>非同步程式設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/concurrency/thread-process-model/ class=article-item><span class=article-title>執行緒與行程模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/concurrency/race-condition-deadlock/ class=article-item><span class=article-title>競態條件與死結</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/ class=article-item><span class=article-title>執行環境模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/event-loop/ class=article-item><span class=article-title>事件迴圈機制</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/gc-memory-management/ class=article-item><span class=article-title>垃圾回收與記憶體管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/io-models/ class=article-item><span class=article-title>I/O 模型比較</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/ class=article-item><span class=article-title>電腦科學基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/data-structures/ class=article-item><span class=article-title>資料結構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/data-structures/basic-structures/ class=article-item><span class=article-title>基礎資料結構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/data-structures/trees-graphs/ class=article-item><span class=article-title>樹與圖</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/data-structures/hashing-indexing/ class=article-item><span class=article-title>雜湊與索引</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/algorithms/ class=article-item><span class=article-title>演算法</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/algorithms/search-sorting/ class=article-item><span class=article-title>搜尋與排序演算法</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/algorithms/dynamic-programming/ class=article-item><span class=article-title>動態規劃</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/algorithms/greedy-patterns/ class=article-item><span class=article-title>貪婪演算法模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/complexity-analysis/ class=article-item><span class=article-title>複雜度分析</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/complexity-analysis/big-o-analysis/ class=article-item><span class=article-title>Big-O 複雜度分析</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/computer-science-foundations/complexity-analysis/space-time-tradeoff/ class=article-item><span class=article-title>空間時間權衡</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/ class=article-item><span class=article-title>API 系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/api-design/ class=article-item><span class=article-title>API 設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/api-design/restful-design/ class=article-item><span class=article-title>RESTful API 設計原則</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/api-design/idempotency/ class=article-item><span class=article-title>冪等性設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/api-design/versioning-strategy/ class=article-item><span class=article-title>API 版本控制策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/protocols/ class=article-item><span class=article-title>通訊協定</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/protocols/http-grpc-websocket/ class=article-item><span class=article-title>HTTP、gRPC 與 WebSocket</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/protocols/graphql/ class=article-item><span class=article-title>GraphQL 實踐</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/protocols/streaming-protocols/ class=article-item><span class=article-title>串流協定</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/authentication-authorization/ class=article-item><span class=article-title>認證與授權</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/authentication-authorization/jwt-session-auth/ class=article-item><span class=article-title>JWT 與 Session 認證</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/authentication-authorization/oauth2/ class=article-item><span class=article-title>OAuth 2.0 授權框架</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/authentication-authorization/rbac-abac/ class=article-item><span class=article-title>RBAC 與 ABAC 權限模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/api-documentation/ class=article-item><span class=article-title>API 文件</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/api-documentation/openapi-swagger/ class=article-item><span class=article-title>OpenAPI 與 Swagger</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/api-documentation/contract-first-design/ class=article-item><span class=article-title>契約優先設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/contract-governance/ class=article-item><span class=article-title>契約治理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/contract-governance/schema-evolution/ class=article-item><span class=article-title>Schema 演化策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/contract-governance/backward-compatibility/ class=article-item><span class=article-title>向後相容性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/api-systems/contract-governance/consumer-driven-contract/ class=article-item><span class=article-title>消費者驅動契約</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/ class=article-item><span class=article-title>資料系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-modeling/ class=article-item><span class=article-title>資料建模</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-modeling/relational-modeling/ class=article-item><span class=article-title>關聯式資料建模</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-modeling/nosql-modeling/ class=article-item><span class=article-title>NoSQL 資料建模</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-modeling/schema-design/ class=article-item><span class=article-title>Schema 設計模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/databases/ class=article-item><span class=article-title>資料庫</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/databases/sql/ class=article-item><span class=article-title>SQL 資料庫</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/databases/sql/indexing-query-optimization/ class=article-item><span class=article-title>索引與查詢優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/databases/sql/transactions-acid/ class=article-item><span class=article-title>交易與 ACID 特性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/databases/nosql/ class=article-item><span class=article-title>NoSQL 資料庫生態</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/databases/distributed-databases/ class=article-item><span class=article-title>分散式資料庫</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/caching-indexing/ class=article-item><span class=article-title>快取與索引</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/caching-indexing/redis-memcached/ class=article-item><span class=article-title>Redis 與 Memcached</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/caching-indexing/cache-strategies/ class=article-item><span class=article-title>快取策略模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/caching-indexing/invalidation-patterns/ class=article-item><span class=article-title>快取失效模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-persistence/ class=article-item><span class=article-title>資料持久化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-persistence/backup-recovery/ class=article-item><span class=article-title>備份與復原</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-persistence/migration-strategies/ class=article-item><span class=article-title>資料庫遷移策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-persistence/event-sourcing-cqrs/ class=article-item><span class=article-title>Event Sourcing 與 CQRS</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-streaming/ class=article-item><span class=article-title>資料串流</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-streaming/message-queues/ class=article-item><span class=article-title>訊息佇列系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-streaming/kafka-stream-processing/ class=article-item><span class=article-title>Kafka 與串流處理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/data-systems/data-streaming/event-driven-architecture/ class=article-item><span class=article-title>事件驅動架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/ class=article-item><span class=article-title>系統設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/architecture-patterns/ class=article-item><span class=article-title>架構模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/architecture-patterns/layered-architecture/ class=article-item><span class=article-title>分層架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/architecture-patterns/microservices/ class=article-item><span class=article-title>微服務架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/architecture-patterns/monolith-vs-microservices/ class=article-item><span class=article-title>單體 vs 微服務</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/scalability-design/ class=article-item><span class=article-title>可擴展性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/scalability-design/load-balancing/ class=article-item><span class=article-title>負載平衡</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/scalability-design/horizontal-scaling/ class=article-item><span class=article-title>水平擴展</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/scalability-design/sharding-replication/ class=article-item><span class=article-title>分片與複製</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/distributed-systems/ class=article-item><span class=article-title>分散式系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/distributed-systems/consistency-models/ class=article-item><span class=article-title>一致性模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/distributed-systems/cap-theorem/ class=article-item><span class=article-title>CAP 定理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/distributed-systems/fault-tolerance/ class=article-item><span class=article-title>容錯設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/service-infrastructure/ class=article-item><span class=article-title>服務基礎設施</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/service-infrastructure/api-gateway/ class=article-item><span class=article-title>API Gateway</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/service-infrastructure/service-mesh/ class=article-item><span class=article-title>Service Mesh</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/service-infrastructure/service-discovery/ class=article-item><span class=article-title>服務發現</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/domain-design/ class=article-item><span class=article-title>領域設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/domain-design/ddd/ class=article-item><span class=article-title>領域驅動設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/domain-design/bounded-context/ class=article-item><span class=article-title>Bounded Context</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/domain-design/system-decomposition/ class=article-item><span class=article-title>系統拆分策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/tradeoffs/ class=article-item><span class=article-title>架構權衡</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/tradeoffs/consistency-vs-availability/ class=article-item><span class=article-title>一致性 vs 可用性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/tradeoffs/latency-vs-cost/ class=article-item><span class=article-title>延遲 vs 成本</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/system-design/tradeoffs/coupling-vs-velocity/ class=article-item><span class=article-title>耦合 vs 開發速度</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/performance-engineering/ class=article-item><span class=article-title>效能工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/performance-engineering/latency-optimization/ class=article-item><span class=article-title>延遲優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/performance-engineering/throughput-optimization/ class=article-item><span class=article-title>吞吐量優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/performance-engineering/caching-strategies/ class=article-item><span class=article-title>快取策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/performance-engineering/profiling-debugging/ class=article-item><span class=article-title>效能分析與除錯</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/performance-engineering/load-testing/ class=article-item><span class=article-title>負載測試</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/ class=article-item><span class=article-title>安全性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/application-security/ class=article-item><span class=article-title>應用安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/application-security/owasp-top-10/ class=article-item><span class=article-title>OWASP Top 10</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/application-security/xss-csrf-injection/ class=article-item><span class=article-title>XSS、CSRF 與注入攻擊</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/application-security/secure-coding/ class=article-item><span class=article-title>安全程式設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/authentication-security/ class=article-item><span class=article-title>認證安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/authentication-security/session-management/ class=article-item><span class=article-title>Session 管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/authentication-security/token-security/ class=article-item><span class=article-title>Token 安全性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/authentication-security/password-hashing/ class=article-item><span class=article-title>密碼雜湊</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/infrastructure-security/ class=article-item><span class=article-title>基礎設施安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/infrastructure-security/encryption-key-management/ class=article-item><span class=article-title>加密與金鑰管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/infrastructure-security/network-security/ class=article-item><span class=article-title>網路安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/infrastructure-security/zero-trust-model/ class=article-item><span class=article-title>零信任模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/rate-limiting-protection/ class=article-item><span class=article-title>流量防護</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/rate-limiting-protection/throttling/ class=article-item><span class=article-title>節流控制</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/rate-limiting-protection/anti-bot-strategy/ class=article-item><span class=article-title>反機器人策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/security/rate-limiting-protection/ddos-mitigation/ class=article-item><span class=article-title>DDoS 緩解</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/testing-quality/ class=article-item><span class=article-title>測試品質</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/testing-quality/unit-testing/ class=article-item><span class=article-title>單元測試</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/testing-quality/integration-testing/ class=article-item><span class=article-title>整合測試</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/testing-quality/system-testing/ class=article-item><span class=article-title>系統測試</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/testing-quality/load-testing/ class=article-item><span class=article-title>負載測試</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/testing-quality/test-automation-strategy/ class=article-item><span class=article-title>測試自動化策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/ class=article-item><span class=article-title>DevOps</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/ci-cd/ class=article-item><span class=article-title>CI/CD</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/ci-cd/pipelines/ class=article-item><span class=article-title>CI/CD 管線設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/ci-cd/gitops/ class=article-item><span class=article-title>GitOps 工作流</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/ci-cd/release-strategy/ class=article-item><span class=article-title>發布策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/containerization/ class=article-item><span class=article-title>容器化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/containerization/docker/ class=article-item><span class=article-title>Docker 容器化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/containerization/kubernetes-basics/ class=article-item><span class=article-title>Kubernetes 基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/deployment-strategies/ class=article-item><span class=article-title>部署策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/deployment-strategies/blue-green/ class=article-item><span class=article-title>藍綠部署</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/deployment-strategies/canary-release/ class=article-item><span class=article-title>金絲雀發布</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/deployment-strategies/rolling-update/ class=article-item><span class=article-title>滾動更新</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/infrastructure-automation/ class=article-item><span class=article-title>基礎設施自動化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/infrastructure-automation/iac-concepts/ class=article-item><span class=article-title>IaC 概念</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/infrastructure-automation/terraform-basics/ class=article-item><span class=article-title>Terraform 基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/devops/infrastructure-automation/config-management/ class=article-item><span class=article-title>組態管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/platform-engineering/ class=article-item><span class=article-title>平台工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/platform-engineering/internal-developer-platform/ class=article-item><span class=article-title>內部開發者平台</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/platform-engineering/golden-path/ class=article-item><span class=article-title>Golden Path</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/platform-engineering/service-templates/ class=article-item><span class=article-title>服務模板</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/platform-engineering/developer-experience/ class=article-item><span class=article-title>開發者體驗</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/platform-engineering/self-service-infra/ class=article-item><span class=article-title>自助式基礎設施</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/ class=article-item><span class=article-title>可觀測性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/logging/ class=article-item><span class=article-title>日誌系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/logging/structured-logging/ class=article-item><span class=article-title>結構化日誌</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/logging/log-aggregation/ class=article-item><span class=article-title>日誌聚合</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/monitoring/ class=article-item><span class=article-title>監控系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/monitoring/metrics/ class=article-item><span class=article-title>指標系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/monitoring/dashboards/ class=article-item><span class=article-title>儀表板設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/monitoring/alerting/ class=article-item><span class=article-title>告警策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/tracing/ class=article-item><span class=article-title>分散式追蹤</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/tracing/distributed-tracing/ class=article-item><span class=article-title>分散式追蹤</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/tracing/request-lifecycle/ class=article-item><span class=article-title>請求生命週期</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/sre-principles/ class=article-item><span class=article-title>SRE 原則</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/sre-principles/slo-sli-sla/ class=article-item><span class=article-title>SLO、SLI 與 SLA</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/sre-principles/incident-response/ class=article-item><span class=article-title>事件回應</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/backend/observability-ops/sre-principles/postmortem-culture/ class=article-item><span class=article-title>事後檢討文化</span>
+<time datetime=2025-01-01>2025-01-01</time></a></div></div><div class=category-section><div class=category-header><h2>Frontend</h2></div><div class=latest-articles-list><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/quasar/ class=article-item><span class=article-title>Quasar Framework</span>
+<time datetime=2026-06-30>2026-06-30</time>
+</a><a href=/portfolio-dev/articles/frontend/tooling-workflow/bundlers/vite/ class=article-item><span class=article-title>Vite</span>
+<time datetime=2026-06-30>2026-06-30</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/ class=article-item><span class=article-title>Web 基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/html/ class=article-item><span class=article-title>HTML</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/html/semantic-html/ class=article-item><span class=article-title>語義化 HTML</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/html/forms-validation/ class=article-item><span class=article-title>表單與驗證</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/html/accessibility-basics/ class=article-item><span class=article-title>無障礙基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/ class=article-item><span class=article-title>CSS</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/layout-system/ class=article-item><span class=article-title>佈局系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/layout-system/flexbox/ class=article-item><span class=article-title>Flexbox 彈性佈局</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/layout-system/grid/ class=article-item><span class=article-title>Grid 網格佈局</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/layout-system/positioning/ class=article-item><span class=article-title>CSS 定位系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/responsive-design/ class=article-item><span class=article-title>響應式設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/css-architecture/ class=article-item><span class=article-title>CSS 架構方法論</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/animations-transitions/ class=article-item><span class=article-title>動畫與轉場</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/css/box-model/ class=article-item><span class=article-title>盒模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/browser-basics/ class=article-item><span class=article-title>瀏覽器基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/browser-basics/http-https/ class=article-item><span class=article-title>HTTP 與 HTTPS</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/browser-basics/cors/ class=article-item><span class=article-title>CORS 跨域資源共享</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-foundations/browser-basics/url-request-lifecycle/ class=article-item><span class=article-title>URL 與請求生命週期</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/ class=article-item><span class=article-title>瀏覽器執行環境</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/dom-model/ class=article-item><span class=article-title>DOM 模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/dom-model/dom-manipulation/ class=article-item><span class=article-title>DOM 操作</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/dom-model/event-bubbling-capturing/ class=article-item><span class=article-title>事件冒泡與捕獲</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/dom-model/event-delegation/ class=article-item><span class=article-title>事件委派</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/ class=article-item><span class=article-title>渲染引擎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/critical-rendering-path/ class=article-item><span class=article-title>關鍵渲染路徑</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/layout-paint-composite/ class=article-item><span class=article-title>佈局、繪製與合成</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/reflow-repaint/ class=article-item><span class=article-title>重排與重繪</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/render-pipeline-optimization/ class=article-item><span class=article-title>渲染管線優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/network-layer/ class=article-item><span class=article-title>網路層</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/network-layer/fetch-api/ class=article-item><span class=article-title>Fetch API</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/network-layer/xhr/ class=article-item><span class=article-title>XMLHttpRequest</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/network-layer/websocket/ class=article-item><span class=article-title>WebSocket 即時通訊</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/network-layer/http-caching/ class=article-item><span class=article-title>HTTP 快取機制</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/storage/ class=article-item><span class=article-title>瀏覽器儲存</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/storage/localstorage-sessionstorage/ class=article-item><span class=article-title>LocalStorage 與 SessionStorage</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/storage/cookies/ class=article-item><span class=article-title>Cookies 機制</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/browser-runtime/storage/indexeddb/ class=article-item><span class=article-title>IndexedDB</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/ class=article-item><span class=article-title>JavaScript/TypeScript</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/ class=article-item><span class=article-title>JavaScript 核心</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/execution-model/ class=article-item><span class=article-title>JavaScript 執行模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/scope-closure/ class=article-item><span class=article-title>作用域與閉包</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/prototype-oop/ class=article-item><span class=article-title>原型與物件導向</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/async-programming/ class=article-item><span class=article-title>非同步程式設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/ class=article-item><span class=article-title>執行模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/event-loop/ class=article-item><span class=article-title>事件迴圈</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/microtask-macrotask/ class=article-item><span class=article-title>微任務與巨任務</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/memory-gc/ class=article-item><span class=article-title>記憶體管理與 GC</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/ class=article-item><span class=article-title>TypeScript</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/type-system/ class=article-item><span class=article-title>TypeScript 型別系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/generics/ class=article-item><span class=article-title>泛型程式設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/utility-types/ class=article-item><span class=article-title>工具型別</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/ts-config/ class=article-item><span class=article-title>TypeScript 設定</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-platform/ class=article-item><span class=article-title>Web 平台 API</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-platform/service-worker/ class=article-item><span class=article-title>Service Worker</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-platform/web-workers/ class=article-item><span class=article-title>Web Workers</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-platform/web-components/ class=article-item><span class=article-title>Web Components</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/web-platform/wasm-basics/ class=article-item><span class=article-title>WebAssembly 基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/ class=article-item><span class=article-title>UI 程式設計模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/component-model/ class=article-item><span class=article-title>組件模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/component-model/composition-patterns/ class=article-item><span class=article-title>組合模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/component-model/props-state-events/ class=article-item><span class=article-title>Props、State 與事件</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/component-model/reusable-ui-patterns/ class=article-item><span class=article-title>可複用 UI 模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/state-management/ class=article-item><span class=article-title>狀態管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/state-management/local-state/ class=article-item><span class=article-title>區域狀態</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/state-management/global-state/ class=article-item><span class=article-title>全域狀態</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/state-management/state-normalization/ class=article-item><span class=article-title>狀態正規化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/data-flow/ class=article-item><span class=article-title>資料流</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/data-flow/uni-directional-flow/ class=article-item><span class=article-title>單向資料流</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/data-flow/event-driven-flow/ class=article-item><span class=article-title>事件驅動流</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/data-flow/bi-directional-binding/ class=article-item><span class=article-title>雙向綁定</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/side-effects/ class=article-item><span class=article-title>副作用管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/side-effects/lifecycle-management/ class=article-item><span class=article-title>生命週期管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/side-effects/effect-handling/ class=article-item><span class=article-title>副作用處理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ui-programming-model/side-effects/cleanup-patterns/ class=article-item><span class=article-title>清理模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/ class=article-item><span class=article-title>資料層</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/server-state/ class=article-item><span class=article-title>伺服器狀態</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/server-state/react-query-swr-model/ class=article-item><span class=article-title>React Query 與 SWR 模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/server-state/caching-invalidation/ class=article-item><span class=article-title>快取與失效策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/server-state/async-fetch-boundary/ class=article-item><span class=article-title>非同步取得邊界</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/client-state/ class=article-item><span class=article-title>客戶端狀態管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/api-integration-layer/ class=article-item><span class=article-title>API 整合層</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/mutation-patterns/ class=article-item><span class=article-title>資料變更模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/data-layer/sync-async-boundary/ class=article-item><span class=article-title>同步非同步邊界</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/ class=article-item><span class=article-title>框架生態系</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/ class=article-item><span class=article-title>元件框架</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/ class=article-item><span class=article-title>React</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/jsx/ class=article-item><span class=article-title>JSX 語法</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/hooks/ class=article-item><span class=article-title>React Hooks</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/context/ class=article-item><span class=article-title>Context API</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/state-lifecycle/ class=article-item><span class=article-title>狀態與生命週期</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/ class=article-item><span class=article-title>Vue</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/reactivity/ class=article-item><span class=article-title>Vue 響應式系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/composition-api/ class=article-item><span class=article-title>Composition API</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/lifecycle/ class=article-item><span class=article-title>Vue 生命週期</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/others/ class=article-item><span class=article-title>其他元件框架</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/ class=article-item><span class=article-title>Meta 框架</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/nextjs/ class=article-item><span class=article-title>Next.js</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/nuxt/ class=article-item><span class=article-title>Nuxt</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/remix/ class=article-item><span class=article-title>Remix</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/astro/ class=article-item><span class=article-title>Astro</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/ class=article-item><span class=article-title>渲染模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/reactivity-models/ class=article-item><span class=article-title>響應式模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/virtual-dom-model/ class=article-item><span class=article-title>Virtual DOM</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/compiler-based-ui/ class=article-item><span class=article-title>編譯器驅動 UI</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/ class=article-item><span class=article-title>渲染架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/csr/ class=article-item><span class=article-title>CSR 客戶端渲染</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/ssr/ class=article-item><span class=article-title>SSR 伺服器渲染</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/ssg/ class=article-item><span class=article-title>SSG 靜態生成</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/hydration/ class=article-item><span class=article-title>Hydration 機制</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/islands-architecture/ class=article-item><span class=article-title>Islands 架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/streaming-ssr/ class=article-item><span class=article-title>Streaming SSR</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/rendering-architecture/edge-rendering/ class=article-item><span class=article-title>Edge Rendering</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frontend-architecture/ class=article-item><span class=article-title>前端架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frontend-architecture/application-structure/ class=article-item><span class=article-title>應用程式結構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frontend-architecture/modularization/ class=article-item><span class=article-title>模組化設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frontend-architecture/routing-navigation/ class=article-item><span class=article-title>路由與導航</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frontend-architecture/authentication-flow/ class=article-item><span class=article-title>認證流程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frontend-architecture/api-client-design/ class=article-item><span class=article-title>API Client 設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/performance-engineering/ class=article-item><span class=article-title>效能工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/performance-engineering/bundle-optimization/ class=article-item><span class=article-title>打包優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/performance-engineering/code-splitting/ class=article-item><span class=article-title>程式碼分割</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/performance-engineering/lazy-loading/ class=article-item><span class=article-title>懶載入</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/performance-engineering/runtime-performance/ class=article-item><span class=article-title>執行期效能</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/performance-engineering/network-performance/ class=article-item><span class=article-title>網路效能</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/performance-engineering/web-vitals/ class=article-item><span class=article-title>Web Vitals</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/ux-engineering/ class=article-item><span class=article-title>UX 工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/frontend-platform-engineering/ class=article-item><span class=article-title>平台工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/testing-quality/ class=article-item><span class=article-title>測試品質</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/tooling-workflow/ class=article-item><span class=article-title>工具鏈</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/tooling-workflow/bundlers/ class=article-item><span class=article-title>打包工具</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/engineering-patterns/ class=article-item><span class=article-title>工程模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/observability/ class=article-item><span class=article-title>可觀測性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/observability/frontend-monitoring/ class=article-item><span class=article-title>前端監控</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/security/ class=article-item><span class=article-title>前端安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/security/xss-csrf-protection/ class=article-item><span class=article-title>XSS 與 CSRF 防護</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/security/content-security-policy/ class=article-item><span class=article-title>Content Security Policy</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/frontend/security/secure-storage-practices/ class=article-item><span class=article-title>安全儲存實踐</span>
+<time datetime=2025-01-01>2025-01-01</time></a></div></div><div class=category-section><div class=category-header><h2>Cloud</h2></div><div class=latest-articles-list><a href=/portfolio-dev/articles/cloud/cloud-foundations/ class=article-item><span class=article-title>雲端基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/ class=article-item><span class=article-title>雲端供應商</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/aws-core/ class=article-item><span class=article-title>AWS 核心服務</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/gcp-core/ class=article-item><span class=article-title>GCP 核心服務</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/azure-core/ class=article-item><span class=article-title>Azure 核心服務</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/multi-cloud-strategy/ class=article-item><span class=article-title>多雲策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/ class=article-item><span class=article-title>運算基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/vm-model/ class=article-item><span class=article-title>虛擬機模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/autoscaling/ class=article-item><span class=article-title>自動擴展</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/serverless-basics/ class=article-item><span class=article-title>Serverless 基礎</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/shared-responsibility-model/ class=article-item><span class=article-title>共享責任模型</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/ class=article-item><span class=article-title>架構原則</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/fault-tolerance/ class=article-item><span class=article-title>容錯設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/high-availability/ class=article-item><span class=article-title>高可用性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/stateless-design/ class=article-item><span class=article-title>無狀態設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/ class=article-item><span class=article-title>網路與流量分配</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/vpc-subnet-routing/ class=article-item><span class=article-title>VPC、子網與路由</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/traffic-management/ class=article-item><span class=article-title>流量管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/traffic-management/rate-limiting/ class=article-item><span class=article-title>速率限制</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/traffic-management/retry-timeout/ class=article-item><span class=article-title>重試與逾時</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/traffic-management/circuit-breaker/ class=article-item><span class=article-title>斷路器模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/traffic-management/routing-strategies/ class=article-item><span class=article-title>路由策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/dns-system/ class=article-item><span class=article-title>DNS 系統</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/load-balancing/ class=article-item><span class=article-title>負載平衡</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/cdn-edge-networking/ class=article-item><span class=article-title>CDN 與邊緣網路</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/private-connectivity-vpn/ class=article-item><span class=article-title>私有連線與 VPN</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/networking-distribution/api-gateway/ class=article-item><span class=article-title>API Gateway</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/ class=article-item><span class=article-title>運算與分散式平台</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/virtual-machines/ class=article-item><span class=article-title>虛擬機</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/containers-kubernetes/ class=article-item><span class=article-title>容器與 Kubernetes</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/serverless-functions/ class=article-item><span class=article-title>Serverless 函數</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/event-driven-architecture/ class=article-item><span class=article-title>事件驅動架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/message-queues-pubsub/ class=article-item><span class=article-title>訊息佇列與 Pub/Sub</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/stream-processing/ class=article-item><span class=article-title>串流處理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/workflow-orchestration/ class=article-item><span class=article-title>工作流編排</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compute-distributed-platform/edge-computing-runtime/ class=article-item><span class=article-title>邊緣運算</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/ class=article-item><span class=article-title>儲存與資料平台</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/ class=article-item><span class=article-title>資料層</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/object-storage/ class=article-item><span class=article-title>物件儲存</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/block-storage/ class=article-item><span class=article-title>區塊儲存</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/file-storage/ class=article-item><span class=article-title>檔案儲存</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/managed-databases/ class=article-item><span class=article-title>託管式資料庫</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/distributed-storage/ class=article-item><span class=article-title>分散式儲存</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/ class=article-item><span class=article-title>控制層</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/data-catalog/ class=article-item><span class=article-title>資料目錄</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/metadata-management/ class=article-item><span class=article-title>元資料管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/data-governance/ class=article-item><span class=article-title>資料治理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-application-architecture/ class=article-item><span class=article-title>雲端應用架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-application-architecture/12-factor-app/ class=article-item><span class=article-title>十二因素應用</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-application-architecture/stateless-vs-stateful-services/ class=article-item><span class=article-title>無狀態 vs 有狀態服務</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-application-architecture/configuration-secrets-management/ class=article-item><span class=article-title>配置與密鑰管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-application-architecture/service-boundaries/ class=article-item><span class=article-title>服務邊界設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cloud-application-architecture/cloud-native-design-patterns/ class=article-item><span class=article-title>雲原生設計模式</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/platform-engineering-cloud/ class=article-item><span class=article-title>雲端平台工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/platform-engineering-cloud/internal-developer-platform/ class=article-item><span class=article-title>內部開發者平台</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/platform-engineering-cloud/golden-paths/ class=article-item><span class=article-title>Golden Paths</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/platform-engineering-cloud/self-service-infrastructure/ class=article-item><span class=article-title>自助式基礎設施</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/platform-engineering-cloud/service-templates/ class=article-item><span class=article-title>服務模板</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/platform-engineering-cloud/developer-experience-dx/ class=article-item><span class=article-title>開發者體驗</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/ class=article-item><span class=article-title>基礎設施自動化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/ class=article-item><span class=article-title>IaC</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/terraform/ class=article-item><span class=article-title>Terraform</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/cloudformation/ class=article-item><span class=article-title>CloudFormation</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/pulumi/ class=article-item><span class=article-title>Pulumi</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/configuration-management/ class=article-item><span class=article-title>組態管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/ci-cd-pipelines/ class=article-item><span class=article-title>CI/CD 管線</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/lifecycle-automation/ class=article-item><span class=article-title>生命週期自動化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/event-driven-operations/ class=article-item><span class=article-title>事件驅動維運</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/ class=article-item><span class=article-title>安全與身份</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/iam/ class=article-item><span class=article-title>IAM 身份管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/iam/roles-policies/ class=article-item><span class=article-title>角色與政策</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/iam/least-privilege/ class=article-item><span class=article-title>最小權限原則</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/iam/identity-federation/ class=article-item><span class=article-title>身份聯邦</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/secrets-management/ class=article-item><span class=article-title>密鑰管理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/secrets-management/secret-manager/ class=article-item><span class=article-title>Secret Manager</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/secrets-management/kms-encryption/ class=article-item><span class=article-title>KMS 加密</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/secrets-management/rotation-strategy/ class=article-item><span class=article-title>密鑰輪換策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/network-security/ class=article-item><span class=article-title>網路安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/network-security/security-groups-firewall/ class=article-item><span class=article-title>安全群組與防火牆</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/network-security/zero-trust-networking/ class=article-item><span class=article-title>零信任網路</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/network-security/waf-ddos-protection/ class=article-item><span class=article-title>WAF 與 DDoS 防護</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/application-security/ class=article-item><span class=article-title>應用安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/application-security/api-security/ class=article-item><span class=article-title>API 安全</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/application-security/authn-authz/ class=article-item><span class=article-title>認證與授權</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/security-identity/application-security/threat-protection/ class=article-item><span class=article-title>威脅防護</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/observability-operations/ class=article-item><span class=article-title>可觀測性與維運</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/observability-operations/sre-practices/ class=article-item><span class=article-title>SRE 實踐</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/observability-operations/metrics-logging-tracing/ class=article-item><span class=article-title>指標、日誌與追蹤</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/observability-operations/monitoring-alerting/ class=article-item><span class=article-title>監控與告警</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/observability-operations/telemetry-standard/ class=article-item><span class=article-title>遙測標準</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/reliability-resilience/ class=article-item><span class=article-title>可靠性與韌性</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/reliability-resilience/multi-region-architecture/ class=article-item><span class=article-title>多區域架構</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/reliability-resilience/disaster-recovery/ class=article-item><span class=article-title>災害復原</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/reliability-resilience/backup-recovery/ class=article-item><span class=article-title>備份與復原</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/reliability-resilience/failover-strategies/ class=article-item><span class=article-title>故障轉移策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/reliability-resilience/chaos-engineering/ class=article-item><span class=article-title>混沌工程</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/reliability-resilience/cloud-monitoring/ class=article-item><span class=article-title>雲端監控</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cost-governance/ class=article-item><span class=article-title>成本治理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cost-governance/cost-monitoring/ class=article-item><span class=article-title>成本監控</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cost-governance/resource-tagging/ class=article-item><span class=article-title>資源標籤策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cost-governance/budget-alerting/ class=article-item><span class=article-title>預算告警</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cost-governance/cost-optimization/ class=article-item><span class=article-title>成本優化</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/cost-governance/capacity-planning/ class=article-item><span class=article-title>容量規劃</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/multi-cloud-hybrid/ class=article-item><span class=article-title>多雲與混合雲</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/multi-cloud-hybrid/cross-cloud-networking/ class=article-item><span class=article-title>跨雲網路</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/multi-cloud-hybrid/identity-federation/ class=article-item><span class=article-title>跨雲身份聯邦</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/multi-cloud-hybrid/data-migration-strategy/ class=article-item><span class=article-title>資料遷移策略</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/multi-cloud-hybrid/portability-design/ class=article-item><span class=article-title>可攜性設計</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compliance-governance/ class=article-item><span class=article-title>合規與治理</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compliance-governance/audit-logging/ class=article-item><span class=article-title>稽核日誌</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compliance-governance/data-sovereignty/ class=article-item><span class=article-title>資料主權</span>
+<time datetime=2025-01-01>2025-01-01</time>
+</a><a href=/portfolio-dev/articles/cloud/compliance-governance/regulatory-compliance/ class=article-item><span class=article-title>法規遵循</span>
+<time datetime=2025-01-01>2025-01-01</time></a></div></div></div></section><script>window.roadmapData={id:"root",title:"Roadmap",children:[{id:"D1",title:"AI",url:"/portfolio-dev/articles/ai/",children:[{id:"D1.1",title:"1. Machine Learning",url:"/portfolio-dev/articles/ai/machine-learning/",children:[{id:"D1.1.1",title:"1. ML 基礎",url:"/portfolio-dev/articles/ai/machine-learning/foundations/",children:[{id:"D1.1.1.1",title:"1. 線性代數與統計基礎",url:"/portfolio-dev/articles/ai/machine-learning/foundations/linear-algebra-stats/",children:[]},{id:"D1.1.1.2",title:"2. 損失函數與梯度下降",url:"/portfolio-dev/articles/ai/machine-learning/foundations/loss-gradient/",children:[]},{id:"D1.1.1.3",title:"3. 傳統機器學習演算法",url:"/portfolio-dev/articles/ai/machine-learning/foundations/traditional-ml/",children:[]}]},{id:"D1.1.2",title:"2. 特徵工程",url:"/portfolio-dev/articles/ai/machine-learning/feature-engineering/",children:[{id:"D1.1.2.1",title:"1. 缺失值與異常值處理",url:"/portfolio-dev/articles/ai/machine-learning/feature-engineering/missing-outliers/",children:[]},{id:"D1.1.2.2",title:"2. 類別型與時序特徵工程",url:"/portfolio-dev/articles/ai/machine-learning/feature-engineering/categorical-timeseries/",children:[]},{id:"D1.1.2.3",title:"3. 向量化與嵌入表示",url:"/portfolio-dev/articles/ai/machine-learning/feature-engineering/vectorization-embeddings/",children:[]},{id:"D1.1.2.4",title:"4. 特徵重要性與選擇",url:"/portfolio-dev/articles/ai/machine-learning/feature-engineering/importance-selection/",children:[]}]},{id:"D1.1.3",title:"3. 模型開發",url:"/portfolio-dev/articles/ai/machine-learning/model-development/",children:[{id:"D1.1.3.1",title:"1. 模型選擇策略",url:"/portfolio-dev/articles/ai/machine-learning/model-development/model-selection/",children:[]},{id:"D1.1.3.2",title:"2. 過擬合與正則化",url:"/portfolio-dev/articles/ai/machine-learning/model-development/overfitting-regularization/",children:[]},{id:"D1.1.3.3",title:"3. 損失函數與優化器設計",url:"/portfolio-dev/articles/ai/machine-learning/model-development/loss-optimizers/",children:[]},{id:"D1.1.3.4",title:"4. 交叉驗證與訓練策略",url:"/portfolio-dev/articles/ai/machine-learning/model-development/cv-training-strategies/",children:[]}]},{id:"D1.1.4",title:"4. 模型評估",url:"/portfolio-dev/articles/ai/machine-learning/evaluation/",children:[{id:"D1.1.4.1",title:"1. 分類與迴歸評估指標",url:"/portfolio-dev/articles/ai/machine-learning/evaluation/classification-regression/",children:[]},{id:"D1.1.4.2",title:"2. 多分類與不平衡資料集",url:"/portfolio-dev/articles/ai/machine-learning/evaluation/multiclass-imbalanced/",children:[]},{id:"D1.1.4.3",title:"3. 模型穩定性與可重現性",url:"/portfolio-dev/articles/ai/machine-learning/evaluation/stability-reproducibility/",children:[]},{id:"D1.1.4.4",title:"4. 模型可解釋性",url:"/portfolio-dev/articles/ai/machine-learning/evaluation/explainability/",children:[]}]},{id:"D1.1.5",title:"5. 深度學習",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/",children:[{id:"D1.1.5.1",title:"1. DL 框架",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/frameworks/",children:[{id:"D1.1.5.1.1",title:"1. PyTorch 與 TensorFlow",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/frameworks/pytorch-tensorflow/",children:[]}]},{id:"D1.1.5.2",title:"2. 訓練系統",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/",children:[{id:"D1.1.5.2.1",title:"1. 深度學習模型建構",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/model-building/",children:[]},{id:"D1.1.5.2.2",title:"2. 自定義元件開發",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/custom-components/",children:[]},{id:"D1.1.5.2.3",title:"3. GPU 與多 GPU 訓練",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/training-systems/gpu-multigpu/",children:[]}]},{id:"D1.1.5.3",title:"3. 訓練優化",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/optimization/",children:[{id:"D1.1.5.3.1",title:"1. 分散式訓練概念",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/optimization/distributed-training/",children:[]},{id:"D1.1.5.3.2",title:"2. 混合精度訓練",url:"/portfolio-dev/articles/ai/machine-learning/deep-learning/optimization/mixed-precision/",children:[]}]}]}]},{id:"D1.2",title:"2. 資料系統",url:"/portfolio-dev/articles/ai/data-systems/",children:[{id:"D1.2.1",title:"1. 資料擷取",url:"/portfolio-dev/articles/ai/data-systems/data-ingestion/",children:[{id:"D1.2.1.1",title:"1. 資料擷取與收集",url:"/portfolio-dev/articles/ai/data-systems/data-ingestion/data-extraction/",children:[]}]},{id:"D1.2.2",title:"2. 資料處理",url:"/portfolio-dev/articles/ai/data-systems/data-processing/",children:[{id:"D1.2.2.1",title:"1. 資料清洗與轉換",url:"/portfolio-dev/articles/ai/data-systems/data-processing/cleaning-transformation/",children:[]}]},{id:"D1.2.3",title:"3. 資料管線",url:"/portfolio-dev/articles/ai/data-systems/pipelines/",children:[{id:"D1.2.3.1",title:"1. 資料管線與排程",url:"/portfolio-dev/articles/ai/data-systems/pipelines/pipelines-scheduling/",children:[]}]},{id:"D1.2.4",title:"4. 資料版控",url:"/portfolio-dev/articles/ai/data-systems/data-versioning/",children:[{id:"D1.2.4.1",title:"1. 資料版本控制與追蹤",url:"/portfolio-dev/articles/ai/data-systems/data-versioning/versioning-tracking/",children:[]}]},{id:"D1.2.5",title:"5. 資料品質",url:"/portfolio-dev/articles/ai/data-systems/data-quality/",children:[{id:"D1.2.5.1",title:"1. 資料品質驗證",url:"/portfolio-dev/articles/ai/data-systems/data-quality/validation-checks/",children:[]},{id:"D1.2.5.2",title:"2. 資料異常偵測",url:"/portfolio-dev/articles/ai/data-systems/data-quality/anomaly-detection/",children:[]}]},{id:"D1.2.6",title:"6. 特徵倉儲",url:"/portfolio-dev/articles/ai/data-systems/feature-store/",children:[{id:"D1.2.6.1",title:"1. 離線與線上特徵",url:"/portfolio-dev/articles/ai/data-systems/feature-store/offline-online-features/",children:[]},{id:"D1.2.6.2",title:"2. 特徵服務系統",url:"/portfolio-dev/articles/ai/data-systems/feature-store/feature-serving/",children:[]}]}]},{id:"D1.3",title:"3. LLM 系統",url:"/portfolio-dev/articles/ai/llm-systems/",children:[{id:"D1.3.1",title:"1. LLM 基礎",url:"/portfolio-dev/articles/ai/llm-systems/llm-foundations/",children:[{id:"D1.3.1.1",title:"1. Transformer 架構原理",url:"/portfolio-dev/articles/ai/llm-systems/llm-foundations/transformers/",children:[]},{id:"D1.3.1.2",title:"2. Tokenization 與詞彙表",url:"/portfolio-dev/articles/ai/llm-systems/llm-foundations/tokenization/",children:[]}]},{id:"D1.3.2",title:"2. LLM 應用",url:"/portfolio-dev/articles/ai/llm-systems/llm-application/",children:[{id:"D1.3.2.1",title:"1. Prompt Engineering",url:"/portfolio-dev/articles/ai/llm-systems/llm-application/prompt-engineering/",children:[]},{id:"D1.3.2.2",title:"2. Tool Calling 與 AI Agent",url:"/portfolio-dev/articles/ai/llm-systems/llm-application/tool-calling-agents/",children:[]},{id:"D1.3.2.3",title:"3. RAG 檢索增強生成",url:"/portfolio-dev/articles/ai/llm-systems/llm-application/rag-systems/",children:[]}]},{id:"D1.3.3",title:"3. LLM 訓練",url:"/portfolio-dev/articles/ai/llm-systems/llm-training/",children:[{id:"D1.3.3.1",title:"1. 模型微調技術",url:"/portfolio-dev/articles/ai/llm-systems/llm-training/fine-tuning/",children:[]},{id:"D1.3.3.2",title:"2. RLHF 人類回饋強化學習",url:"/portfolio-dev/articles/ai/llm-systems/llm-training/rlhf-concepts/",children:[]}]},{id:"D1.3.4",title:"4. LLM 評估",url:"/portfolio-dev/articles/ai/llm-systems/llm-evaluation/",children:[{id:"D1.3.4.1",title:"1. 幻覺檢測與評估",url:"/portfolio-dev/articles/ai/llm-systems/llm-evaluation/hallucination-eval/",children:[]},{id:"D1.3.4.2",title:"2. LLM 基準測試",url:"/portfolio-dev/articles/ai/llm-systems/llm-evaluation/benchmarking/",children:[]}]}]},{id:"D1.4",title:"4. 電腦視覺",url:"/portfolio-dev/articles/ai/computer-vision/",children:[{id:"D1.4.1",title:"1. 影像理解",url:"/portfolio-dev/articles/ai/computer-vision/image-understanding/",children:[{id:"D1.4.1.1",title:"1. 影像分類",url:"/portfolio-dev/articles/ai/computer-vision/image-understanding/classification/",children:[]},{id:"D1.4.1.2",title:"2. 物件偵測",url:"/portfolio-dev/articles/ai/computer-vision/image-understanding/detection/",children:[]},{id:"D1.4.1.3",title:"3. 影像分割",url:"/portfolio-dev/articles/ai/computer-vision/image-understanding/segmentation/",children:[]}]},{id:"D1.4.2",title:"2. 表示學習",url:"/portfolio-dev/articles/ai/computer-vision/representation-learning/",children:[{id:"D1.4.2.1",title:"1. CNN 與 Vision Transformer",url:"/portfolio-dev/articles/ai/computer-vision/representation-learning/cnn-vision-transformers/",children:[]},{id:"D1.4.2.2",title:"2. 視覺嵌入表示",url:"/portfolio-dev/articles/ai/computer-vision/representation-learning/embeddings/",children:[]}]},{id:"D1.4.3",title:"3. 視覺應用",url:"/portfolio-dev/articles/ai/computer-vision/vision-applications/",children:[{id:"D1.4.3.1",title:"1. OCR 光學字元辨識",url:"/portfolio-dev/articles/ai/computer-vision/vision-applications/ocr/",children:[]},{id:"D1.4.3.2",title:"2. 醫學影像分析",url:"/portfolio-dev/articles/ai/computer-vision/vision-applications/medical-imaging/",children:[]}]}]},{id:"D1.5",title:"5. 多媒體 AI",url:"/portfolio-dev/articles/ai/multimedia-ai/",children:[{id:"D1.5.1",title:"1. 音訊處理",url:"/portfolio-dev/articles/ai/multimedia-ai/audio-processing/",children:[{id:"D1.5.1.1",title:"1. 語音辨識技術",url:"/portfolio-dev/articles/ai/multimedia-ai/audio-processing/speech-recognition/",children:[]},{id:"D1.5.1.2",title:"2. 語音合成與生成",url:"/portfolio-dev/articles/ai/multimedia-ai/audio-processing/speech-generation/",children:[]}]},{id:"D1.5.2",title:"2. 視訊理解",url:"/portfolio-dev/articles/ai/multimedia-ai/video-understanding/",children:[{id:"D1.5.2.1",title:"1. 動作辨識",url:"/portfolio-dev/articles/ai/multimedia-ai/video-understanding/action-recognition/",children:[]},{id:"D1.5.2.2",title:"2. 時序建模",url:"/portfolio-dev/articles/ai/multimedia-ai/video-understanding/temporal-modeling/",children:[]}]},{id:"D1.5.3",title:"3. 多模態模型",url:"/portfolio-dev/articles/ai/multimedia-ai/multimodal-models/",children:[{id:"D1.5.3.1",title:"1. 視覺語言模型",url:"/portfolio-dev/articles/ai/multimedia-ai/multimodal-models/vision-language-models/",children:[]},{id:"D1.5.3.2",title:"2. 音訊視覺融合",url:"/portfolio-dev/articles/ai/multimedia-ai/multimodal-models/audio-vision-fusion/",children:[]}]}]},{id:"D1.6",title:"6. MLOps",url:"/portfolio-dev/articles/ai/mlops/",children:[{id:"D1.6.1",title:"1. 訓練自動化",url:"/portfolio-dev/articles/ai/mlops/training-automation/",children:[{id:"D1.6.1.1",title:"1. 自動化訓練流程",url:"/portfolio-dev/articles/ai/mlops/training-automation/automated-training/",children:[]}]},{id:"D1.6.2",title:"2. ML CI/CD",url:"/portfolio-dev/articles/ai/mlops/ci-cd/",children:[{id:"D1.6.2.1",title:"1. ML 的 CI/CD",url:"/portfolio-dev/articles/ai/mlops/ci-cd/cicd-ml/",children:[]}]},{id:"D1.6.3",title:"3. 模型監控",url:"/portfolio-dev/articles/ai/mlops/monitoring/",children:[{id:"D1.6.3.1",title:"1. 模型監控與漂移偵測",url:"/portfolio-dev/articles/ai/mlops/monitoring/monitoring-drift/",children:[]},{id:"D1.6.3.2",title:"2. 效能退化與應對",url:"/portfolio-dev/articles/ai/mlops/monitoring/performance-degradation/",children:[]}]},{id:"D1.6.4",title:"4. 實驗追蹤",url:"/portfolio-dev/articles/ai/mlops/experiment-tracking/",children:[{id:"D1.6.4.1",title:"1. 模型版本管理",url:"/portfolio-dev/articles/ai/mlops/experiment-tracking/model-versioning/",children:[]}]},{id:"D1.6.5",title:"5. 重訓練管線",url:"/portfolio-dev/articles/ai/mlops/retraining-pipelines/",children:[{id:"D1.6.5.1",title:"1. 線上學習迴路",url:"/portfolio-dev/articles/ai/mlops/retraining-pipelines/online-learning-loop/",children:[]}]}]},{id:"D1.7",title:"7. 部署與服務",url:"/portfolio-dev/articles/ai/deployment-serving/",children:[{id:"D1.7.1",title:"1. 模型封裝與容器化",url:"/portfolio-dev/articles/ai/deployment-serving/model-packaging/",children:[]},{id:"D1.7.2",title:"2. 推論服務架構",url:"/portfolio-dev/articles/ai/deployment-serving/serving-architecture/",children:[]},{id:"D1.7.3",title:"3. 推論延遲優化",url:"/portfolio-dev/articles/ai/deployment-serving/latency-optimization/",children:[]},{id:"D1.7.4",title:"4. 邊緣與行動裝置部署",url:"/portfolio-dev/articles/ai/deployment-serving/edge-mobile/",children:[]},{id:"D1.7.5",title:"5. 推論擴展策略",url:"/portfolio-dev/articles/ai/deployment-serving/scaling-inference/",children:[]}]},{id:"D1.8",title:"8. AI 基礎設施",url:"/portfolio-dev/articles/ai/infrastructure/",children:[{id:"D1.8.1",title:"1. 分散式運算",url:"/portfolio-dev/articles/ai/infrastructure/distributed-computing/",children:[{id:"D1.8.1.1",title:"1. 資料平行訓練",url:"/portfolio-dev/articles/ai/infrastructure/distributed-computing/data-parallel/",children:[]},{id:"D1.8.1.2",title:"2. 模型平行訓練",url:"/portfolio-dev/articles/ai/infrastructure/distributed-computing/model-parallel/",children:[]}]},{id:"D1.8.2",title:"2. 硬體加速",url:"/portfolio-dev/articles/ai/infrastructure/hardware-acceleration/",children:[{id:"D1.8.2.1",title:"1. GPU 與 TPU 加速運算",url:"/portfolio-dev/articles/ai/infrastructure/hardware-acceleration/gpu-tpu/",children:[]},{id:"D1.8.2.2",title:"2. 混合精度運算",url:"/portfolio-dev/articles/ai/infrastructure/hardware-acceleration/mixed-precision/",children:[]}]},{id:"D1.8.3",title:"3. 訓練系統框架",url:"/portfolio-dev/articles/ai/infrastructure/training-systems/",children:[{id:"D1.8.3.1",title:"1. Horovod 與 DeepSpeed",url:"/portfolio-dev/articles/ai/infrastructure/training-systems/horovod-deepspeed/",children:[]}]}]},{id:"D1.9",title:"9. AI 產品化",url:"/portfolio-dev/articles/ai/productization/",children:[{id:"D1.9.1",title:"1. API/SDK",url:"/portfolio-dev/articles/ai/productization/api-sdk/",children:[{id:"D1.9.1.1",title:"1. 模型 API 與 SDK 設計",url:"/portfolio-dev/articles/ai/productization/api-sdk/model-api-sdk/",children:[]}]},{id:"D1.9.2",title:"2. 系統整合策略",url:"/portfolio-dev/articles/ai/productization/integration/",children:[]},{id:"D1.9.3",title:"3. A/B 測試方法論",url:"/portfolio-dev/articles/ai/productization/ab-testing/",children:[]},{id:"D1.9.4",title:"4. Feature Flags",url:"/portfolio-dev/articles/ai/productization/feature-flags/",children:[]},{id:"D1.9.5",title:"5. 線上實驗平台",url:"/portfolio-dev/articles/ai/productization/online-experimentation/",children:[]}]},{id:"D1.10",title:"10. 負責任的 AI",url:"/portfolio-dev/articles/ai/responsible-ai/",children:[{id:"D1.10.1",title:"1. AI 公平性",url:"/portfolio-dev/articles/ai/responsible-ai/fairness/",children:[]},{id:"D1.10.2",title:"2. AI 透明度",url:"/portfolio-dev/articles/ai/responsible-ai/transparency/",children:[]},{id:"D1.10.3",title:"3. AI 倫理與隱私",url:"/portfolio-dev/articles/ai/responsible-ai/ethics-privacy/",children:[]},{id:"D1.10.4",title:"4. AI 法規遵循",url:"/portfolio-dev/articles/ai/responsible-ai/regulation-compliance/",children:[]}]}]},{id:"D2",title:"Backend",url:"/portfolio-dev/articles/backend/",children:[{id:"D2.1",title:"1. 程式設計基礎",url:"/portfolio-dev/articles/backend/programming-fundamentals/",children:[{id:"D2.1.1",title:"1. 語言核心",url:"/portfolio-dev/articles/backend/programming-fundamentals/language-core/",children:[{id:"D2.1.1.1",title:"1. 程式語言精通之道",url:"/portfolio-dev/articles/backend/programming-fundamentals/language-core/language-mastery/",children:[]},{id:"D2.1.1.2",title:"2. 記憶體與執行模型",url:"/portfolio-dev/articles/backend/programming-fundamentals/language-core/memory-execution-model/",children:[]},{id:"D2.1.1.3",title:"3. 程式碼風格與最佳實踐",url:"/portfolio-dev/articles/backend/programming-fundamentals/language-core/code-style-best-practices/",children:[]}]},{id:"D2.1.2",title:"2. 並行程式設計",url:"/portfolio-dev/articles/backend/programming-fundamentals/concurrency/",children:[{id:"D2.1.2.1",title:"1. 非同步程式設計",url:"/portfolio-dev/articles/backend/programming-fundamentals/concurrency/async-programming/",children:[]},{id:"D2.1.2.2",title:"2. 執行緒與行程模型",url:"/portfolio-dev/articles/backend/programming-fundamentals/concurrency/thread-process-model/",children:[]},{id:"D2.1.2.3",title:"3. 競態條件與死結",url:"/portfolio-dev/articles/backend/programming-fundamentals/concurrency/race-condition-deadlock/",children:[]}]},{id:"D2.1.3",title:"3. 執行環境模型",url:"/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/",children:[{id:"D2.1.3.1",title:"1. 事件迴圈機制",url:"/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/event-loop/",children:[]},{id:"D2.1.3.2",title:"2. 垃圾回收與記憶體管理",url:"/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/gc-memory-management/",children:[]},{id:"D2.1.3.3",title:"3. I/O 模型比較",url:"/portfolio-dev/articles/backend/programming-fundamentals/runtime-models/io-models/",children:[]}]}]},{id:"D2.2",title:"2. 電腦科學基礎",url:"/portfolio-dev/articles/backend/computer-science-foundations/",children:[{id:"D2.2.1",title:"1. 資料結構",url:"/portfolio-dev/articles/backend/computer-science-foundations/data-structures/",children:[{id:"D2.2.1.1",title:"1. 基礎資料結構",url:"/portfolio-dev/articles/backend/computer-science-foundations/data-structures/basic-structures/",children:[]},{id:"D2.2.1.2",title:"2. 樹與圖",url:"/portfolio-dev/articles/backend/computer-science-foundations/data-structures/trees-graphs/",children:[]},{id:"D2.2.1.3",title:"3. 雜湊與索引",url:"/portfolio-dev/articles/backend/computer-science-foundations/data-structures/hashing-indexing/",children:[]}]},{id:"D2.2.2",title:"2. 演算法",url:"/portfolio-dev/articles/backend/computer-science-foundations/algorithms/",children:[{id:"D2.2.2.1",title:"1. 搜尋與排序演算法",url:"/portfolio-dev/articles/backend/computer-science-foundations/algorithms/search-sorting/",children:[]},{id:"D2.2.2.2",title:"2. 動態規劃",url:"/portfolio-dev/articles/backend/computer-science-foundations/algorithms/dynamic-programming/",children:[]},{id:"D2.2.2.3",title:"3. 貪婪演算法模式",url:"/portfolio-dev/articles/backend/computer-science-foundations/algorithms/greedy-patterns/",children:[]}]},{id:"D2.2.3",title:"3. 複雜度分析",url:"/portfolio-dev/articles/backend/computer-science-foundations/complexity-analysis/",children:[{id:"D2.2.3.1",title:"1. Big-O 複雜度分析",url:"/portfolio-dev/articles/backend/computer-science-foundations/complexity-analysis/big-o-analysis/",children:[]},{id:"D2.2.3.2",title:"2. 空間時間權衡",url:"/portfolio-dev/articles/backend/computer-science-foundations/complexity-analysis/space-time-tradeoff/",children:[]}]}]},{id:"D2.3",title:"3. API 系統",url:"/portfolio-dev/articles/backend/api-systems/",children:[{id:"D2.3.1",title:"1. API 設計",url:"/portfolio-dev/articles/backend/api-systems/api-design/",children:[{id:"D2.3.1.1",title:"1. RESTful API 設計原則",url:"/portfolio-dev/articles/backend/api-systems/api-design/restful-design/",children:[]},{id:"D2.3.1.2",title:"2. 冪等性設計",url:"/portfolio-dev/articles/backend/api-systems/api-design/idempotency/",children:[]},{id:"D2.3.1.3",title:"3. API 版本控制策略",url:"/portfolio-dev/articles/backend/api-systems/api-design/versioning-strategy/",children:[]}]},{id:"D2.3.2",title:"2. 通訊協定",url:"/portfolio-dev/articles/backend/api-systems/protocols/",children:[{id:"D2.3.2.1",title:"1. HTTP、gRPC 與 WebSocket",url:"/portfolio-dev/articles/backend/api-systems/protocols/http-grpc-websocket/",children:[]},{id:"D2.3.2.2",title:"2. GraphQL 實踐",url:"/portfolio-dev/articles/backend/api-systems/protocols/graphql/",children:[]},{id:"D2.3.2.3",title:"3. 串流協定",url:"/portfolio-dev/articles/backend/api-systems/protocols/streaming-protocols/",children:[]}]},{id:"D2.3.3",title:"3. 認證與授權",url:"/portfolio-dev/articles/backend/api-systems/authentication-authorization/",children:[{id:"D2.3.3.1",title:"1. JWT 與 Session 認證",url:"/portfolio-dev/articles/backend/api-systems/authentication-authorization/jwt-session-auth/",children:[]},{id:"D2.3.3.2",title:"2. OAuth 2.0 授權框架",url:"/portfolio-dev/articles/backend/api-systems/authentication-authorization/oauth2/",children:[]},{id:"D2.3.3.3",title:"3. RBAC 與 ABAC 權限模型",url:"/portfolio-dev/articles/backend/api-systems/authentication-authorization/rbac-abac/",children:[]}]},{id:"D2.3.4",title:"4. API 文件",url:"/portfolio-dev/articles/backend/api-systems/api-documentation/",children:[{id:"D2.3.4.1",title:"1. OpenAPI 與 Swagger",url:"/portfolio-dev/articles/backend/api-systems/api-documentation/openapi-swagger/",children:[]},{id:"D2.3.4.2",title:"2. 契約優先設計",url:"/portfolio-dev/articles/backend/api-systems/api-documentation/contract-first-design/",children:[]}]},{id:"D2.3.5",title:"5. 契約治理",url:"/portfolio-dev/articles/backend/api-systems/contract-governance/",children:[{id:"D2.3.5.1",title:"1. Schema 演化策略",url:"/portfolio-dev/articles/backend/api-systems/contract-governance/schema-evolution/",children:[]},{id:"D2.3.5.2",title:"2. 向後相容性",url:"/portfolio-dev/articles/backend/api-systems/contract-governance/backward-compatibility/",children:[]},{id:"D2.3.5.3",title:"3. 消費者驅動契約",url:"/portfolio-dev/articles/backend/api-systems/contract-governance/consumer-driven-contract/",children:[]}]}]},{id:"D2.4",title:"4. 資料系統",url:"/portfolio-dev/articles/backend/data-systems/",children:[{id:"D2.4.1",title:"1. 資料建模",url:"/portfolio-dev/articles/backend/data-systems/data-modeling/",children:[{id:"D2.4.1.1",title:"1. 關聯式資料建模",url:"/portfolio-dev/articles/backend/data-systems/data-modeling/relational-modeling/",children:[]},{id:"D2.4.1.2",title:"2. NoSQL 資料建模",url:"/portfolio-dev/articles/backend/data-systems/data-modeling/nosql-modeling/",children:[]},{id:"D2.4.1.3",title:"3. Schema 設計模式",url:"/portfolio-dev/articles/backend/data-systems/data-modeling/schema-design/",children:[]}]},{id:"D2.4.2",title:"2. 資料庫",url:"/portfolio-dev/articles/backend/data-systems/databases/",children:[{id:"D2.4.2.1",title:"1. SQL 資料庫",url:"/portfolio-dev/articles/backend/data-systems/databases/sql/",children:[{id:"D2.4.2.1.1",title:"1. 索引與查詢優化",url:"/portfolio-dev/articles/backend/data-systems/databases/sql/indexing-query-optimization/",children:[]},{id:"D2.4.2.1.2",title:"2. 交易與 ACID 特性",url:"/portfolio-dev/articles/backend/data-systems/databases/sql/transactions-acid/",children:[]}]},{id:"D2.4.2.2",title:"2. NoSQL 資料庫生態",url:"/portfolio-dev/articles/backend/data-systems/databases/nosql/",children:[]},{id:"D2.4.2.3",title:"3. 分散式資料庫",url:"/portfolio-dev/articles/backend/data-systems/databases/distributed-databases/",children:[]}]},{id:"D2.4.3",title:"3. 快取與索引",url:"/portfolio-dev/articles/backend/data-systems/caching-indexing/",children:[{id:"D2.4.3.1",title:"1. Redis 與 Memcached",url:"/portfolio-dev/articles/backend/data-systems/caching-indexing/redis-memcached/",children:[]},{id:"D2.4.3.2",title:"2. 快取策略模式",url:"/portfolio-dev/articles/backend/data-systems/caching-indexing/cache-strategies/",children:[]},{id:"D2.4.3.3",title:"3. 快取失效模式",url:"/portfolio-dev/articles/backend/data-systems/caching-indexing/invalidation-patterns/",children:[]}]},{id:"D2.4.4",title:"4. 資料持久化",url:"/portfolio-dev/articles/backend/data-systems/data-persistence/",children:[{id:"D2.4.4.1",title:"1. 備份與復原",url:"/portfolio-dev/articles/backend/data-systems/data-persistence/backup-recovery/",children:[]},{id:"D2.4.4.2",title:"2. 資料庫遷移策略",url:"/portfolio-dev/articles/backend/data-systems/data-persistence/migration-strategies/",children:[]},{id:"D2.4.4.3",title:"3. Event Sourcing 與 CQRS",url:"/portfolio-dev/articles/backend/data-systems/data-persistence/event-sourcing-cqrs/",children:[]}]},{id:"D2.4.5",title:"5. 資料串流",url:"/portfolio-dev/articles/backend/data-systems/data-streaming/",children:[{id:"D2.4.5.1",title:"1. 訊息佇列系統",url:"/portfolio-dev/articles/backend/data-systems/data-streaming/message-queues/",children:[]},{id:"D2.4.5.2",title:"2. Kafka 與串流處理",url:"/portfolio-dev/articles/backend/data-systems/data-streaming/kafka-stream-processing/",children:[]},{id:"D2.4.5.3",title:"3. 事件驅動架構",url:"/portfolio-dev/articles/backend/data-systems/data-streaming/event-driven-architecture/",children:[]}]}]},{id:"D2.5",title:"5. 系統設計",url:"/portfolio-dev/articles/backend/system-design/",children:[{id:"D2.5.1",title:"1. 架構模式",url:"/portfolio-dev/articles/backend/system-design/architecture-patterns/",children:[{id:"D2.5.1.1",title:"1. 分層架構",url:"/portfolio-dev/articles/backend/system-design/architecture-patterns/layered-architecture/",children:[]},{id:"D2.5.1.2",title:"2. 微服務架構",url:"/portfolio-dev/articles/backend/system-design/architecture-patterns/microservices/",children:[]},{id:"D2.5.1.3",title:"3. 單體 vs 微服務",url:"/portfolio-dev/articles/backend/system-design/architecture-patterns/monolith-vs-microservices/",children:[]}]},{id:"D2.5.2",title:"2. 可擴展性",url:"/portfolio-dev/articles/backend/system-design/scalability-design/",children:[{id:"D2.5.2.1",title:"1. 負載平衡",url:"/portfolio-dev/articles/backend/system-design/scalability-design/load-balancing/",children:[]},{id:"D2.5.2.2",title:"2. 水平擴展",url:"/portfolio-dev/articles/backend/system-design/scalability-design/horizontal-scaling/",children:[]},{id:"D2.5.2.3",title:"3. 分片與複製",url:"/portfolio-dev/articles/backend/system-design/scalability-design/sharding-replication/",children:[]}]},{id:"D2.5.3",title:"3. 分散式系統",url:"/portfolio-dev/articles/backend/system-design/distributed-systems/",children:[{id:"D2.5.3.1",title:"1. 一致性模型",url:"/portfolio-dev/articles/backend/system-design/distributed-systems/consistency-models/",children:[]},{id:"D2.5.3.2",title:"2. CAP 定理",url:"/portfolio-dev/articles/backend/system-design/distributed-systems/cap-theorem/",children:[]},{id:"D2.5.3.3",title:"3. 容錯設計",url:"/portfolio-dev/articles/backend/system-design/distributed-systems/fault-tolerance/",children:[]}]},{id:"D2.5.4",title:"4. 服務基礎設施",url:"/portfolio-dev/articles/backend/system-design/service-infrastructure/",children:[{id:"D2.5.4.1",title:"1. API Gateway",url:"/portfolio-dev/articles/backend/system-design/service-infrastructure/api-gateway/",children:[]},{id:"D2.5.4.2",title:"2. Service Mesh",url:"/portfolio-dev/articles/backend/system-design/service-infrastructure/service-mesh/",children:[]},{id:"D2.5.4.3",title:"3. 服務發現",url:"/portfolio-dev/articles/backend/system-design/service-infrastructure/service-discovery/",children:[]}]},{id:"D2.5.5",title:"5. 領域設計",url:"/portfolio-dev/articles/backend/system-design/domain-design/",children:[{id:"D2.5.5.1",title:"1. 領域驅動設計",url:"/portfolio-dev/articles/backend/system-design/domain-design/ddd/",children:[]},{id:"D2.5.5.2",title:"2. Bounded Context",url:"/portfolio-dev/articles/backend/system-design/domain-design/bounded-context/",children:[]},{id:"D2.5.5.3",title:"3. 系統拆分策略",url:"/portfolio-dev/articles/backend/system-design/domain-design/system-decomposition/",children:[]}]},{id:"D2.5.6",title:"6. 架構權衡",url:"/portfolio-dev/articles/backend/system-design/tradeoffs/",children:[{id:"D2.5.6.1",title:"1. 一致性 vs 可用性",url:"/portfolio-dev/articles/backend/system-design/tradeoffs/consistency-vs-availability/",children:[]},{id:"D2.5.6.2",title:"2. 延遲 vs 成本",url:"/portfolio-dev/articles/backend/system-design/tradeoffs/latency-vs-cost/",children:[]},{id:"D2.5.6.3",title:"3. 耦合 vs 開發速度",url:"/portfolio-dev/articles/backend/system-design/tradeoffs/coupling-vs-velocity/",children:[]}]}]},{id:"D2.6",title:"6. 效能工程",url:"/portfolio-dev/articles/backend/performance-engineering/",children:[{id:"D2.6.1",title:"1. 延遲優化",url:"/portfolio-dev/articles/backend/performance-engineering/latency-optimization/",children:[]},{id:"D2.6.2",title:"2. 吞吐量優化",url:"/portfolio-dev/articles/backend/performance-engineering/throughput-optimization/",children:[]},{id:"D2.6.3",title:"3. 快取策略",url:"/portfolio-dev/articles/backend/performance-engineering/caching-strategies/",children:[]},{id:"D2.6.4",title:"4. 效能分析與除錯",url:"/portfolio-dev/articles/backend/performance-engineering/profiling-debugging/",children:[]},{id:"D2.6.5",title:"5. 負載測試",url:"/portfolio-dev/articles/backend/performance-engineering/load-testing/",children:[]}]},{id:"D2.7",title:"7. 安全性",url:"/portfolio-dev/articles/backend/security/",children:[{id:"D2.7.1",title:"1. 應用安全",url:"/portfolio-dev/articles/backend/security/application-security/",children:[{id:"D2.7.1.1",title:"1. OWASP Top 10",url:"/portfolio-dev/articles/backend/security/application-security/owasp-top-10/",children:[]},{id:"D2.7.1.2",title:"2. XSS、CSRF 與注入攻擊",url:"/portfolio-dev/articles/backend/security/application-security/xss-csrf-injection/",children:[]},{id:"D2.7.1.3",title:"3. 安全程式設計",url:"/portfolio-dev/articles/backend/security/application-security/secure-coding/",children:[]}]},{id:"D2.7.2",title:"2. 認證安全",url:"/portfolio-dev/articles/backend/security/authentication-security/",children:[{id:"D2.7.2.1",title:"1. Session 管理",url:"/portfolio-dev/articles/backend/security/authentication-security/session-management/",children:[]},{id:"D2.7.2.2",title:"2. Token 安全性",url:"/portfolio-dev/articles/backend/security/authentication-security/token-security/",children:[]},{id:"D2.7.2.3",title:"3. 密碼雜湊",url:"/portfolio-dev/articles/backend/security/authentication-security/password-hashing/",children:[]}]},{id:"D2.7.3",title:"3. 基礎設施安全",url:"/portfolio-dev/articles/backend/security/infrastructure-security/",children:[{id:"D2.7.3.1",title:"1. 加密與金鑰管理",url:"/portfolio-dev/articles/backend/security/infrastructure-security/encryption-key-management/",children:[]},{id:"D2.7.3.2",title:"2. 網路安全",url:"/portfolio-dev/articles/backend/security/infrastructure-security/network-security/",children:[]},{id:"D2.7.3.3",title:"3. 零信任模型",url:"/portfolio-dev/articles/backend/security/infrastructure-security/zero-trust-model/",children:[]}]},{id:"D2.7.4",title:"4. 流量防護",url:"/portfolio-dev/articles/backend/security/rate-limiting-protection/",children:[{id:"D2.7.4.1",title:"1. 節流控制",url:"/portfolio-dev/articles/backend/security/rate-limiting-protection/throttling/",children:[]},{id:"D2.7.4.2",title:"2. 反機器人策略",url:"/portfolio-dev/articles/backend/security/rate-limiting-protection/anti-bot-strategy/",children:[]},{id:"D2.7.4.3",title:"3. DDoS 緩解",url:"/portfolio-dev/articles/backend/security/rate-limiting-protection/ddos-mitigation/",children:[]}]}]},{id:"D2.8",title:"8. 測試品質",url:"/portfolio-dev/articles/backend/testing-quality/",children:[{id:"D2.8.1",title:"1. 單元測試",url:"/portfolio-dev/articles/backend/testing-quality/unit-testing/",children:[]},{id:"D2.8.2",title:"2. 整合測試",url:"/portfolio-dev/articles/backend/testing-quality/integration-testing/",children:[]},{id:"D2.8.3",title:"3. 系統測試",url:"/portfolio-dev/articles/backend/testing-quality/system-testing/",children:[]},{id:"D2.8.4",title:"4. 負載測試",url:"/portfolio-dev/articles/backend/testing-quality/load-testing/",children:[]},{id:"D2.8.5",title:"5. 測試自動化策略",url:"/portfolio-dev/articles/backend/testing-quality/test-automation-strategy/",children:[]}]},{id:"D2.9",title:"9. DevOps",url:"/portfolio-dev/articles/backend/devops/",children:[{id:"D2.9.1",title:"1. CI/CD",url:"/portfolio-dev/articles/backend/devops/ci-cd/",children:[{id:"D2.9.1.1",title:"1. CI/CD 管線設計",url:"/portfolio-dev/articles/backend/devops/ci-cd/pipelines/",children:[]},{id:"D2.9.1.2",title:"2. GitOps 工作流",url:"/portfolio-dev/articles/backend/devops/ci-cd/gitops/",children:[]},{id:"D2.9.1.3",title:"3. 發布策略",url:"/portfolio-dev/articles/backend/devops/ci-cd/release-strategy/",children:[]}]},{id:"D2.9.2",title:"2. 容器化",url:"/portfolio-dev/articles/backend/devops/containerization/",children:[{id:"D2.9.2.1",title:"1. Docker 容器化",url:"/portfolio-dev/articles/backend/devops/containerization/docker/",children:[]},{id:"D2.9.2.2",title:"2. Kubernetes 基礎",url:"/portfolio-dev/articles/backend/devops/containerization/kubernetes-basics/",children:[]}]},{id:"D2.9.3",title:"3. 部署策略",url:"/portfolio-dev/articles/backend/devops/deployment-strategies/",children:[{id:"D2.9.3.1",title:"1. 藍綠部署",url:"/portfolio-dev/articles/backend/devops/deployment-strategies/blue-green/",children:[]},{id:"D2.9.3.2",title:"2. 金絲雀發布",url:"/portfolio-dev/articles/backend/devops/deployment-strategies/canary-release/",children:[]},{id:"D2.9.3.3",title:"3. 滾動更新",url:"/portfolio-dev/articles/backend/devops/deployment-strategies/rolling-update/",children:[]}]},{id:"D2.9.4",title:"4. 基礎設施自動化",url:"/portfolio-dev/articles/backend/devops/infrastructure-automation/",children:[{id:"D2.9.4.1",title:"1. IaC 概念",url:"/portfolio-dev/articles/backend/devops/infrastructure-automation/iac-concepts/",children:[]},{id:"D2.9.4.2",title:"2. Terraform 基礎",url:"/portfolio-dev/articles/backend/devops/infrastructure-automation/terraform-basics/",children:[]},{id:"D2.9.4.3",title:"3. 組態管理",url:"/portfolio-dev/articles/backend/devops/infrastructure-automation/config-management/",children:[]}]}]},{id:"D2.10",title:"10. 平台工程",url:"/portfolio-dev/articles/backend/platform-engineering/",children:[{id:"D2.10.1",title:"1. 內部開發者平台",url:"/portfolio-dev/articles/backend/platform-engineering/internal-developer-platform/",children:[]},{id:"D2.10.2",title:"2. Golden Path",url:"/portfolio-dev/articles/backend/platform-engineering/golden-path/",children:[]},{id:"D2.10.3",title:"3. 服務模板",url:"/portfolio-dev/articles/backend/platform-engineering/service-templates/",children:[]},{id:"D2.10.4",title:"4. 開發者體驗",url:"/portfolio-dev/articles/backend/platform-engineering/developer-experience/",children:[]},{id:"D2.10.5",title:"5. 自助式基礎設施",url:"/portfolio-dev/articles/backend/platform-engineering/self-service-infra/",children:[]}]},{id:"D2.11",title:"11. 可觀測性",url:"/portfolio-dev/articles/backend/observability-ops/",children:[{id:"D2.11.1",title:"1. 日誌系統",url:"/portfolio-dev/articles/backend/observability-ops/logging/",children:[{id:"D2.11.1.1",title:"1. 結構化日誌",url:"/portfolio-dev/articles/backend/observability-ops/logging/structured-logging/",children:[]},{id:"D2.11.1.2",title:"2. 日誌聚合",url:"/portfolio-dev/articles/backend/observability-ops/logging/log-aggregation/",children:[]}]},{id:"D2.11.2",title:"2. 監控系統",url:"/portfolio-dev/articles/backend/observability-ops/monitoring/",children:[{id:"D2.11.2.1",title:"1. 指標系統",url:"/portfolio-dev/articles/backend/observability-ops/monitoring/metrics/",children:[]},{id:"D2.11.2.2",title:"2. 儀表板設計",url:"/portfolio-dev/articles/backend/observability-ops/monitoring/dashboards/",children:[]},{id:"D2.11.2.3",title:"3. 告警策略",url:"/portfolio-dev/articles/backend/observability-ops/monitoring/alerting/",children:[]}]},{id:"D2.11.3",title:"3. 分散式追蹤",url:"/portfolio-dev/articles/backend/observability-ops/tracing/",children:[{id:"D2.11.3.1",title:"1. 分散式追蹤",url:"/portfolio-dev/articles/backend/observability-ops/tracing/distributed-tracing/",children:[]},{id:"D2.11.3.2",title:"2. 請求生命週期",url:"/portfolio-dev/articles/backend/observability-ops/tracing/request-lifecycle/",children:[]}]},{id:"D2.11.4",title:"4. SRE 原則",url:"/portfolio-dev/articles/backend/observability-ops/sre-principles/",children:[{id:"D2.11.4.1",title:"1. SLO、SLI 與 SLA",url:"/portfolio-dev/articles/backend/observability-ops/sre-principles/slo-sli-sla/",children:[]},{id:"D2.11.4.2",title:"2. 事件回應",url:"/portfolio-dev/articles/backend/observability-ops/sre-principles/incident-response/",children:[]},{id:"D2.11.4.3",title:"3. 事後檢討文化",url:"/portfolio-dev/articles/backend/observability-ops/sre-principles/postmortem-culture/",children:[]}]}]}]},{id:"D3",title:"Frontend",url:"/portfolio-dev/articles/frontend/",children:[{id:"D3.1",title:"1. Web 基礎",url:"/portfolio-dev/articles/frontend/web-foundations/",children:[{id:"D3.1.1",title:"1. HTML",url:"/portfolio-dev/articles/frontend/web-foundations/html/",children:[{id:"D3.1.1.1",title:"1. 語義化 HTML",url:"/portfolio-dev/articles/frontend/web-foundations/html/semantic-html/",children:[]},{id:"D3.1.1.2",title:"2. 表單與驗證",url:"/portfolio-dev/articles/frontend/web-foundations/html/forms-validation/",children:[]},{id:"D3.1.1.3",title:"3. 無障礙基礎",url:"/portfolio-dev/articles/frontend/web-foundations/html/accessibility-basics/",children:[]}]},{id:"D3.1.2",title:"2. CSS",url:"/portfolio-dev/articles/frontend/web-foundations/css/",children:[{id:"D3.1.2.1",title:"1. 佈局系統",url:"/portfolio-dev/articles/frontend/web-foundations/css/layout-system/",children:[{id:"D3.1.2.1.1",title:"1. Flexbox 彈性佈局",url:"/portfolio-dev/articles/frontend/web-foundations/css/layout-system/flexbox/",children:[]},{id:"D3.1.2.1.2",title:"2. Grid 網格佈局",url:"/portfolio-dev/articles/frontend/web-foundations/css/layout-system/grid/",children:[]},{id:"D3.1.2.1.3",title:"3. CSS 定位系統",url:"/portfolio-dev/articles/frontend/web-foundations/css/layout-system/positioning/",children:[]}]},{id:"D3.1.2.2",title:"2. 響應式設計",url:"/portfolio-dev/articles/frontend/web-foundations/css/responsive-design/",children:[]},{id:"D3.1.2.3",title:"3. CSS 架構方法論",url:"/portfolio-dev/articles/frontend/web-foundations/css/css-architecture/",children:[]},{id:"D3.1.2.4",title:"4. 動畫與轉場",url:"/portfolio-dev/articles/frontend/web-foundations/css/animations-transitions/",children:[]},{id:"D3.1.2.5",title:"5. 盒模型",url:"/portfolio-dev/articles/frontend/web-foundations/css/box-model/",children:[]}]},{id:"D3.1.3",title:"3. 瀏覽器基礎",url:"/portfolio-dev/articles/frontend/web-foundations/browser-basics/",children:[{id:"D3.1.3.1",title:"1. HTTP 與 HTTPS",url:"/portfolio-dev/articles/frontend/web-foundations/browser-basics/http-https/",children:[]},{id:"D3.1.3.2",title:"2. CORS 跨域資源共享",url:"/portfolio-dev/articles/frontend/web-foundations/browser-basics/cors/",children:[]},{id:"D3.1.3.3",title:"3. URL 與請求生命週期",url:"/portfolio-dev/articles/frontend/web-foundations/browser-basics/url-request-lifecycle/",children:[]}]}]},{id:"D3.2",title:"2. 瀏覽器執行環境",url:"/portfolio-dev/articles/frontend/browser-runtime/",children:[{id:"D3.2.1",title:"1. DOM 模型",url:"/portfolio-dev/articles/frontend/browser-runtime/dom-model/",children:[{id:"D3.2.1.1",title:"1. DOM 操作",url:"/portfolio-dev/articles/frontend/browser-runtime/dom-model/dom-manipulation/",children:[]},{id:"D3.2.1.2",title:"2. 事件冒泡與捕獲",url:"/portfolio-dev/articles/frontend/browser-runtime/dom-model/event-bubbling-capturing/",children:[]},{id:"D3.2.1.3",title:"3. 事件委派",url:"/portfolio-dev/articles/frontend/browser-runtime/dom-model/event-delegation/",children:[]}]},{id:"D3.2.2",title:"2. 渲染引擎",url:"/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/",children:[{id:"D3.2.2.1",title:"1. 關鍵渲染路徑",url:"/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/critical-rendering-path/",children:[]},{id:"D3.2.2.2",title:"2. 佈局、繪製與合成",url:"/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/layout-paint-composite/",children:[]},{id:"D3.2.2.3",title:"3. 重排與重繪",url:"/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/reflow-repaint/",children:[]},{id:"D3.2.2.4",title:"4. 渲染管線優化",url:"/portfolio-dev/articles/frontend/browser-runtime/rendering-engine/render-pipeline-optimization/",children:[]}]},{id:"D3.2.3",title:"3. 網路層",url:"/portfolio-dev/articles/frontend/browser-runtime/network-layer/",children:[{id:"D3.2.3.1",title:"1. Fetch API",url:"/portfolio-dev/articles/frontend/browser-runtime/network-layer/fetch-api/",children:[]},{id:"D3.2.3.2",title:"2. XMLHttpRequest",url:"/portfolio-dev/articles/frontend/browser-runtime/network-layer/xhr/",children:[]},{id:"D3.2.3.3",title:"3. WebSocket 即時通訊",url:"/portfolio-dev/articles/frontend/browser-runtime/network-layer/websocket/",children:[]},{id:"D3.2.3.4",title:"4. HTTP 快取機制",url:"/portfolio-dev/articles/frontend/browser-runtime/network-layer/http-caching/",children:[]}]},{id:"D3.2.4",title:"4. 瀏覽器儲存",url:"/portfolio-dev/articles/frontend/browser-runtime/storage/",children:[{id:"D3.2.4.1",title:"1. LocalStorage 與 SessionStorage",url:"/portfolio-dev/articles/frontend/browser-runtime/storage/localstorage-sessionstorage/",children:[]},{id:"D3.2.4.2",title:"2. Cookies 機制",url:"/portfolio-dev/articles/frontend/browser-runtime/storage/cookies/",children:[]},{id:"D3.2.4.3",title:"3. IndexedDB",url:"/portfolio-dev/articles/frontend/browser-runtime/storage/indexeddb/",children:[]}]}]},{id:"D3.3",title:"3. JavaScript/TypeScript",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/",children:[{id:"D3.3.1",title:"1. JavaScript 核心",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/",children:[{id:"D3.3.1.1",title:"1. JavaScript 執行模型",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/execution-model/",children:[]},{id:"D3.3.1.2",title:"2. 作用域與閉包",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/scope-closure/",children:[]},{id:"D3.3.1.3",title:"3. 原型與物件導向",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/prototype-oop/",children:[]},{id:"D3.3.1.4",title:"4. 非同步程式設計",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/javascript-core/async-programming/",children:[]}]},{id:"D3.3.2",title:"2. 執行模型",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/",children:[{id:"D3.3.2.1",title:"1. 事件迴圈",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/event-loop/",children:[]},{id:"D3.3.2.2",title:"2. 微任務與巨任務",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/microtask-macrotask/",children:[]},{id:"D3.3.2.3",title:"3. 記憶體管理與 GC",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/runtime-model/memory-gc/",children:[]}]},{id:"D3.3.3",title:"3. TypeScript",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/",children:[{id:"D3.3.3.1",title:"1. TypeScript 型別系統",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/type-system/",children:[]},{id:"D3.3.3.2",title:"2. 泛型程式設計",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/generics/",children:[]},{id:"D3.3.3.3",title:"3. 工具型別",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/utility-types/",children:[]},{id:"D3.3.3.4",title:"4. TypeScript 設定",url:"/portfolio-dev/articles/frontend/javascript-typescript-core/typescript/ts-config/",children:[]}]}]},{id:"D3.4",title:"4. Web 平台 API",url:"/portfolio-dev/articles/frontend/web-platform/",children:[{id:"D3.4.1",title:"1. Service Worker",url:"/portfolio-dev/articles/frontend/web-platform/service-worker/",children:[]},{id:"D3.4.2",title:"2. Web Workers",url:"/portfolio-dev/articles/frontend/web-platform/web-workers/",children:[]},{id:"D3.4.3",title:"3. Web Components",url:"/portfolio-dev/articles/frontend/web-platform/web-components/",children:[]},{id:"D3.4.4",title:"4. WebAssembly 基礎",url:"/portfolio-dev/articles/frontend/web-platform/wasm-basics/",children:[]}]},{id:"D3.5",title:"5. UI 程式設計模型",url:"/portfolio-dev/articles/frontend/ui-programming-model/",children:[{id:"D3.5.1",title:"1. 組件模型",url:"/portfolio-dev/articles/frontend/ui-programming-model/component-model/",children:[{id:"D3.5.1.1",title:"1. 組合模式",url:"/portfolio-dev/articles/frontend/ui-programming-model/component-model/composition-patterns/",children:[]},{id:"D3.5.1.2",title:"2. Props、State 與事件",url:"/portfolio-dev/articles/frontend/ui-programming-model/component-model/props-state-events/",children:[]},{id:"D3.5.1.3",title:"3. 可複用 UI 模式",url:"/portfolio-dev/articles/frontend/ui-programming-model/component-model/reusable-ui-patterns/",children:[]}]},{id:"D3.5.2",title:"2. 狀態管理",url:"/portfolio-dev/articles/frontend/ui-programming-model/state-management/",children:[{id:"D3.5.2.1",title:"1. 區域狀態",url:"/portfolio-dev/articles/frontend/ui-programming-model/state-management/local-state/",children:[]},{id:"D3.5.2.2",title:"2. 全域狀態",url:"/portfolio-dev/articles/frontend/ui-programming-model/state-management/global-state/",children:[]},{id:"D3.5.2.3",title:"3. 狀態正規化",url:"/portfolio-dev/articles/frontend/ui-programming-model/state-management/state-normalization/",children:[]}]},{id:"D3.5.3",title:"3. 資料流",url:"/portfolio-dev/articles/frontend/ui-programming-model/data-flow/",children:[{id:"D3.5.3.1",title:"1. 單向資料流",url:"/portfolio-dev/articles/frontend/ui-programming-model/data-flow/uni-directional-flow/",children:[]},{id:"D3.5.3.2",title:"2. 事件驅動流",url:"/portfolio-dev/articles/frontend/ui-programming-model/data-flow/event-driven-flow/",children:[]},{id:"D3.5.3.3",title:"3. 雙向綁定",url:"/portfolio-dev/articles/frontend/ui-programming-model/data-flow/bi-directional-binding/",children:[]}]},{id:"D3.5.4",title:"4. 副作用管理",url:"/portfolio-dev/articles/frontend/ui-programming-model/side-effects/",children:[{id:"D3.5.4.1",title:"1. 生命週期管理",url:"/portfolio-dev/articles/frontend/ui-programming-model/side-effects/lifecycle-management/",children:[]},{id:"D3.5.4.2",title:"2. 副作用處理",url:"/portfolio-dev/articles/frontend/ui-programming-model/side-effects/effect-handling/",children:[]},{id:"D3.5.4.3",title:"3. 清理模式",url:"/portfolio-dev/articles/frontend/ui-programming-model/side-effects/cleanup-patterns/",children:[]}]}]},{id:"D3.6",title:"6. 資料層",url:"/portfolio-dev/articles/frontend/data-layer/",children:[{id:"D3.6.1",title:"1. 伺服器狀態",url:"/portfolio-dev/articles/frontend/data-layer/server-state/",children:[{id:"D3.6.1.1",title:"1. React Query 與 SWR 模型",url:"/portfolio-dev/articles/frontend/data-layer/server-state/react-query-swr-model/",children:[]},{id:"D3.6.1.2",title:"2. 快取與失效策略",url:"/portfolio-dev/articles/frontend/data-layer/server-state/caching-invalidation/",children:[]},{id:"D3.6.1.3",title:"3. 非同步取得邊界",url:"/portfolio-dev/articles/frontend/data-layer/server-state/async-fetch-boundary/",children:[]}]},{id:"D3.6.2",title:"2. 客戶端狀態管理",url:"/portfolio-dev/articles/frontend/data-layer/client-state/",children:[]},{id:"D3.6.3",title:"3. API 整合層",url:"/portfolio-dev/articles/frontend/data-layer/api-integration-layer/",children:[]},{id:"D3.6.4",title:"4. 資料變更模式",url:"/portfolio-dev/articles/frontend/data-layer/mutation-patterns/",children:[]},{id:"D3.6.5",title:"5. 同步非同步邊界",url:"/portfolio-dev/articles/frontend/data-layer/sync-async-boundary/",children:[]}]},{id:"D3.7",title:"7. 框架生態系",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/",children:[{id:"D3.7.1",title:"1. 元件框架",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/",children:[{id:"D3.7.1.1",title:"1. React",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/",children:[{id:"D3.7.1.1.1",title:"1. JSX 語法",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/jsx/",children:[]},{id:"D3.7.1.1.2",title:"2. React Hooks",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/hooks/",children:[]},{id:"D3.7.1.1.3",title:"3. Context API",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/context/",children:[]},{id:"D3.7.1.1.4",title:"4. 狀態與生命週期",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/react/state-lifecycle/",children:[]}]},{id:"D3.7.1.2",title:"2. Vue",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/",children:[{id:"D3.7.1.2.1",title:"1. Vue 響應式系統",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/reactivity/",children:[]},{id:"D3.7.1.2.2",title:"2. Composition API",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/composition-api/",children:[]},{id:"D3.7.1.2.3",title:"3. Vue 生命週期",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/lifecycle/",children:[]},{id:"D3.7.1.2.4",title:"4. Quasar Framework",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/vue/quasar/",children:[]}]},{id:"D3.7.1.3",title:"3. 其他元件框架",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/component-frameworks/others/",children:[]}]},{id:"D3.7.2",title:"2. Meta 框架",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/",children:[{id:"D3.7.2.1",title:"1. Next.js",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/nextjs/",children:[]},{id:"D3.7.2.2",title:"2. Nuxt",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/nuxt/",children:[]},{id:"D3.7.2.3",title:"3. Remix",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/remix/",children:[]},{id:"D3.7.2.4",title:"4. Astro",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/meta-frameworks/astro/",children:[]}]},{id:"D3.7.3",title:"3. 渲染模型",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/",children:[{id:"D3.7.3.1",title:"1. 響應式模型",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/reactivity-models/",children:[]},{id:"D3.7.3.2",title:"2. Virtual DOM",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/virtual-dom-model/",children:[]},{id:"D3.7.3.3",title:"3. 編譯器驅動 UI",url:"/portfolio-dev/articles/frontend/frameworks-ecosystem/rendering-models/compiler-based-ui/",children:[]}]}]},{id:"D3.8",title:"8. 渲染架構",url:"/portfolio-dev/articles/frontend/rendering-architecture/",children:[{id:"D3.8.1",title:"1. CSR 客戶端渲染",url:"/portfolio-dev/articles/frontend/rendering-architecture/csr/",children:[]},{id:"D3.8.2",title:"2. SSR 伺服器渲染",url:"/portfolio-dev/articles/frontend/rendering-architecture/ssr/",children:[]},{id:"D3.8.3",title:"3. SSG 靜態生成",url:"/portfolio-dev/articles/frontend/rendering-architecture/ssg/",children:[]},{id:"D3.8.4",title:"4. Hydration 機制",url:"/portfolio-dev/articles/frontend/rendering-architecture/hydration/",children:[]},{id:"D3.8.5",title:"5. Islands 架構",url:"/portfolio-dev/articles/frontend/rendering-architecture/islands-architecture/",children:[]},{id:"D3.8.6",title:"6. Streaming SSR",url:"/portfolio-dev/articles/frontend/rendering-architecture/streaming-ssr/",children:[]},{id:"D3.8.7",title:"7. Edge Rendering",url:"/portfolio-dev/articles/frontend/rendering-architecture/edge-rendering/",children:[]}]},{id:"D3.9",title:"9. 前端架構",url:"/portfolio-dev/articles/frontend/frontend-architecture/",children:[{id:"D3.9.1",title:"1. 應用程式結構",url:"/portfolio-dev/articles/frontend/frontend-architecture/application-structure/",children:[]},{id:"D3.9.2",title:"2. 模組化設計",url:"/portfolio-dev/articles/frontend/frontend-architecture/modularization/",children:[]},{id:"D3.9.3",title:"3. 路由與導航",url:"/portfolio-dev/articles/frontend/frontend-architecture/routing-navigation/",children:[]},{id:"D3.9.4",title:"4. 認證流程",url:"/portfolio-dev/articles/frontend/frontend-architecture/authentication-flow/",children:[]},{id:"D3.9.5",title:"5. API Client 設計",url:"/portfolio-dev/articles/frontend/frontend-architecture/api-client-design/",children:[]}]},{id:"D3.10",title:"10. 效能工程",url:"/portfolio-dev/articles/frontend/performance-engineering/",children:[{id:"D3.10.1",title:"1. 打包優化",url:"/portfolio-dev/articles/frontend/performance-engineering/bundle-optimization/",children:[]},{id:"D3.10.2",title:"2. 程式碼分割",url:"/portfolio-dev/articles/frontend/performance-engineering/code-splitting/",children:[]},{id:"D3.10.3",title:"3. 懶載入",url:"/portfolio-dev/articles/frontend/performance-engineering/lazy-loading/",children:[]},{id:"D3.10.4",title:"4. 執行期效能",url:"/portfolio-dev/articles/frontend/performance-engineering/runtime-performance/",children:[]},{id:"D3.10.5",title:"5. 網路效能",url:"/portfolio-dev/articles/frontend/performance-engineering/network-performance/",children:[]},{id:"D3.10.6",title:"6. Web Vitals",url:"/portfolio-dev/articles/frontend/performance-engineering/web-vitals/",children:[]}]},{id:"D3.11",title:"11. UX 工程",url:"/portfolio-dev/articles/frontend/ux-engineering/",children:[]},{id:"D3.12",title:"12. 平台工程",url:"/portfolio-dev/articles/frontend/frontend-platform-engineering/",children:[]},{id:"D3.13",title:"13. 測試品質",url:"/portfolio-dev/articles/frontend/testing-quality/",children:[]},{id:"D3.14",title:"14. 工具鏈",url:"/portfolio-dev/articles/frontend/tooling-workflow/",children:[{id:"D3.14.1",title:"1. 打包工具",url:"/portfolio-dev/articles/frontend/tooling-workflow/bundlers/",children:[{id:"D3.14.1.1",title:"1. Vite",url:"/portfolio-dev/articles/frontend/tooling-workflow/bundlers/vite/",children:[]}]}]},{id:"D3.15",title:"15. 工程模式",url:"/portfolio-dev/articles/frontend/engineering-patterns/",children:[]},{id:"D3.16",title:"16. 可觀測性",url:"/portfolio-dev/articles/frontend/observability/",children:[{id:"D3.16.1",title:"1. 前端監控",url:"/portfolio-dev/articles/frontend/observability/frontend-monitoring/",children:[]}]},{id:"D3.17",title:"17. 前端安全",url:"/portfolio-dev/articles/frontend/security/",children:[{id:"D3.17.1",title:"1. XSS 與 CSRF 防護",url:"/portfolio-dev/articles/frontend/security/xss-csrf-protection/",children:[]},{id:"D3.17.2",title:"2. Content Security Policy",url:"/portfolio-dev/articles/frontend/security/content-security-policy/",children:[]},{id:"D3.17.3",title:"3. 安全儲存實踐",url:"/portfolio-dev/articles/frontend/security/secure-storage-practices/",children:[]}]}]},{id:"D4",title:"Cloud",url:"/portfolio-dev/articles/cloud/",children:[{id:"D4.1",title:"1. 雲端基礎",url:"/portfolio-dev/articles/cloud/cloud-foundations/",children:[{id:"D4.1.1",title:"1. 雲端供應商",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/",children:[{id:"D4.1.1.1",title:"1. AWS 核心服務",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/aws-core/",children:[]},{id:"D4.1.1.2",title:"2. GCP 核心服務",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/gcp-core/",children:[]},{id:"D4.1.1.3",title:"3. Azure 核心服務",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/azure-core/",children:[]},{id:"D4.1.1.4",title:"4. 多雲策略",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-provider-basics/multi-cloud-strategy/",children:[]}]},{id:"D4.1.2",title:"2. 運算基礎",url:"/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/",children:[{id:"D4.1.2.1",title:"1. 虛擬機模型",url:"/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/vm-model/",children:[]},{id:"D4.1.2.2",title:"2. 自動擴展",url:"/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/autoscaling/",children:[]},{id:"D4.1.2.3",title:"3. Serverless 基礎",url:"/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/serverless-basics/",children:[]},{id:"D4.1.2.4",title:"4. 共享責任模型",url:"/portfolio-dev/articles/cloud/cloud-foundations/compute-fundamentals/shared-responsibility-model/",children:[]}]},{id:"D4.1.3",title:"3. 架構原則",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/",children:[{id:"D4.1.3.1",title:"1. 容錯設計",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/fault-tolerance/",children:[]},{id:"D4.1.3.2",title:"2. 高可用性",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/high-availability/",children:[]},{id:"D4.1.3.3",title:"3. 無狀態設計",url:"/portfolio-dev/articles/cloud/cloud-foundations/cloud-architecture-principles/stateless-design/",children:[]}]}]},{id:"D4.2",title:"2. 網路與流量分配",url:"/portfolio-dev/articles/cloud/networking-distribution/",children:[{id:"D4.2.1",title:"1. VPC、子網與路由",url:"/portfolio-dev/articles/cloud/networking-distribution/vpc-subnet-routing/",children:[]},{id:"D4.2.2",title:"2. 流量管理",url:"/portfolio-dev/articles/cloud/networking-distribution/traffic-management/",children:[{id:"D4.2.2.1",title:"1. 速率限制",url:"/portfolio-dev/articles/cloud/networking-distribution/traffic-management/rate-limiting/",children:[]},{id:"D4.2.2.2",title:"2. 重試與逾時",url:"/portfolio-dev/articles/cloud/networking-distribution/traffic-management/retry-timeout/",children:[]},{id:"D4.2.2.3",title:"3. 斷路器模式",url:"/portfolio-dev/articles/cloud/networking-distribution/traffic-management/circuit-breaker/",children:[]},{id:"D4.2.2.4",title:"4. 路由策略",url:"/portfolio-dev/articles/cloud/networking-distribution/traffic-management/routing-strategies/",children:[]}]},{id:"D4.2.3",title:"3. DNS 系統",url:"/portfolio-dev/articles/cloud/networking-distribution/dns-system/",children:[]},{id:"D4.2.4",title:"4. 負載平衡",url:"/portfolio-dev/articles/cloud/networking-distribution/load-balancing/",children:[]},{id:"D4.2.5",title:"5. CDN 與邊緣網路",url:"/portfolio-dev/articles/cloud/networking-distribution/cdn-edge-networking/",children:[]},{id:"D4.2.6",title:"6. 私有連線與 VPN",url:"/portfolio-dev/articles/cloud/networking-distribution/private-connectivity-vpn/",children:[]},{id:"D4.2.7",title:"7. API Gateway",url:"/portfolio-dev/articles/cloud/networking-distribution/api-gateway/",children:[]}]},{id:"D4.3",title:"3. 運算與分散式平台",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/",children:[{id:"D4.3.1",title:"1. 虛擬機",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/virtual-machines/",children:[]},{id:"D4.3.2",title:"2. 容器與 Kubernetes",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/containers-kubernetes/",children:[]},{id:"D4.3.3",title:"3. Serverless 函數",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/serverless-functions/",children:[]},{id:"D4.3.4",title:"4. 事件驅動架構",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/event-driven-architecture/",children:[]},{id:"D4.3.5",title:"5. 訊息佇列與 Pub/Sub",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/message-queues-pubsub/",children:[]},{id:"D4.3.6",title:"6. 串流處理",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/stream-processing/",children:[]},{id:"D4.3.7",title:"7. 工作流編排",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/workflow-orchestration/",children:[]},{id:"D4.3.8",title:"8. 邊緣運算",url:"/portfolio-dev/articles/cloud/compute-distributed-platform/edge-computing-runtime/",children:[]}]},{id:"D4.4",title:"4. 儲存與資料平台",url:"/portfolio-dev/articles/cloud/storage-data-platforms/",children:[{id:"D4.4.1",title:"1. 資料層",url:"/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/",children:[{id:"D4.4.1.1",title:"1. 物件儲存",url:"/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/object-storage/",children:[]},{id:"D4.4.1.2",title:"2. 區塊儲存",url:"/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/block-storage/",children:[]},{id:"D4.4.1.3",title:"3. 檔案儲存",url:"/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/file-storage/",children:[]},{id:"D4.4.1.4",title:"4. 託管式資料庫",url:"/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/managed-databases/",children:[]},{id:"D4.4.1.5",title:"5. 分散式儲存",url:"/portfolio-dev/articles/cloud/storage-data-platforms/data-plane/distributed-storage/",children:[]}]},{id:"D4.4.2",title:"2. 控制層",url:"/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/",children:[{id:"D4.4.2.1",title:"1. 資料目錄",url:"/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/data-catalog/",children:[]},{id:"D4.4.2.2",title:"2. 元資料管理",url:"/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/metadata-management/",children:[]},{id:"D4.4.2.3",title:"3. 資料治理",url:"/portfolio-dev/articles/cloud/storage-data-platforms/control-plane/data-governance/",children:[]}]}]},{id:"D4.5",title:"5. 雲端應用架構",url:"/portfolio-dev/articles/cloud/cloud-application-architecture/",children:[{id:"D4.5.1",title:"1. 十二因素應用",url:"/portfolio-dev/articles/cloud/cloud-application-architecture/12-factor-app/",children:[]},{id:"D4.5.2",title:"2. 無狀態 vs 有狀態服務",url:"/portfolio-dev/articles/cloud/cloud-application-architecture/stateless-vs-stateful-services/",children:[]},{id:"D4.5.3",title:"3. 配置與密鑰管理",url:"/portfolio-dev/articles/cloud/cloud-application-architecture/configuration-secrets-management/",children:[]},{id:"D4.5.4",title:"4. 服務邊界設計",url:"/portfolio-dev/articles/cloud/cloud-application-architecture/service-boundaries/",children:[]},{id:"D4.5.5",title:"5. 雲原生設計模式",url:"/portfolio-dev/articles/cloud/cloud-application-architecture/cloud-native-design-patterns/",children:[]}]},{id:"D4.6",title:"6. 雲端平台工程",url:"/portfolio-dev/articles/cloud/platform-engineering-cloud/",children:[{id:"D4.6.1",title:"1. 內部開發者平台",url:"/portfolio-dev/articles/cloud/platform-engineering-cloud/internal-developer-platform/",children:[]},{id:"D4.6.2",title:"2. Golden Paths",url:"/portfolio-dev/articles/cloud/platform-engineering-cloud/golden-paths/",children:[]},{id:"D4.6.3",title:"3. 自助式基礎設施",url:"/portfolio-dev/articles/cloud/platform-engineering-cloud/self-service-infrastructure/",children:[]},{id:"D4.6.4",title:"4. 服務模板",url:"/portfolio-dev/articles/cloud/platform-engineering-cloud/service-templates/",children:[]},{id:"D4.6.5",title:"5. 開發者體驗",url:"/portfolio-dev/articles/cloud/platform-engineering-cloud/developer-experience-dx/",children:[]}]},{id:"D4.7",title:"7. 基礎設施自動化",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/",children:[{id:"D4.7.1",title:"1. IaC",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/",children:[{id:"D4.7.1.1",title:"1. Terraform",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/terraform/",children:[]},{id:"D4.7.1.2",title:"2. CloudFormation",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/cloudformation/",children:[]},{id:"D4.7.1.3",title:"3. Pulumi",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/infrastructure-as-code/pulumi/",children:[]}]},{id:"D4.7.2",title:"2. 組態管理",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/configuration-management/",children:[]},{id:"D4.7.3",title:"3. CI/CD 管線",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/ci-cd-pipelines/",children:[]},{id:"D4.7.4",title:"4. 生命週期自動化",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/lifecycle-automation/",children:[]},{id:"D4.7.5",title:"5. 事件驅動維運",url:"/portfolio-dev/articles/cloud/infrastructure-provisioning-automation/event-driven-operations/",children:[]}]},{id:"D4.8",title:"8. 安全與身份",url:"/portfolio-dev/articles/cloud/security-identity/",children:[{id:"D4.8.1",title:"1. IAM 身份管理",url:"/portfolio-dev/articles/cloud/security-identity/iam/",children:[{id:"D4.8.1.1",title:"1. 角色與政策",url:"/portfolio-dev/articles/cloud/security-identity/iam/roles-policies/",children:[]},{id:"D4.8.1.2",title:"2. 最小權限原則",url:"/portfolio-dev/articles/cloud/security-identity/iam/least-privilege/",children:[]},{id:"D4.8.1.3",title:"3. 身份聯邦",url:"/portfolio-dev/articles/cloud/security-identity/iam/identity-federation/",children:[]}]},{id:"D4.8.2",title:"2. 密鑰管理",url:"/portfolio-dev/articles/cloud/security-identity/secrets-management/",children:[{id:"D4.8.2.1",title:"1. Secret Manager",url:"/portfolio-dev/articles/cloud/security-identity/secrets-management/secret-manager/",children:[]},{id:"D4.8.2.2",title:"2. KMS 加密",url:"/portfolio-dev/articles/cloud/security-identity/secrets-management/kms-encryption/",children:[]},{id:"D4.8.2.3",title:"3. 密鑰輪換策略",url:"/portfolio-dev/articles/cloud/security-identity/secrets-management/rotation-strategy/",children:[]}]},{id:"D4.8.3",title:"3. 網路安全",url:"/portfolio-dev/articles/cloud/security-identity/network-security/",children:[{id:"D4.8.3.1",title:"1. 安全群組與防火牆",url:"/portfolio-dev/articles/cloud/security-identity/network-security/security-groups-firewall/",children:[]},{id:"D4.8.3.2",title:"2. 零信任網路",url:"/portfolio-dev/articles/cloud/security-identity/network-security/zero-trust-networking/",children:[]},{id:"D4.8.3.3",title:"3. WAF 與 DDoS 防護",url:"/portfolio-dev/articles/cloud/security-identity/network-security/waf-ddos-protection/",children:[]}]},{id:"D4.8.4",title:"4. 應用安全",url:"/portfolio-dev/articles/cloud/security-identity/application-security/",children:[{id:"D4.8.4.1",title:"1. API 安全",url:"/portfolio-dev/articles/cloud/security-identity/application-security/api-security/",children:[]},{id:"D4.8.4.2",title:"2. 認證與授權",url:"/portfolio-dev/articles/cloud/security-identity/application-security/authn-authz/",children:[]},{id:"D4.8.4.3",title:"3. 威脅防護",url:"/portfolio-dev/articles/cloud/security-identity/application-security/threat-protection/",children:[]}]}]},{id:"D4.9",title:"9. 可觀測性與維運",url:"/portfolio-dev/articles/cloud/observability-operations/",children:[{id:"D4.9.1",title:"1. SRE 實踐",url:"/portfolio-dev/articles/cloud/observability-operations/sre-practices/",children:[]},{id:"D4.9.2",title:"2. 指標、日誌與追蹤",url:"/portfolio-dev/articles/cloud/observability-operations/metrics-logging-tracing/",children:[]},{id:"D4.9.3",title:"3. 監控與告警",url:"/portfolio-dev/articles/cloud/observability-operations/monitoring-alerting/",children:[]},{id:"D4.9.4",title:"4. 遙測標準",url:"/portfolio-dev/articles/cloud/observability-operations/telemetry-standard/",children:[]}]},{id:"D4.10",title:"10. 可靠性與韌性",url:"/portfolio-dev/articles/cloud/reliability-resilience/",children:[{id:"D4.10.1",title:"1. 多區域架構",url:"/portfolio-dev/articles/cloud/reliability-resilience/multi-region-architecture/",children:[]},{id:"D4.10.2",title:"2. 災害復原",url:"/portfolio-dev/articles/cloud/reliability-resilience/disaster-recovery/",children:[]},{id:"D4.10.3",title:"3. 備份與復原",url:"/portfolio-dev/articles/cloud/reliability-resilience/backup-recovery/",children:[]},{id:"D4.10.4",title:"4. 故障轉移策略",url:"/portfolio-dev/articles/cloud/reliability-resilience/failover-strategies/",children:[]},{id:"D4.10.5",title:"5. 混沌工程",url:"/portfolio-dev/articles/cloud/reliability-resilience/chaos-engineering/",children:[]},{id:"D4.10.6",title:"6. 雲端監控",url:"/portfolio-dev/articles/cloud/reliability-resilience/cloud-monitoring/",children:[]}]},{id:"D4.11",title:"11. 成本治理",url:"/portfolio-dev/articles/cloud/cost-governance/",children:[{id:"D4.11.1",title:"1. 成本監控",url:"/portfolio-dev/articles/cloud/cost-governance/cost-monitoring/",children:[]},{id:"D4.11.2",title:"2. 資源標籤策略",url:"/portfolio-dev/articles/cloud/cost-governance/resource-tagging/",children:[]},{id:"D4.11.3",title:"3. 預算告警",url:"/portfolio-dev/articles/cloud/cost-governance/budget-alerting/",children:[]},{id:"D4.11.4",title:"4. 成本優化",url:"/portfolio-dev/articles/cloud/cost-governance/cost-optimization/",children:[]},{id:"D4.11.5",title:"5. 容量規劃",url:"/portfolio-dev/articles/cloud/cost-governance/capacity-planning/",children:[]}]},{id:"D4.12",title:"12. 多雲與混合雲",url:"/portfolio-dev/articles/cloud/multi-cloud-hybrid/",children:[{id:"D4.12.1",title:"1. 跨雲網路",url:"/portfolio-dev/articles/cloud/multi-cloud-hybrid/cross-cloud-networking/",children:[]},{id:"D4.12.2",title:"2. 跨雲身份聯邦",url:"/portfolio-dev/articles/cloud/multi-cloud-hybrid/identity-federation/",children:[]},{id:"D4.12.3",title:"3. 資料遷移策略",url:"/portfolio-dev/articles/cloud/multi-cloud-hybrid/data-migration-strategy/",children:[]},{id:"D4.12.4",title:"4. 可攜性設計",url:"/portfolio-dev/articles/cloud/multi-cloud-hybrid/portability-design/",children:[]}]},{id:"D4.13",title:"13. 合規與治理",url:"/portfolio-dev/articles/cloud/compliance-governance/",children:[{id:"D4.13.1",title:"1. 稽核日誌",url:"/portfolio-dev/articles/cloud/compliance-governance/audit-logging/",children:[]},{id:"D4.13.2",title:"2. 資料主權",url:"/portfolio-dev/articles/cloud/compliance-governance/data-sovereignty/",children:[]},{id:"D4.13.3",title:"3. 法規遵循",url:"/portfolio-dev/articles/cloud/compliance-governance/regulatory-compliance/",children:[]}]}]}]},window.roadmapOptions={layoutMode:"xmind",levelSpacing:140,siblingSpacing:8,categorySpacing:40,padding:40,initialScale:.85}</script></main><footer class=site-footer><p>&copy; 2026 YuHan Jhou. All rights reserved.</p></footer></div></div><script src=https://yu-codes.github.io/portfolio-dev/js/theme.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/roadmap.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/parallax.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/page-transition.js defer></script></body></html>

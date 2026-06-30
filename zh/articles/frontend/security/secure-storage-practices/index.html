@@ -1,0 +1,101 @@
+<!doctype html><html lang=zh class=html data-base-path=/portfolio-dev/><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>安全儲存實踐 - Yu's Portfolio & Learning Hub</title><meta name=description content="在前端應用中安全地儲存敏感資料是一項重要但經常被忽視的挑戰。從存取令牌到使用者個人資料，不當的儲存方式可能導致資料洩漏、身份冒用等嚴重安全問題。本文探討前端安全儲存的最佳實踐，幫助開發者在便利性和安全性之間取得平衡。
+核心概念 前端儲存的威脅模型 前端儲存面臨的主要威脅：
+XSS 攻擊：惡意腳本存取 LocalStorage 或非 HttpOnly 的 Cookie CSRF 攻擊：利用自動附帶的 Cookie 發送偽造請求 中間人攻擊：未加密傳輸導致資料被攔截 物理存取：裝置遺失或被盜時的資料暴露 第三方腳本：不受信任的第三方程式碼存取儲存空間 Token 儲存策略 不同 Token 類型的儲存建議：
+Access Token：
+最佳：僅存在記憶體中（JavaScript 變數） 次佳：HttpOnly Cookie（需 CSRF 防護） 避免：LocalStorage（XSS 可竊取） Refresh Token：
+最佳：HttpOnly + Secure + SameSite Cookie 搭配 Token Rotation 機制 伺服器端追蹤已發放的 Refresh Token CSRF Token：
+存在 meta 標籤或非 HttpOnly Cookie 每次請求透過自訂標頭或表單欄位發送 加密儲存 在客戶端進行加密儲存的考量：
+Web Crypto API：瀏覽器原生的密碼學 API 金鑰管理：加密金鑰本身的儲存是最大挑戰 對稱加密：AES-GCM 適合客戶端資料加密 金鑰衍生：使用 PBKDF2 從密碼衍生加密金鑰 安全清除 確保敏感資料在不需要時被徹底清除：
+"><meta property="og:title" content="安全儲存實踐"><meta property="og:description" content="在前端應用中安全地儲存敏感資料是一項重要但經常被忽視的挑戰。從存取令牌到使用者個人資料，不當的儲存方式可能導致資料洩漏、身份冒用等嚴重安全問題。本文探討前端安全儲存的最佳實踐，幫助開發者在便利性和安全性之間取得平衡。
+核心概念 前端儲存的威脅模型 前端儲存面臨的主要威脅：
+XSS 攻擊：惡意腳本存取 LocalStorage 或非 HttpOnly 的 Cookie CSRF 攻擊：利用自動附帶的 Cookie 發送偽造請求 中間人攻擊：未加密傳輸導致資料被攔截 物理存取：裝置遺失或被盜時的資料暴露 第三方腳本：不受信任的第三方程式碼存取儲存空間 Token 儲存策略 不同 Token 類型的儲存建議：
+Access Token：
+最佳：僅存在記憶體中（JavaScript 變數） 次佳：HttpOnly Cookie（需 CSRF 防護） 避免：LocalStorage（XSS 可竊取） Refresh Token：
+最佳：HttpOnly + Secure + SameSite Cookie 搭配 Token Rotation 機制 伺服器端追蹤已發放的 Refresh Token CSRF Token：
+存在 meta 標籤或非 HttpOnly Cookie 每次請求透過自訂標頭或表單欄位發送 加密儲存 在客戶端進行加密儲存的考量：
+Web Crypto API：瀏覽器原生的密碼學 API 金鑰管理：加密金鑰本身的儲存是最大挑戰 對稱加密：AES-GCM 適合客戶端資料加密 金鑰衍生：使用 PBKDF2 從密碼衍生加密金鑰 安全清除 確保敏感資料在不需要時被徹底清除：
+"><meta property="og:url" content="https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/security/secure-storage-practices/"><link rel=canonical href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/security/secure-storage-practices/><link rel=stylesheet href=https://yu-codes.github.io/portfolio-dev/css/main.css></head><body class=body><div class=container><aside class=sidebar><button class=mobile-menu-btn id=mobile-menu-btn aria-label="Open navigation menu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class=sidebar-header><h1 class=name>Yu</h1><p class=tagline>Developer, dreamer, debugger.</p></div><nav class=sidebar-nav><a href=https://yu-codes.github.io/portfolio-dev/zh/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>首頁</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/resume/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>履歷</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/projects/ class=nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>專案</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/articles/ class="nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>文章</span></a></nav><div class=sidebar-footer><div class=controls><button class="control-btn theme-toggle" title=切換主題（淺色/深色） aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title=切換語言 aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg></button></div><div class=social-links><a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class=social-link title=GitHub><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class=social-link title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></aside><div class=mobile-nav-overlay id=mobile-nav-overlay><div class=mobile-nav-panel><button class=mobile-nav-close id=mobile-nav-close aria-label="Close navigation">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><nav class=mobile-nav-list><a href=https://yu-codes.github.io/portfolio-dev/zh/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span>首頁</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/resume/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+<span>履歷</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/projects/ class=mobile-nav-item><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+<span>專案</span>
+</a><a href=https://yu-codes.github.io/portfolio-dev/zh/articles/ class="mobile-nav-item active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5.0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5.0 014 19.5v-15A2.5 2.5.0 016.5 2z"/></svg>
+<span>文章</span></a></nav><div class=mobile-nav-footer><div class=controls><button class="control-btn theme-toggle" title=切換主題（淺色/深色） aria-label="Toggle theme">
+<svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".25"/></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 000 18" fill="currentColor" opacity=".9"/><path d="M12 3a9 9 0 010 18" fill="currentColor" opacity=".25"/></svg>
+</button>
+<button class="control-btn lang-toggle" title=切換語言 aria-label="Toggle language">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</button>
+<a href=https://github.com/yu-codes target=_blank rel="noopener noreferrer" class="control-btn social-link" title=GitHub><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+</a><a href=mailto:dylan.jhou1120@gmail.com class="control-btn social-link" title=Email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></div></div></div><div class=main-content><div class=topbar><div class=breadcrumb><a href=https://yu-codes.github.io/portfolio-dev/zh/>首頁</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/>文章</a>
+<span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/>前端工程</a><span class=separator>&#8250;</span>
+<a href=https://yu-codes.github.io/portfolio-dev/zh/articles/frontend/security/>前端安全</a><span class=separator>&#8250;</span>
+<span>安全儲存實踐</span></div></div><main class=content-area><article class=article-content><header class=article-header><h1>安全儲存實踐</h1></header><nav class=article-toc><h2 class=toc-title>目錄</h2><nav id=TableOfContents><ul><li><a href=#核心概念>核心概念</a><ul><li><a href=#前端儲存的威脅模型>前端儲存的威脅模型</a></li><li><a href=#token-儲存策略>Token 儲存策略</a></li><li><a href=#加密儲存>加密儲存</a></li><li><a href=#安全清除>安全清除</a></li></ul></li><li><a href=#架構總覽>架構總覽</a><ul><li><a href=#安全儲存架構>安全儲存架構</a></li><li><a href=#token-生命週期管理>Token 生命週期管理</a></li><li><a href=#bffbackend-for-frontend模式>BFF（Backend for Frontend）模式</a></li></ul></li><li><a href=#關鍵比較>關鍵比較</a><ul><li><a href=#token-儲存方案比較>Token 儲存方案比較</a></li><li><a href=#加密方案比較>加密方案比較</a></li></ul></li><li><a href=#應用場景>應用場景</a><ul><li><a href=#spa-認證架構>SPA 認證架構</a></li><li><a href=#離線優先應用>離線優先應用</a></li><li><a href=#多租戶-saas-應用>多租戶 SaaS 應用</a></li><li><a href=#金融和醫療應用>金融和醫療應用</a></li></ul></li><li><a href=#延伸閱讀>延伸閱讀</a></li></ul></nav></nav><div class=article-body><p>在前端應用中安全地儲存敏感資料是一項重要但經常被忽視的挑戰。從存取令牌到使用者個人資料，不當的儲存方式可能導致資料洩漏、身份冒用等嚴重安全問題。本文探討前端安全儲存的最佳實踐，幫助開發者在便利性和安全性之間取得平衡。</p><h2 id=核心概念>核心概念</h2><h3 id=前端儲存的威脅模型>前端儲存的威脅模型</h3><p>前端儲存面臨的主要威脅：</p><ul><li><strong>XSS 攻擊</strong>：惡意腳本存取 LocalStorage 或非 HttpOnly 的 Cookie</li><li><strong>CSRF 攻擊</strong>：利用自動附帶的 Cookie 發送偽造請求</li><li><strong>中間人攻擊</strong>：未加密傳輸導致資料被攔截</li><li><strong>物理存取</strong>：裝置遺失或被盜時的資料暴露</li><li><strong>第三方腳本</strong>：不受信任的第三方程式碼存取儲存空間</li></ul><h3 id=token-儲存策略>Token 儲存策略</h3><p>不同 Token 類型的儲存建議：</p><p><strong>Access Token：</strong></p><ul><li>最佳：僅存在記憶體中（JavaScript 變數）</li><li>次佳：HttpOnly Cookie（需 CSRF 防護）</li><li>避免：LocalStorage（XSS 可竊取）</li></ul><p><strong>Refresh Token：</strong></p><ul><li>最佳：HttpOnly + Secure + SameSite Cookie</li><li>搭配 Token Rotation 機制</li><li>伺服器端追蹤已發放的 Refresh Token</li></ul><p><strong>CSRF Token：</strong></p><ul><li>存在 meta 標籤或非 HttpOnly Cookie</li><li>每次請求透過自訂標頭或表單欄位發送</li></ul><h3 id=加密儲存>加密儲存</h3><p>在客戶端進行加密儲存的考量：</p><ul><li><strong>Web Crypto API</strong>：瀏覽器原生的密碼學 API</li><li><strong>金鑰管理</strong>：加密金鑰本身的儲存是最大挑戰</li><li><strong>對稱加密</strong>：AES-GCM 適合客戶端資料加密</li><li><strong>金鑰衍生</strong>：使用 PBKDF2 從密碼衍生加密金鑰</li></ul><h3 id=安全清除>安全清除</h3><p>確保敏感資料在不需要時被徹底清除：</p><ul><li>登出時清除所有儲存的敏感資料</li><li>Token 過期時立即從記憶體中移除</li><li>使用 <code>crypto.getRandomValues()</code> 覆寫敏感變數</li><li>注意 JavaScript 垃圾回收可能保留記憶體副本</li></ul><h2 id=架構總覽>架構總覽</h2><h3 id=安全儲存架構>安全儲存架構</h3><pre tabindex=0><code>┌────────────────────────────────────────────────┐
+│              Application Layer                  │
+├────────────────────────────────────────────────┤
+│           Secure Storage Service                │
+│  ┌──────────┐ ┌──────────┐ ┌───────────────┐  │
+│  │ Memory   │ │ Encrypted│ │ HttpOnly      │  │
+│  │ Store    │ │ Storage  │ │ Cookie        │  │
+│  │(短期Token)│ │(非敏感)  │ │(Session/Auth) │  │
+│  └──────────┘ └──────────┘ └───────────────┘  │
+├────────────────────────────────────────────────┤
+│          Access Control Layer                   │
+│  ┌──────────────────────────────────────────┐  │
+│  │ CSP │ CORS │ SameSite │ Scope Control   │  │
+│  └──────────────────────────────────────────┘  │
+├────────────────────────────────────────────────┤
+│          Transport Security                     │
+│  ┌──────────────────────────────────────────┐  │
+│  │ HTTPS │ HSTS │ Certificate Pinning       │  │
+│  └──────────────────────────────────────────┘  │
+└────────────────────────────────────────────────┘
+</code></pre><h3 id=token-生命週期管理>Token 生命週期管理</h3><pre tabindex=0><code>登入成功
+  │
+  ▼
+伺服器發放 Access Token + Refresh Token
+  │
+  ├─ Access Token → 記憶體變數（短效 15min）
+  │
+  └─ Refresh Token → HttpOnly Cookie（長效 7d）
+  
+Access Token 過期
+  │
+  ▼
+使用 Refresh Token 靜默更新
+  │
+  ▼
+舊 Refresh Token 作廢，發放新的一組 Token
+
+登出
+  │
+  ▼
+清除記憶體中的 Access Token
+清除 Cookie 中的 Refresh Token
+伺服器端撤銷所有 Token
+</code></pre><h3 id=bffbackend-for-frontend模式>BFF（Backend for Frontend）模式</h3><pre tabindex=0><code>┌──────────┐      ┌──────────┐      ┌──────────┐
+│ Browser  │─────→│   BFF    │─────→│  API     │
+│          │Cookie│          │Token │  Server  │
+│(無 Token)│←─────│(管理Token)│←─────│          │
+└──────────┘      └──────────┘      └──────────┘
+</code></pre><p>BFF 將 Token 管理責任從前端移至後端，前端僅使用 HttpOnly Cookie 與 BFF 通訊。</p><h2 id=關鍵比較>關鍵比較</h2><table><thead><tr><th>儲存方式</th><th>XSS 安全</th><th>CSRF 安全</th><th>持久性</th><th>適用資料</th></tr></thead><tbody><tr><td>記憶體變數</td><td>較安全</td><td>安全</td><td>頁面關閉即消失</td><td>Access Token</td></tr><tr><td>HttpOnly Cookie</td><td>安全</td><td>需防護</td><td>可設定</td><td>Refresh Token</td></tr><tr><td>LocalStorage</td><td>不安全</td><td>安全</td><td>永久</td><td>非敏感設定</td></tr><tr><td>SessionStorage</td><td>不安全</td><td>安全</td><td>分頁關閉</td><td>臨時非敏感資料</td></tr><tr><td>Encrypted Storage</td><td>較安全</td><td>安全</td><td>依底層</td><td>中等敏感資料</td></tr></tbody></table><h3 id=token-儲存方案比較>Token 儲存方案比較</h3><table><thead><tr><th>方案</th><th>安全性</th><th>複雜度</th><th>使用者體驗</th></tr></thead><tbody><tr><td>Memory + HttpOnly Cookie</td><td>高</td><td>中</td><td>好（靜默更新）</td></tr><tr><td>BFF Pattern</td><td>最高</td><td>高</td><td>好</td></tr><tr><td>LocalStorage</td><td>低</td><td>低</td><td>好</td></tr><tr><td>SessionStorage</td><td>中低</td><td>低</td><td>需重新登入</td></tr></tbody></table><h3 id=加密方案比較>加密方案比較</h3><table><thead><tr><th>方案</th><th>安全性</th><th>金鑰管理</th><th>適用場景</th></tr></thead><tbody><tr><td>AES-GCM + 使用者密碼衍生</td><td>高</td><td>使用者負責</td><td>端到端加密</td></tr><tr><td>AES-GCM + 伺服器金鑰</td><td>中高</td><td>需額外請求</td><td>離線暫存</td></tr><tr><td>XOR 簡單混淆</td><td>低</td><td>簡單</td><td>僅防止偶然檢視</td></tr><tr><td>不加密</td><td>無</td><td>無</td><td>非敏感資料</td></tr></tbody></table><h2 id=應用場景>應用場景</h2><h3 id=spa-認證架構>SPA 認證架構</h3><p>單頁應用的安全認證實作：</p><ul><li>Access Token 存在記憶體中的閉包變數</li><li>Refresh Token 存在 HttpOnly Secure Cookie</li><li>實作 Token 靜默更新機制（Silent Refresh）</li><li>多分頁透過 BroadcastChannel 同步登入狀態</li></ul><h3 id=離線優先應用>離線優先應用</h3><p>需要在離線時存取敏感資料的應用：</p><ul><li>使用 Web Crypto API 加密後存入 IndexedDB</li><li>金鑰從使用者密碼衍生（PBKDF2）</li><li>上線後與伺服器同步並更新加密金鑰</li><li>設定資料過期機制防止長期暴露</li></ul><h3 id=多租戶-saas-應用>多租戶 SaaS 應用</h3><p>切換組織/帳號的場景：</p><ul><li>每個租戶的 Token 獨立管理</li><li>安全地切換 Context 不洩漏其他租戶資料</li><li>統一的 Token 撤銷機制</li></ul><h3 id=金融和醫療應用>金融和醫療應用</h3><p>高合規要求的應用：</p><ul><li>最小化客戶端儲存的敏感資料</li><li>實作閒置逾時自動登出</li><li>敏感操作要求重新驗證</li><li>完整的稽核日誌記錄</li></ul><h2 id=延伸閱讀>延伸閱讀</h2><ul><li><a href=https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/>OWASP Secure Coding Practices</a></li><li><a href=https://auth0.com/docs/secure/security-guidance/data-security/token-storage>Auth0 - Token Storage Best Practices</a></li><li><a href=https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Crypto_API>MDN Web Crypto API</a></li><li><a href=https://tools.ietf.org/html/rfc6819>RFC 6819 - OAuth 2.0 Threat Model</a></li><li><a href=https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/>The Ultimate Guide to handling JWTs on frontend clients</a></li></ul></div><footer class=article-footer><a href=/portfolio-dev/zh/articles/frontend/security/ class=back-link>← 返回 前端安全</a></footer></article></main><footer class=site-footer><p>&copy; 2026 YuHan Jhou. All rights reserved.</p></footer></div></div><script src=https://yu-codes.github.io/portfolio-dev/js/theme.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/roadmap.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/parallax.js defer></script><script src=https://yu-codes.github.io/portfolio-dev/js/page-transition.js defer></script></body></html>

@@ -1,0 +1,430 @@
+/* ================================
+   Layout CSS - Container, Sidebar, Header, Footer, Grid
+   ================================ */
+
+/* Container Layout */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow);
+    /* CRITICAL: Sidebar must be above main content */
+    z-index: 100;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+
+.name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.tagline {
+    color: var(--sidebar-text);
+    font-style: italic;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.8rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    min-height: auto;
+    overflow: visible;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-color);
+}
+
+.nav-item.active {
+    background-color: rgba(37, 99, 235, 0.15);
+    color: var(--primary-color);
+}
+
+.nav-item .icon {
+    width: 1.0rem;
+    height: 1.0rem;
+    flex-shrink: 0;
+    stroke-width: 1.5;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    display: flex;
+    flex-direction: column;
+    /* CRITICAL: Prevent content from extending beyond viewport */
+    max-width: calc(100vw - 280px);
+    overflow-x: hidden;
+}
+
+/* Topbar */
+.topbar {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--sidebar-text);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    margin: 0 0.5rem;
+    color: var(--border-color);
+}
+
+/* Content Area */
+.main-content > .content-area {
+    flex: 1;
+    padding: 2rem;
+    /* CRITICAL: Prevent content from overflowing */
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Home page: remove padding for full-bleed background */
+.main-content > .content-area:has(.home) {
+    padding: 0;
+}
+
+/* Site Footer */
+.site-footer {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 1.3rem 0rem 0.3rem 1.6rem;
+    text-align: left;
+    margin-top: auto;
+    color: var(--sidebar-text);
+    font-size: 0.8rem;
+}
+
+/* Bootstrap-style Grid System */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.75rem;
+}
+
+.row.g-4 {
+    margin: 0 -0.75rem;
+}
+
+.row.g-4 > [class*="col-"] {
+    padding: 0.75rem;
+}
+
+.col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 0.75rem;
+}
+
+.col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    
+    .col-md-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+}
+
+/* Mobile Menu Button - hidden on desktop */
+.mobile-menu-btn {
+    display: none;
+}
+
+/* Mobile Navigation Overlay - hidden on desktop */
+.mobile-nav-overlay {
+    display: none;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 1rem 0.75rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Hide desktop nav and footer on mobile */
+    .sidebar .sidebar-nav,
+    .sidebar .sidebar-footer {
+        display: none;
+    }
+
+    /* Show hamburger button */
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        color: var(--text-color);
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .mobile-menu-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sidebar-header {
+        margin-bottom: 0;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .name {
+        font-size: 1.25rem;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+        margin-top: 0.15rem;
+    }
+
+    .main-content {
+        margin-left: 0;
+        max-width: 100vw;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    /* Mobile Navigation Overlay */
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(2px);
+    }
+
+    .mobile-nav-overlay.active {
+        display: flex;
+    }
+
+    .mobile-nav-panel {
+        width: 260px;
+        height: 100%;
+        background: var(--sidebar-bg);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.2s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    .mobile-nav-close {
+        align-self: flex-end;
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .mobile-nav-close svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mobile-nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex: 1;
+    }
+
+    .mobile-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        color: var(--sidebar-text);
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item.active {
+        background: rgba(37, 99, 235, 0.15);
+        color: var(--primary-color);
+    }
+
+    .mobile-nav-item .icon {
+        width: 1.2rem;
+        height: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    .mobile-nav-footer {
+        border-top: 1px solid var(--border-color);
+        padding-top: 1rem;
+        margin-top: auto;
+    }
+
+    .mobile-nav-footer .controls {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .topbar {
+        padding: 0.75rem 1rem;
+    }
+    
+    .breadcrumb {
+        font-size: 0.8rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .main-content > .content-area {
+        padding: 1rem;
+    }
+    
+    /* Home page special handling */
+    .main-content > .content-area:has(.home) {
+        padding: 0;
+    }
+    
+    .site-footer {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 0.75rem 0.75rem 0.5rem;
+    }
+    
+    .mobile-menu-btn {
+        left: 0.75rem;
+    }
+    
+    .name {
+        font-size: 1.1rem;
+    }
+    
+    .tagline {
+        font-size: 0.75rem;
+    }
+    
+    .topbar {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .breadcrumb {
+        font-size: 0.75rem;
+    }
+    
+    .main-content > .content-area {
+        padding: 0.75rem;
+    }
+}
